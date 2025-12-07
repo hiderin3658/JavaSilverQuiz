@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11（メソッドとスコープ／オーバーロード） Set A（10問）</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>メソッドとスコープ／オーバーロード</h1>
+    <p class="subtitle">Set A(10問)</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 10</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="0">
+      <div class="question-card">
+        <h3>問題 1: オーバーロード解決（int/long）</h3>
+        <pre><code>void m(int x){} void m(long x){} // 呼び出し
+m(10);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">int版</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">long版</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">曖昧でエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            オーバーロード解決では引数型の厳密一致が最優先される。int リテラル 10 は int 型なので、int 版が選ばれる。long への自動昇格は厳密一致がない場合のみ適用される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題2 -->
+    <div class="question-screen" data-question="1" data-answer="0">
+      <div class="question-card">
+        <h3>問題 2: オーバーロード（boxing vs varargs）</h3>
+        <pre><code>void m(Integer x){System.out.print("I");} void m(int... x){System.out.print("V");}
+m(1);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">I</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">V</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            オーバーロードの優先順位は、厳密一致 > 拡大変換 > オートボクシング > 可変長引数 の順。int リテラル 1 は Integer へのオートボクシングが可変長引数より優先されるため、Integer 版が呼ばれる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題3 -->
+    <div class="question-screen" data-question="2" data-answer="1">
+      <div class="question-card">
+        <h3>問題 3: スコープ（ローカル変数の初期化）</h3>
+        <pre><code>int x; System.out.println(x);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">0 を出力</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            ローカル変数は使用前に必ず初期化が必要。宣言のみで初期化していない変数を参照するとコンパイルエラーになる。フィールド変数とは異なり、ローカル変数には自動的なデフォルト値は設定されない。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題4 -->
+    <div class="question-screen" data-question="3" data-answer="0">
+      <div class="question-card">
+        <h3>問題 4: 戻り値と void</h3>
+        <pre><code>void f(){ return; }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">コンパイル可</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">戻り値が必要でエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            void メソッドでは return 文に値をつけて返すことはできないが、単独の return; による早期リターンは正当。これは処理を途中で終了させたい場合に使用される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題5 -->
+    <div class="question-screen" data-question="4" data-answer="0">
+      <div class="question-card">
+        <h3>問題 5: 引数の評価順序</h3>
+        <pre><code>int i=1; int r = add(i, i++); // add は (a+b)
+System.out.println(r);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            引数の評価は左から右へ順に行われる。i++ は後置インクリメントなので、現在の値（1）を返してから i が 2 になる。したがって add(1, 1) が実行され、結果は 2。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題6 -->
+    <div class="question-screen" data-question="5" data-answer="1">
+      <div class="question-card">
+        <h3>問題 6: 同名ローカルとフィールド</h3>
+        <pre><code>int v=1; void m(){ int v=2; System.out.println(v); }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            ローカル変数はフィールド変数をシャドーイング（隠蔽）する。メソッド内で同名のローカル変数を宣言すると、そのスコープではローカル変数が優先される。したがって、ローカル変数 v=2 が出力される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題7 -->
+    <div class="question-screen" data-question="6" data-answer="0">
+      <div class="question-card">
+        <h3>問題 7: 可変長引数</h3>
+        <pre><code>void m(int... a){ System.out.println(a.length);} m();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            可変長引数 int... は内部的に int[] 配列として扱われる。引数を 0 個で呼び出すと、長さ 0 の配列が生成される。したがって a.length は 0 を出力する。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題8 -->
+    <div class="question-screen" data-question="7" data-answer="1">
+      <div class="question-card">
+        <h3>問題 8: 戻り値の型の違いのみ</h3>
+        <pre><code>int m(){return 1;} void m(){}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">オーバーロード可</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">シグネチャ重複でエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            メソッドのオーバーロードは引数の型・個数・順序で区別される。戻り値の型のみが異なる場合、メソッドシグネチャが同一とみなされ、コンパイルエラーとなる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題9 -->
+    <div class="question-screen" data-question="8" data-answer="1">
+      <div class="question-card">
+        <h3>問題 9: private メソッドのオーバーライド？</h3>
+        <pre><code>class A{private void f(){}} class B extends A{void f(){}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">オーバーライド</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">別メソッド（隠蔽）</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            private メソッドは継承されないため、サブクラスで同名のメソッドを定義してもオーバーライドにはならない。B クラスの f() は A クラスの f() とは完全に独立した別のメソッドとして扱われる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題10 -->
+    <div class="question-screen" data-question="9" data-answer="0">
+      <div class="question-card">
+        <h3>問題 10: static メソッドの呼び出し</h3>
+        <pre><code>class A{static void f(){}} class B extends A{} B b=new B(); b.f();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">合法（A.f() が呼ばれる）</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">インスタンス呼び出しは不可</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            static メソッドはインスタンス経由でも呼び出せるが、推奨されない。コンパイラは変数の型（B）を見て A.f() を呼び出す。警告は出るが、コンパイルは通り、正常に実行される。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji">🎉</div>
+        <div class="result-score" id="resultScore">10 / 10</div>
+        <div class="result-message" id="resultMessage">素晴らしい!</div>
+        <div class="result-detail" id="resultDetail">正答率: 100%</div>
+        <div class="summary-list" id="summaryList"></div>
+        <button class="restart-btn" onclick="location.reload()">もう一度挑戦</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" disabled>回答を選択してください</button>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+</body>
+</html>

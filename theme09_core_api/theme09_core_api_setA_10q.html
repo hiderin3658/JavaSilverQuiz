@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11（コアAPI：String / StringBuilder / Wrapper / Math） Set A（10問）</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>コアAPI：String / StringBuilder / Wrapper / Math</h1>
+    <p class="subtitle">Set A(10問)</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 10</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="0">
+      <div class="question-card">
+        <h3>問題 1: String の不変性</h3>
+        <pre><code>String s="a"; s.concat("b"); System.out.println(s);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">a</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">ab</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            String は不変（immutable）。変更メソッドは新しい String を返す。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題2 -->
+    <div class="question-screen" data-question="1" data-answer="1">
+      <div class="question-card">
+        <h3>問題 2: StringBuilder の可変性</h3>
+        <pre><code>StringBuilder sb=new StringBuilder("a"); sb.append("b"); System.out.println(sb);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">a</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">ab</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            StringBuilder は可変。append() で文字列を効率的に連結。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題3 -->
+    <div class="question-screen" data-question="2" data-answer="0">
+      <div class="question-card">
+        <h3>問題 3: trim と空白</h3>
+        <pre><code>System.out.println(" a ".trim().length());</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            equals() で文字列の内容を比較。== は参照比較。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題4 -->
+    <div class="question-screen" data-question="3" data-answer="1">
+      <div class="question-card">
+        <h3>問題 4: substring</h3>
+        <pre><code>String s="Java"; System.out.println(s.substring(1,3));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">Ja</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">av</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">va</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            length() で文字列の長さを取得。charAt(i) で i 番目の文字を取得。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題5 -->
+    <div class="question-screen" data-question="4" data-answer="0">
+      <div class="question-card">
+        <h3>問題 5: インターン</h3>
+        <pre><code>String a="java"; String b=new String("java").intern(); System.out.println(a==b);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            substring(start, end) で部分文字列を取得。end は含まない。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題6 -->
+    <div class="question-screen" data-question="5" data-answer="0">
+      <div class="question-card">
+        <h3>問題 6: Wrapper の parse と valueOf</h3>
+        <pre><code>Integer.parseInt("10") と Integer.valueOf("10") の違い</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">前者はint、後者はInteger</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">両方Integer</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">両方int</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">どちらもLong</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            indexOf() で文字列の位置を検索。見つからなければ -1。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題7 -->
+    <div class="question-screen" data-question="6" data-answer="0">
+      <div class="question-card">
+        <h3>問題 7: Math.round</h3>
+        <pre><code>System.out.println(Math.round(-1.5));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">-1</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">-2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            replace() で文字列を置換。replaceAll() は正規表現対応。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題8 -->
+    <div class="question-screen" data-question="7" data-answer="0">
+      <div class="question-card">
+        <h3>問題 8: StringBuilder の挿入</h3>
+        <pre><code>StringBuilder sb=new StringBuilder("ab"); sb.insert(1,"X"); System.out.println(sb);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">aXb</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">Xab</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">abX</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            trim() で前後の空白を削除。strip() は Unicode 対応（Java 11）。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題9 -->
+    <div class="question-screen" data-question="8" data-answer="1">
+      <div class="question-card">
+        <h3>問題 9: equals と ==（String）</h3>
+        <pre><code>String a=new String("x"); String b=new String("x"); System.out.println(a==b);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            split() で文字列を分割して配列に。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題10 -->
+    <div class="question-screen" data-question="9" data-answer="0">
+      <div class="question-card">
+        <h3>問題 10: ラッパのキャッシュ確認</h3>
+        <pre><code>Integer a=127,b=127; System.out.println(a==b);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            String.format() または %s 等で書式付き文字列を生成。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji">🎉</div>
+        <div class="result-score" id="resultScore">10 / 10</div>
+        <div class="result-message" id="resultMessage">素晴らしい!</div>
+        <div class="result-detail" id="resultDetail">正答率: 100%</div>
+        <div class="summary-list" id="summaryList"></div>
+        <button class="restart-btn" onclick="location.reload()">もう一度挑戦</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" disabled>回答を選択してください</button>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+</body>
+</html>

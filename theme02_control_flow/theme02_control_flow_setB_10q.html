@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11（制御構造）Set B（10問）</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>制御構造</h1>
+    <p class="subtitle">Set B（10問）</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 10</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="0">
+      <div class="question-card">
+        <h3>問題 1: for の実行回数</h3>
+        <pre><code>for(int i=0;i&lt;0;i++) System.out.print(i);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">何も出力しない</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0 を1回出力</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">無限ループ</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            初期条件が偽なので0回。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題2 -->
+    <div class="question-screen" data-question="1" data-answer="0">
+      <div class="question-card">
+        <h3>問題 2: switch の case 定数</h3>
+        <pre><code>final int A=1; int v=1; switch(v){ case A: System.out.print("OK"); }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK を出力</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">何も出力しない</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            case ラベルはコンパイル時定数なら可。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題3 -->
+    <div class="question-screen" data-question="2" data-answer="1">
+      <div class="question-card">
+        <h3>問題 3: while と後置インクリメント</h3>
+        <pre><code>int i=0; while(i++&lt;2){} System.out.println(i);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            ループ後 i は 3。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題4 -->
+    <div class="question-screen" data-question="3" data-answer="2">
+      <div class="question-card">
+        <h3>問題 4: 多重ループと continue</h3>
+        <pre><code>int c=0; for(int i=0;i&lt;3;i++){ for(int j=0;j&lt;3;j++){ if((i+j)%2==0) continue; c++; } } System.out.println(c);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            合計9組のうち (i+j) 奇数は 4。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題5 -->
+    <div class="question-screen" data-question="4" data-answer="1">
+      <div class="question-card">
+        <h3>問題 5: switch の fall-through 練習</h3>
+        <pre><code>int n=1; switch(n){ case 0: System.out.print("A"); case 1: System.out.print("B"); case 2: System.out.print("C"); }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">BC</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">ABC</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">C</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            case1 から開始、break なし → B→C。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題6 -->
+    <div class="question-screen" data-question="5" data-answer="1">
+      <div class="question-card">
+        <h3>問題 6: if-else の結合</h3>
+        <pre><code>int x=3; if(x&gt;3) System.out.print("A"); else if(x==3) System.out.print("B"); else System.out.print("C");</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">C</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も出力しない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            x==3 なので B。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題7 -->
+    <div class="question-screen" data-question="6" data-answer="1">
+      <div class="question-card">
+        <h3>問題 7: 条件演算子（三項）</h3>
+        <pre><code>int n=-1; System.out.println(n&gt;=0 ? "P" : "N");</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">P</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">N</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            条件は偽→N。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題8 -->
+    <div class="question-screen" data-question="7" data-answer="1">
+      <div class="question-card">
+        <h3>問題 8: switch で許されない型（SE11）</h3>
+        <pre><code>long n=1; switch(n){ case 1: System.out.print("X"); }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">コンパイルできる</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            switch の式に long は使えない（int 互換、enum、String などは可）。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題9 -->
+    <div class="question-screen" data-question="8" data-answer="1">
+      <div class="question-card">
+        <h3>問題 9: break と continue の違い</h3>
+        <pre><code>int i=0,j=0; while(i&lt;3){ i++; if(i==2){ continue; } j++; } System.out.println(j);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            i=1 と 3 のとき j++ → 2。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 問題10 -->
+    <div class="question-screen" data-question="9" data-answer="1">
+      <div class="question-card">
+        <h3>問題 10: for の複数式</h3>
+        <pre><code>int s=0; for(int i=0,j=2; i&lt;3; i++, j--){ s+=i*j; } System.out.println(s);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            (i,j)=(0,2)->0, (1,1)->1, (2,0)->0 合計 1。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji">🎉</div>
+        <div class="result-score" id="resultScore">10 / 10</div>
+        <div class="result-message" id="resultMessage">素晴らしい！</div>
+        <div class="result-detail" id="resultDetail">正答率: 100%</div>
+        <div class="summary-list" id="summaryList"></div>
+        <button class="restart-btn" onclick="location.reload()">もう一度挑戦</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" disabled>回答を選択してください</button>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+</body>
+</html>

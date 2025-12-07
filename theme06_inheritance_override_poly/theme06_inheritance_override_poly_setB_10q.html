@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11（継承・オーバーライド・ポリモーフィズム） Set B（10問）</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>継承・オーバーライド・ポリモーフィズム</h1>
+    <p class="subtitle">Set B(10問)</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 10</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="0">
+      <div class="question-card">
+        <h3>問題 1: @Override の省略</h3>
+        <pre><code>class A{void f(){}} class B extends A{void f(){}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            @Override は省略可能だが、付けるとコンパイラがチェックしてくれる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題2 -->
+    <div class="question-screen" data-question="1" data-answer="1">
+      <div class="question-card">
+        <h3>問題 2: static メソッドとポリモーフィズム</h3>
+        <pre><code>class A{static void f(){System.out.print("A");}} class B extends A{static void f(){System.out.print("B");}} B.f();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            オーバーライドでは例外の範囲を拡大できない（縮小は可）。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題3 -->
+    <div class="question-screen" data-question="2" data-answer="0">
+      <div class="question-card">
+        <h3>問題 3: コンストラクタでの super 呼び出し</h3>
+        <pre><code>class A{A(int x){}} class B extends A{B(){ super(1); }}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            super() はコンストラクタの最初の行でスーパークラスのコンストラクタを呼ぶ。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題4 -->
+    <div class="question-screen" data-question="3" data-answer="0">
+      <div class="question-card">
+        <h3>問題 4: protected の可視性</h3>
+        <pre><code>class A{protected void f(){}} class B extends A{public void f(){}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            隠蔽（hiding）: サブクラスで同名のフィールドを宣言すると親のフィールドを隠す。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題5 -->
+    <div class="question-screen" data-question="4" data-answer="1">
+      <div class="question-card">
+        <h3>問題 5: 多態性の配列</h3>
+        <pre><code>A[] arr = new B[1]; arr[0] = new A();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">ArrayStoreException</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            抽象クラスはインスタンス化できない。new 不可。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題6 -->
+    <div class="question-screen" data-question="5" data-answer="1">
+      <div class="question-card">
+        <h3>問題 6: final クラスの継承</h3>
+        <pre><code>final class A{} class B extends A{}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            インタフェースの実装は implements。複数実装可能。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題7 -->
+    <div class="question-screen" data-question="6" data-answer="2">
+      <div class="question-card">
+        <h3>問題 7: super キーワード</h3>
+        <pre><code>class A{void f(){System.out.print("A");}} class B extends A{void f(){super.f(); System.out.print("B");}} new B().f();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">BA</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            デフォルトメソッドは実装を持つインタフェースメソッド（Java 8 以降）。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題8 -->
+    <div class="question-screen" data-question="7" data-answer="1">
+      <div class="question-card">
+        <h3>問題 8: オーバーロードとオーバーライドの違い</h3>
+        <pre><code>class A{int f(int x){return x;} } class B extends A{double f(double x){return x;} } A a=new B(); System.out.println(a.f(1));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">B の double 版が呼ばれる</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">A の int 版が呼ばれる</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">曖昧でエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            オーバーライドでは戻り値の型を共変戻り値型（サブタイプ）にできる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題9 -->
+    <div class="question-screen" data-question="8" data-answer="0">
+      <div class="question-card">
+        <h3>問題 9: 隠蔽されたフィールド参照</h3>
+        <pre><code>class A{int x=1;} class B extends A{int x=2;} B b=new B(); System.out.println(((A)b).x);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            final クラスは継承できない。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題10 -->
+    <div class="question-screen" data-question="9" data-answer="1">
+      <div class="question-card">
+        <h3>問題 10: 抽象クラスのインスタンス化</h3>
+        <pre><code>abstract class A{} new A();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            protected メンバーは同じパッケージおよびサブクラスからアクセス可能。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji">🎉</div>
+        <div class="result-score" id="resultScore">10 / 10</div>
+        <div class="result-message" id="resultMessage">素晴らしい!</div>
+        <div class="result-detail" id="resultDetail">正答率: 100%</div>
+        <div class="summary-list" id="summaryList"></div>
+        <button class="restart-btn" onclick="location.reload()">もう一度挑戦</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" disabled>回答を選択してください</button>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+</body>
+</html>

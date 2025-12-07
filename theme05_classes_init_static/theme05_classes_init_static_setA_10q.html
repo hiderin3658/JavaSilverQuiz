@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11（クラス設計・初期化順序・static） Set A（10問）</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>クラス設計・初期化順序・static</h1>
+    <p class="subtitle">Set A(10問)</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 10</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="2">
+      <div class="question-card">
+        <h3>問題 1: 初期化順序（フィールド→コンストラクタ）</h3>
+        <pre><code>class A{int x=1; A(){x+=2;}} System.out.println(new A().x);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            インスタンスフィールドは new 時に初期化される。未初期化の場合はデフォルト値。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題2 -->
+    <div class="question-screen" data-question="1" data-answer="1">
+      <div class="question-card">
+        <h3>問題 2: 初期化ブロック</h3>
+        <pre><code>class A{int x; {x=5;} A(){x++;}} System.out.println(new A().x);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">6</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            static フィールドはクラスに属し、全インスタンスで共有される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題3 -->
+    <div class="question-screen" data-question="2" data-answer="1">
+      <div class="question-card">
+        <h3>問題 3: static 初期化子</h3>
+        <pre><code>class A{static int s; static{ s=10; }} System.out.println(A.s);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            コンストラクタは戻り値型を持たない。void も不要。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題4 -->
+    <div class="question-screen" data-question="3" data-answer="0">
+      <div class="question-card">
+        <h3>問題 4: コンストラクタのオーバーロード</h3>
+        <pre><code>class A{A(){} A(int x){}} new A(1);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            static 初期化ブロックはクラスロード時に一度だけ実行される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題5 -->
+    <div class="question-screen" data-question="4" data-answer="0">
+      <div class="question-card">
+        <h3>問題 5: this() 呼び出し順</h3>
+        <pre><code>class A{A(){ this(1); } A(int x){} }</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            インスタンス初期化ブロックはコンストラクタより先に実行される。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題6 -->
+    <div class="question-screen" data-question="5" data-answer="0">
+      <div class="question-card">
+        <h3>問題 6: super() の暗黙呼び出し</h3>
+        <pre><code>class A{} class B extends A{B(){}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            コンストラクタの最初に暗黙的に super() が呼ばれる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題7 -->
+    <div class="question-screen" data-question="6" data-answer="0">
+      <div class="question-card">
+        <h3>問題 7: final フィールドの初期化</h3>
+        <pre><code>class A{final int v; A(){v=1;}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">OK</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            static メソッドはインスタンス化せずにクラス名で呼び出せる。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題8 -->
+    <div class="question-screen" data-question="7" data-answer="1">
+      <div class="question-card">
+        <h3>問題 8: static フィールドの共有</h3>
+        <pre><code>class A{static int c;} A a=new A(); A b=new A(); a.c=1; System.out.println(b.c);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時例外</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            フィールドのデフォルト値: int は 0、boolean は false、参照型は null。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題9 -->
+    <div class="question-screen" data-question="8" data-answer="1">
+      <div class="question-card">
+        <h3>問題 9: コンストラクタの戻り値型</h3>
+        <pre><code>class A{void A(){}}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">有効なコンストラクタ</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">メソッドでありコンストラクタではない</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">未定義</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            コンストラクタは複数定義可（オーバーロード）。引数で区別。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題10 -->
+    <div class="question-screen" data-question="9" data-answer="2">
+      <div class="question-card">
+        <h3>問題 10: 初期化順（static→instance）</h3>
+        <pre><code>class A{static int s=1; int x=s+1; A(){x++;}} System.out.println(new A().x);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">
+            static フィールドへのアクセスはインスタンス経由でも可能だが非推奨。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji">🎉</div>
+        <div class="result-score" id="resultScore">10 / 10</div>
+        <div class="result-message" id="resultMessage">素晴らしい!</div>
+        <div class="result-detail" id="resultDetail">正答率: 100%</div>
+        <div class="summary-list" id="summaryList"></div>
+        <button class="restart-btn" onclick="location.reload()">もう一度挑戦</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" disabled>回答を選択してください</button>
+  </div>
+
+  <script src="../assets/js/quiz.js"></script>
+</body>
+</html>

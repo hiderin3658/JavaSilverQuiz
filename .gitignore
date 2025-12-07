@@ -1,0 +1,16 @@
+# バックアップファイル
+.backup/
+
+# macOS
+.DS_Store
+
+# 作業用ファイル
+*.swp
+*.swo
+*~
+
+# Node modules (将来的に使用する可能性がある場合)
+node_modules/
+
+# ログファイル
+*.log

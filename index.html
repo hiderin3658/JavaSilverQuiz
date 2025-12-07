@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JavaSilver SE11 クイズ - トップページ</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans JP', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* ヘッダー */
+    .hero {
+      text-align: center;
+      color: white;
+      margin-bottom: 48px;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.95;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .hero .stats {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 24px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* テーマグリッド */
+    .themes-grid {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .themes-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* テーマカード */
+    .theme-card {
+      background: white;
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    }
+
+    .theme-header {
+      background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%);
+      color: white;
+      padding: 24px;
+    }
+
+    .theme-number {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .theme-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .theme-body {
+      padding: 24px;
+    }
+
+    .quiz-sets {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-link {
+      display: block;
+      padding: 16px;
+      background: #f8fbff;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quiz-link:hover {
+      border-color: #0f62fe;
+      background: #e8f4ff;
+    }
+
+    .quiz-link:active {
+      transform: scale(0.98);
+    }
+
+    .quiz-label {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .quiz-info {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .quiz-arrow {
+      color: #0f62fe;
+      font-size: 20px;
+    }
+
+    /* フッター */
+    .footer {
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer p {
+      margin: 8px 0;
+      opacity: 0.9;
+    }
+
+    /* 注意書き */
+    .notice {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .notice h2 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .notice ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+
+    .notice li {
+      margin: 8px 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 767px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 20px 16px;
+      }
+
+      .theme-title {
+        font-size: 18px;
+      }
+
+      .stat-number {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>JavaSilver SE11 クイズ</h1>
+      <p>Java SE 11 認定資格の学習を<br>効率的に進めるためのクイズ集</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">10</span>
+          <span class="stat-label">テーマ</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">20</span>
+          <span class="stat-label">クイズセット</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">200</span>
+          <span class="stat-label">問題数</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <h2>使い方</h2>
+      <ul>
+        <li>各テーマごとに Set A / Set B の2つのクイズがあります</li>
+        <li>各クイズは10問で構成されています</li>
+        <li>問題に答えると即座に正誤と解説が表示されます</li>
+        <li>スマホ・タブレット・PCすべてに対応しています</li>
+      </ul>
+    </div>
+
+    <div class="themes-grid">
+      <!-- テーマ01 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 01</div>
+          <h2 class="theme-title">変数・データ型・演算子／var</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme01_variables_operators_var/theme01_variables_operators_var_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme01_variables_operators_var/theme01_variables_operators_var_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ02 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 02</div>
+          <h2 class="theme-title">制御構造</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme02_control_flow/theme02_control_flow_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme02_control_flow/theme02_control_flow_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ03 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 03</div>
+          <h2 class="theme-title">配列</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme03_arrays/theme03_arrays_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme03_arrays/theme03_arrays_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ04 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 04</div>
+          <h2 class="theme-title">メソッド・スコープ・オーバーロード</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme04_methods_scope_overload/theme04_methods_scope_overload_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme04_methods_scope_overload/theme04_methods_scope_overload_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ05 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 05</div>
+          <h2 class="theme-title">クラス・初期化・static</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme05_classes_init_static/theme05_classes_init_static_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme05_classes_init_static/theme05_classes_init_static_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ06 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 06</div>
+          <h2 class="theme-title">継承・オーバーライド・ポリモーフィズム</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme06_inheritance_override_poly/theme06_inheritance_override_poly_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme06_inheritance_override_poly/theme06_inheritance_override_poly_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ07 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 07</div>
+          <h2 class="theme-title">例外処理</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme07_exceptions/theme07_exceptions_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme07_exceptions/theme07_exceptions_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ08 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 08</div>
+          <h2 class="theme-title">パッケージ・アクセス修飾子</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme08_packages_access/theme08_packages_access_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme08_packages_access/theme08_packages_access_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ09 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 09</div>
+          <h2 class="theme-title">コアAPI</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme09_core_api/theme09_core_api_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme09_core_api/theme09_core_api_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーマ10 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-number">Theme 10</div>
+          <h2 class="theme-title">モジュールシステム</h2>
+        </div>
+        <div class="theme-body">
+          <div class="quiz-sets">
+            <a href="theme10_modules/theme10_modules_setA_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set A</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+            <a href="theme10_modules/theme10_modules_setB_10q.html" class="quiz-link">
+              <div>
+                <div class="quiz-label">Set B</div>
+                <div class="quiz-info">10問</div>
+              </div>
+              <div class="quiz-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>JavaSilver SE11 認定資格 学習用クイズ</p>
+      <p>全10テーマ・200問で試験範囲を網羅</p>
+    </div>
+  </div>
+</body>
+</html>
