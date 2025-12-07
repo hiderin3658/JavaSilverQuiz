@@ -427,11 +427,16 @@ pre code {
   color: white;
 }
 
-.restart-btn {
+/* 結果画面のボタン群 */
+.result-buttons {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.restart-btn, .home-btn {
   padding: 16px 32px;
-  background: #0f62fe;
-  color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -440,9 +445,38 @@ pre code {
   transition: all 0.2s;
 }
 
+.restart-btn {
+  background: #0f62fe;
+  color: white;
+}
+
 .restart-btn:active {
   transform: scale(0.98);
   background: #0353e9;
+}
+
+.home-btn {
+  background: white;
+  color: #0f62fe;
+  border: 2px solid #0f62fe;
+}
+
+.home-btn:active {
+  transform: scale(0.98);
+  background: #f0f7ff;
+}
+
+/* タブレット以上で横並び */
+@media (min-width: 640px) {
+  .result-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .restart-btn, .home-btn {
+    flex: 1;
+    max-width: 200px;
+  }
 }
 
 /* ========== レスポンシブ ========== */
