@@ -24,7 +24,9 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: String の不変性</h3>
-        <pre><code>String s="a"; s.concat("b"); System.out.println(s);</code></pre>
+        <pre><code>String s = "a";
+s.concat("b");
+System.out.println(s);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +65,9 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: StringBuilder の可変性</h3>
-        <pre><code>StringBuilder sb=new StringBuilder("a"); sb.append("b"); System.out.println(sb);</code></pre>
+        <pre><code>StringBuilder sb = new StringBuilder("a");
+sb.append("b");
+System.out.println(sb);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +145,8 @@
     <div class="question-screen" data-question="3" data-answer="1">
       <div class="question-card">
         <h3>問題 4: substring</h3>
-        <pre><code>String s="Java"; System.out.println(s.substring(1,3));</code></pre>
+        <pre><code>String s = "Java";
+System.out.println(s.substring(1, 3));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +185,9 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: インターン</h3>
-        <pre><code>String a="java"; String b=new String("java").intern(); System.out.println(a==b);</code></pre>
+        <pre><code>String a = "java";
+String b = new String("java").intern();
+System.out.println(a == b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +304,9 @@
     <div class="question-screen" data-question="7" data-answer="0">
       <div class="question-card">
         <h3>問題 8: StringBuilder の挿入</h3>
-        <pre><code>StringBuilder sb=new StringBuilder("ab"); sb.insert(1,"X"); System.out.println(sb);</code></pre>
+        <pre><code>StringBuilder sb = new StringBuilder("ab");
+sb.insert(1, "X");
+System.out.println(sb);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +345,9 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: equals と ==（String）</h3>
-        <pre><code>String a=new String("x"); String b=new String("x"); System.out.println(a==b);</code></pre>
+        <pre><code>String a = new String("x");
+String b = new String("x");
+System.out.println(a == b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +386,8 @@
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: ラッパのキャッシュ確認</h3>
-        <pre><code>Integer a=127,b=127; System.out.println(a==b);</code></pre>
+        <pre><code>Integer a = 127, b = 127;
+System.out.println(a == b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

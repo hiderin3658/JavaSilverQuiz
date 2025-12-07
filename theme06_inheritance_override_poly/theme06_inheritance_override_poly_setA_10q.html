@@ -24,7 +24,15 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: 基本のオーバーライド</h3>
-        <pre><code>class A{void f(){}} class B extends A{ @Override void f(){} }</code></pre>
+        <pre><code>class A {
+  void f() {
+  }
+}
+class B extends A {
+  @Override
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +71,17 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: 戻り値の共変</h3>
-        <pre><code>class A{A f(){return this;}} class B extends A{ @Override B f(){return this;} }</code></pre>
+        <pre><code>class A {
+  A f() {
+    return this;
+  }
+}
+class B extends A {
+  @Override
+  B f() {
+    return this;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +120,14 @@
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: アクセス修飾子の制限</h3>
-        <pre><code>class A{protected void f(){}} class B extends A{void f(){}}</code></pre>
+        <pre><code>class A {
+  protected void f() {
+  }
+}
+class B extends A {
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +166,14 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: フィールド隠蔽</h3>
-        <pre><code>class A{int x=1;} class B extends A{int x=2;} A a=new B(); System.out.println(a.x);</code></pre>
+        <pre><code>class A {
+  int x = 1;
+}
+class B extends A {
+  int x = 2;
+}
+A a = new B();
+System.out.println(a.x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +212,18 @@
     <div class="question-screen" data-question="4" data-answer="1">
       <div class="question-card">
         <h3>問題 5: メソッドは動的束縛</h3>
-        <pre><code>class A{void f(){System.out.print("A");}} class B extends A{void f(){System.out.print("B");}} A a=new B(); a.f();</code></pre>
+        <pre><code>class A {
+  void f() {
+    System.out.print("A");
+  }
+}
+class B extends A {
+  void f() {
+    System.out.print("B");
+  }
+}
+A a = new B();
+a.f();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +262,14 @@
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: final メソッド</h3>
-        <pre><code>class A{final void f(){}} class B extends A{void f(){}}</code></pre>
+        <pre><code>class A {
+  final void f() {
+  }
+}
+class B extends A {
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +308,17 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: コンストラクタの呼び順</h3>
-        <pre><code>class A{A(){System.out.print("A");}} class B extends A{B(){System.out.print("B");}} new B();</code></pre>
+        <pre><code>class A {
+  A() {
+    System.out.print("A");
+  }
+}
+class B extends A {
+  B() {
+    System.out.print("B");
+  }
+}
+new B();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +357,13 @@
     <div class="question-screen" data-question="7" data-answer="0">
       <div class="question-card">
         <h3>問題 8: 抽象メソッドの実装</h3>
-        <pre><code>abstract class A{abstract void f();} class B extends A{void f(){}}</code></pre>
+        <pre><code>abstract class A {
+  abstract void f();
+}
+class B extends A {
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +402,8 @@
     <div class="question-screen" data-question="8" data-answer="0">
       <div class="question-card">
         <h3>問題 9: キャストと instanceof</h3>
-        <pre><code>A a=new B(); System.out.println(a instanceof B);</code></pre>
+        <pre><code>A a = new B();
+System.out.println(a instanceof B);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +442,8 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: ダウンキャスト</h3>
-        <pre><code>A a=new A(); B b=(B)a;</code></pre>
+        <pre><code>A a = new A();
+B b = (B)a;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

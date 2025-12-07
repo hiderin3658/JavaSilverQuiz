@@ -24,7 +24,13 @@
     <div class="question-screen active" data-question="0" data-answer="2">
       <div class="question-card">
         <h3>問題 1: 初期化順序（フィールド→コンストラクタ）</h3>
-        <pre><code>class A{int x=1; A(){x+=2;}} System.out.println(new A().x);</code></pre>
+        <pre><code>class A {
+  int x = 1;
+  A() {
+    x += 2;
+  }
+}
+System.out.println(new A().x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +69,16 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: 初期化ブロック</h3>
-        <pre><code>class A{int x; {x=5;} A(){x++;}} System.out.println(new A().x);</code></pre>
+        <pre><code>class A {
+  int x;
+  {
+    x = 5;
+  }
+  A() {
+    x++;
+  }
+}
+System.out.println(new A().x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +117,13 @@
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: static 初期化子</h3>
-        <pre><code>class A{static int s; static{ s=10; }} System.out.println(A.s);</code></pre>
+        <pre><code>class A {
+  static int s;
+  static {
+    s = 10;
+  }
+}
+System.out.println(A.s);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +162,13 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: コンストラクタのオーバーロード</h3>
-        <pre><code>class A{A(){} A(int x){}} new A(1);</code></pre>
+        <pre><code>class A {
+  A() {
+  }
+  A(int x) {
+  }
+}
+new A(1);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +207,13 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: this() 呼び出し順</h3>
-        <pre><code>class A{A(){ this(1); } A(int x){} }</code></pre>
+        <pre><code>class A {
+  A() {
+    this(1);
+  }
+  A(int x) {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +252,12 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: super() の暗黙呼び出し</h3>
-        <pre><code>class A{} class B extends A{B(){}}</code></pre>
+        <pre><code>class A {
+}
+class B extends A {
+  B() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +296,12 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: final フィールドの初期化</h3>
-        <pre><code>class A{final int v; A(){v=1;}}</code></pre>
+        <pre><code>class A {
+  final int v;
+  A() {
+    v = 1;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +340,13 @@
     <div class="question-screen" data-question="7" data-answer="1">
       <div class="question-card">
         <h3>問題 8: static フィールドの共有</h3>
-        <pre><code>class A{static int c;} A a=new A(); A b=new A(); a.c=1; System.out.println(b.c);</code></pre>
+        <pre><code>class A {
+  static int c;
+}
+A a = new A();
+A b = new A();
+a.c = 1;
+System.out.println(b.c);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +385,10 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: コンストラクタの戻り値型</h3>
-        <pre><code>class A{void A(){}}</code></pre>
+        <pre><code>class A {
+  void A() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +427,14 @@
     <div class="question-screen" data-question="9" data-answer="2">
       <div class="question-card">
         <h3>問題 10: 初期化順（static→instance）</h3>
-        <pre><code>class A{static int s=1; int x=s+1; A(){x++;}} System.out.println(new A().x);</code></pre>
+        <pre><code>class A {
+  static int s = 1;
+  int x = s + 1;
+  A() {
+    x++;
+  }
+}
+System.out.println(new A().x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

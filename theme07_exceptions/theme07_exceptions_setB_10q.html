@@ -24,7 +24,10 @@
     <div class="question-screen active" data-question="0" data-answer="1">
       <div class="question-card">
         <h3>問題 1: マルチキャッチの同一変数</h3>
-        <pre><code>try{}catch(IllegalArgumentException | NullPointerException e){ e=null; }</code></pre>
+        <pre><code>try {
+} catch (IllegalArgumentException | NullPointerException e) {
+  e = null;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +66,14 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: throws の継承</h3>
-        <pre><code>class A{void f() throws Exception{}} class B extends A{void f(){}}</code></pre>
+        <pre><code>class A {
+  void f() throws Exception {
+  }
+}
+class B extends A {
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +112,8 @@
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: try-with-resources の順序</h3>
-        <pre><code>try(AutoCloseable a1=..., a2=...){ }</code></pre>
+        <pre><code>try (AutoCloseable a1 = ..., a2 = ...) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +152,11 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: catch の網羅</h3>
-        <pre><code>try{ throw new IllegalArgumentException(); } catch(RuntimeException e){ System.out.print("R"); }</code></pre>
+        <pre><code>try {
+  throw new IllegalArgumentException();
+} catch (RuntimeException e) {
+  System.out.print("R");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +195,8 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 独自例外</h3>
-        <pre><code>class MyEx extends Exception{}</code></pre>
+        <pre><code>class MyEx extends Exception {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +235,10 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: finally での例外</h3>
-        <pre><code>try{ } finally { throw new RuntimeException(); }</code></pre>
+        <pre><code>try {
+} finally {
+  throw new RuntimeException();
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +277,10 @@
     <div class="question-screen" data-question="6" data-answer="1">
       <div class="question-card">
         <h3>問題 7: 多重 catch の変数名衝突</h3>
-        <pre><code>try{}catch(Exception e){}catch(Exception e){}</code></pre>
+        <pre><code>try {
+} catch (Exception e) {
+} catch (Exception e) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +319,9 @@
     <div class="question-screen" data-question="7" data-answer="1">
       <div class="question-card">
         <h3>問題 8: throw と throws</h3>
-        <pre><code>void f(){ throw new Exception(); }</code></pre>
+        <pre><code>void f() {
+  throw new Exception();
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +360,9 @@
     <div class="question-screen" data-question="8" data-answer="0">
       <div class="question-card">
         <h3>問題 9: エラー系の捕捉</h3>
-        <pre><code>try{}catch(Error e){}</code></pre>
+        <pre><code>try {
+} catch (Error e) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +401,11 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: finally のスキップ</h3>
-        <pre><code>try{ System.exit(0); } finally { System.out.print("F"); }</code></pre>
+        <pre><code>try {
+  System.exit(0);
+} finally {
+  System.out.print("F");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

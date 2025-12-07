@@ -24,7 +24,9 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: オーバーロード解決（int/long）</h3>
-        <pre><code>void m(int x){} void m(long x){} // 呼び出し
+        <pre><code>void m(int x){}
+void m(long x){}
+// 呼び出し
 m(10);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
@@ -64,7 +66,12 @@ m(10);</code></pre>
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: オーバーロード（boxing vs varargs）</h3>
-        <pre><code>void m(Integer x){System.out.print("I");} void m(int... x){System.out.print("V");}
+        <pre><code>void m(Integer x){
+  System.out.print("I");
+}
+void m(int... x){
+  System.out.print("V");
+}
 m(1);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
@@ -104,7 +111,8 @@ m(1);</code></pre>
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: スコープ（ローカル変数の初期化）</h3>
-        <pre><code>int x; System.out.println(x);</code></pre>
+        <pre><code>int x;
+System.out.println(x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -143,7 +151,9 @@ m(1);</code></pre>
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: 戻り値と void</h3>
-        <pre><code>void f(){ return; }</code></pre>
+        <pre><code>void f(){
+  return;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -182,7 +192,9 @@ m(1);</code></pre>
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 引数の評価順序</h3>
-        <pre><code>int i=1; int r = add(i, i++); // add は (a+b)
+        <pre><code>int i=1;
+int r = add(i, i++);
+// add は (a+b)
 System.out.println(r);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
@@ -222,7 +234,11 @@ System.out.println(r);</code></pre>
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: 同名ローカルとフィールド</h3>
-        <pre><code>int v=1; void m(){ int v=2; System.out.println(v); }</code></pre>
+        <pre><code>int v=1;
+void m(){
+  int v=2;
+  System.out.println(v);
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -261,7 +277,10 @@ System.out.println(r);</code></pre>
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: 可変長引数</h3>
-        <pre><code>void m(int... a){ System.out.println(a.length);} m();</code></pre>
+        <pre><code>void m(int... a){
+  System.out.println(a.length);
+}
+m();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -300,7 +319,10 @@ System.out.println(r);</code></pre>
     <div class="question-screen" data-question="7" data-answer="1">
       <div class="question-card">
         <h3>問題 8: 戻り値の型の違いのみ</h3>
-        <pre><code>int m(){return 1;} void m(){}</code></pre>
+        <pre><code>int m(){
+  return 1;
+}
+void m(){}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -339,7 +361,12 @@ System.out.println(r);</code></pre>
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: private メソッドのオーバーライド？</h3>
-        <pre><code>class A{private void f(){}} class B extends A{void f(){}}</code></pre>
+        <pre><code>class A{
+  private void f(){}
+}
+class B extends A{
+  void f(){}
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -378,7 +405,12 @@ System.out.println(r);</code></pre>
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: static メソッドの呼び出し</h3>
-        <pre><code>class A{static void f(){}} class B extends A{} B b=new B(); b.f();</code></pre>
+        <pre><code>class A{
+  static void f(){}
+}
+class B extends A{}
+B b=new B();
+b.f();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

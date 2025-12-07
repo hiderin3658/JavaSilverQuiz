@@ -25,7 +25,14 @@
       <div class="question-card">
         <h3>問題 1: アクセス修飾子の範囲</h3>
         <pre><code>// 同一パッケージ
-class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
+class A {
+  int x;
+}
+class B {
+  void m() {
+    new A().x = 1;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -64,7 +71,14 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: private の可視性</h3>
-        <pre><code>class A{private int x;} class B{void m(){ new A().x=1; }}</code></pre>
+        <pre><code>class A {
+  private int x;
+}
+class B {
+  void m() {
+    new A().x = 1;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -103,7 +117,16 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: protected の範囲</h3>
-        <pre><code>package p; public class A{protected int x;} package q; class B extends p.A{void m(){ x=1; }}</code></pre>
+        <pre><code>package p;
+public class A {
+  protected int x;
+}
+package q;
+class B extends p.A {
+  void m() {
+    x = 1;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -142,7 +165,8 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: import static</h3>
-        <pre><code>import static java.lang.Math.*; System.out.println(max(1,2));</code></pre>
+        <pre><code>import static java.lang.Math.*;
+System.out.println(max(1, 2));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -181,7 +205,7 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 完全修飾名</h3>
-        <pre><code>System.out.println(java.util.Arrays.toString(new int[]{1,2}));</code></pre>
+        <pre><code>System.out.println(java.util.Arrays.toString(new int[]{1, 2}));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -220,7 +244,9 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="5" data-answer="2">
       <div class="question-card">
         <h3>問題 6: 同名クラスの import 衝突</h3>
-        <pre><code>import java.sql.Date; import java.util.Date; Date d;</code></pre>
+        <pre><code>import java.sql.Date;
+import java.util.Date;
+Date d;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -259,7 +285,8 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: ワイルドカード import</h3>
-        <pre><code>import java.util.*; List<Integer> a;</code></pre>
+        <pre><code>import java.util.*;
+List&lt;Integer&gt; a;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -298,7 +325,8 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="7" data-answer="0">
       <div class="question-card">
         <h3>問題 8: サブパッケージの独立性</h3>
-        <pre><code>import java.util.*; Arrays; // java.util.Arrays</code></pre>
+        <pre><code>import java.util.*;
+Arrays; // java.util.Arrays</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -376,7 +404,12 @@ class A{int x;} class B{void m(){ new A().x=1; }}</code></pre>
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: 同一クラス内のアクセス</h3>
-        <pre><code>class A{private int x; void m(){ System.out.println(x); }}</code></pre>
+        <pre><code>class A {
+  private int x;
+  void m() {
+    System.out.println(x);
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

@@ -24,7 +24,8 @@
     <div class="question-screen active" data-question="0" data-answer="1">
       <div class="question-card">
         <h3>問題 1: 数値リテラルにおける _ の位置</h3>
-        <pre><code>int a = 10_0; int b = 100_;</code></pre>
+        <pre><code>int a = 10_0;
+int b = 100_;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -64,7 +65,8 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: 前置/後置と評価順</h3>
-        <pre><code>int i=1; System.out.println(i++ + i++);</code></pre>
+        <pre><code>int i=1;
+System.out.println(i++ + i++);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -104,7 +106,9 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: ラッパのアンボクシング</h3>
-        <pre><code>Long v = 5L; long x = v; System.out.println(x);</code></pre>
+        <pre><code>Long v = 5L;
+long x = v;
+System.out.println(x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -144,7 +148,8 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: boolean の代入式</h3>
-        <pre><code>boolean f=false; System.out.println(f = true);</code></pre>
+        <pre><code>boolean f=false;
+System.out.println(f = true);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -224,7 +229,8 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: NaN の性質</h3>
-        <pre><code>double n = 0.0/0.0; System.out.println(Double.isNaN(n));</code></pre>
+        <pre><code>double n = 0.0/0.0;
+System.out.println(Double.isNaN(n));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -264,7 +270,8 @@
     <div class="question-screen" data-question="6" data-answer="1">
       <div class="question-card">
         <h3>問題 7: キャストの有無</h3>
-        <pre><code>short s=1; s = s + 1;</code></pre>
+        <pre><code>short s=1;
+s = s + 1;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -304,7 +311,9 @@
     <div class="question-screen" data-question="7" data-answer="2">
       <div class="question-card">
         <h3>問題 8: StringBuilder と不変性</h3>
-        <pre><code>StringBuilder sb = new StringBuilder("a"); sb.append("b"); System.out.println(sb.toString());</code></pre>
+        <pre><code>StringBuilder sb = new StringBuilder("a");
+sb.append("b");
+System.out.println(sb.toString());</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -344,7 +353,10 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: オクタル/バイナリ/16進</h3>
-        <pre><code>int a=010; int b=0b10; int c=0x10; System.out.println(a+b+c);</code></pre>
+        <pre><code>int a=010;
+int b=0b10;
+int c=0x10;
+System.out.println(a+b+c);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>

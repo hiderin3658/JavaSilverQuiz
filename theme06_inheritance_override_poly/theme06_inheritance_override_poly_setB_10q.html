@@ -24,7 +24,14 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: @Override の省略</h3>
-        <pre><code>class A{void f(){}} class B extends A{void f(){}}</code></pre>
+        <pre><code>class A {
+  void f() {
+  }
+}
+class B extends A {
+  void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +70,17 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: static メソッドとポリモーフィズム</h3>
-        <pre><code>class A{static void f(){System.out.print("A");}} class B extends A{static void f(){System.out.print("B");}} B.f();</code></pre>
+        <pre><code>class A {
+  static void f() {
+    System.out.print("A");
+  }
+}
+class B extends A {
+  static void f() {
+    System.out.print("B");
+  }
+}
+B.f();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +119,15 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: コンストラクタでの super 呼び出し</h3>
-        <pre><code>class A{A(int x){}} class B extends A{B(){ super(1); }}</code></pre>
+        <pre><code>class A {
+  A(int x) {
+  }
+}
+class B extends A {
+  B() {
+    super(1);
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +166,14 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: protected の可視性</h3>
-        <pre><code>class A{protected void f(){}} class B extends A{public void f(){}}</code></pre>
+        <pre><code>class A {
+  protected void f() {
+  }
+}
+class B extends A {
+  public void f() {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +212,8 @@
     <div class="question-screen" data-question="4" data-answer="1">
       <div class="question-card">
         <h3>問題 5: 多態性の配列</h3>
-        <pre><code>A[] arr = new B[1]; arr[0] = new A();</code></pre>
+        <pre><code>A[] arr = new B[1];
+arr[0] = new A();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +252,10 @@
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: final クラスの継承</h3>
-        <pre><code>final class A{} class B extends A{}</code></pre>
+        <pre><code>final class A {
+}
+class B extends A {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +294,18 @@
     <div class="question-screen" data-question="6" data-answer="2">
       <div class="question-card">
         <h3>問題 7: super キーワード</h3>
-        <pre><code>class A{void f(){System.out.print("A");}} class B extends A{void f(){super.f(); System.out.print("B");}} new B().f();</code></pre>
+        <pre><code>class A {
+  void f() {
+    System.out.print("A");
+  }
+}
+class B extends A {
+  void f() {
+    super.f();
+    System.out.print("B");
+  }
+}
+new B().f();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +344,18 @@
     <div class="question-screen" data-question="7" data-answer="1">
       <div class="question-card">
         <h3>問題 8: オーバーロードとオーバーライドの違い</h3>
-        <pre><code>class A{int f(int x){return x;} } class B extends A{double f(double x){return x;} } A a=new B(); System.out.println(a.f(1));</code></pre>
+        <pre><code>class A {
+  int f(int x) {
+    return x;
+  }
+}
+class B extends A {
+  double f(double x) {
+    return x;
+  }
+}
+A a = new B();
+System.out.println(a.f(1));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +394,14 @@
     <div class="question-screen" data-question="8" data-answer="0">
       <div class="question-card">
         <h3>問題 9: 隠蔽されたフィールド参照</h3>
-        <pre><code>class A{int x=1;} class B extends A{int x=2;} B b=new B(); System.out.println(((A)b).x);</code></pre>
+        <pre><code>class A {
+  int x = 1;
+}
+class B extends A {
+  int x = 2;
+}
+B b = new B();
+System.out.println(((A)b).x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +440,9 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: 抽象クラスのインスタンス化</h3>
-        <pre><code>abstract class A{} new A();</code></pre>
+        <pre><code>abstract class A {
+}
+new A();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

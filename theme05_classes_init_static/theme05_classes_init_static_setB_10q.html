@@ -24,7 +24,15 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: インスタンス初期化子の複数</h3>
-        <pre><code>class A{{System.out.print("I1");} {System.out.print("I2");}} new A();</code></pre>
+        <pre><code>class A {
+  {
+    System.out.print("I1");
+  }
+  {
+    System.out.print("I2");
+  }
+}
+new A();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +71,15 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: static 初期化子の順序</h3>
-        <pre><code>class A{static{System.out.print("S1");} static{System.out.print("S2");}} Class.forName("A");</code></pre>
+        <pre><code>class A {
+  static {
+    System.out.print("S1");
+  }
+  static {
+    System.out.print("S2");
+  }
+}
+Class.forName("A");</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +118,11 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: フィールドのデフォルト値</h3>
-        <pre><code>class A{int i; boolean b;} System.out.println(new A().b);</code></pre>
+        <pre><code>class A {
+  int i;
+  boolean b;
+}
+System.out.println(new A().b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +161,13 @@
     <div class="question-screen" data-question="3" data-answer="2">
       <div class="question-card">
         <h3>問題 4: this とフィールド</h3>
-        <pre><code>class A{int i=1; A(int i){ this.i+=i; }} System.out.println(new A(2).i);</code></pre>
+        <pre><code>class A {
+  int i = 1;
+  A(int i) {
+    this.i += i;
+  }
+}
+System.out.println(new A(2).i);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +206,17 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 継承時の初期化順</h3>
-        <pre><code>class A{A(){System.out.print("A");}} class B extends A{B(){System.out.print("B");}} new B();</code></pre>
+        <pre><code>class A {
+  A() {
+    System.out.print("A");
+  }
+}
+class B extends A {
+  B() {
+    System.out.print("B");
+  }
+}
+new B();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +255,10 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: static メンバーの参照</h3>
-        <pre><code>class A{static int x=1;} System.out.println(new A().x);</code></pre>
+        <pre><code>class A {
+  static int x = 1;
+}
+System.out.println(new A().x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +297,13 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: コンストラクタの連鎖</h3>
-        <pre><code>class A{A(){this(1);} A(int x){}}</code></pre>
+        <pre><code>class A {
+  A() {
+    this(1);
+  }
+  A(int x) {
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +342,13 @@
     <div class="question-screen" data-question="7" data-answer="2">
       <div class="question-card">
         <h3>問題 8: 初期化の順（フィールド→ブロック）</h3>
-        <pre><code>class A{int x=1; {x+=2;}} System.out.println(new A().x);</code></pre>
+        <pre><code>class A {
+  int x = 1;
+  {
+    x += 2;
+  }
+}
+System.out.println(new A().x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +387,13 @@
     <div class="question-screen" data-question="8" data-answer="2">
       <div class="question-card">
         <h3>問題 9: static ブロックでの参照</h3>
-        <pre><code>class A{static int x=1; static{ x+=2; }} System.out.println(A.x);</code></pre>
+        <pre><code>class A {
+  static int x = 1;
+  static {
+    x += 2;
+  }
+}
+System.out.println(A.x);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +432,10 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: final クラス</h3>
-        <pre><code>final class A{} class B extends A{}</code></pre>
+        <pre><code>final class A {
+}
+class B extends A {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

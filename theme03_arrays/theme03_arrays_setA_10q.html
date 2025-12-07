@@ -24,7 +24,8 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: 配列のデフォルト初期値（int）</h3>
-        <pre><code>int[] a = new int[3]; System.out.println(a[0]);</code></pre>
+        <pre><code>int[] a = new int[3];
+System.out.println(a[0]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +64,8 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: length フィールド</h3>
-        <pre><code>int[] a = {1,2,3,4}; System.out.println(a.length);</code></pre>
+        <pre><code>int[] a = {1,2,3,4};
+System.out.println(a.length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +104,8 @@
     <div class="question-screen" data-question="2" data-answer="2">
       <div class="question-card">
         <h3>問題 3: 範囲外アクセス</h3>
-        <pre><code>int[] a = new int[2]; System.out.println(a[2]);</code></pre>
+        <pre><code>int[] a = new int[2];
+System.out.println(a[2]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +144,10 @@
     <div class="question-screen" data-question="3" data-answer="2">
       <div class="question-card">
         <h3>問題 4: ジャグ配列の要素参照</h3>
-        <pre><code>int[][] m = new int[2][]; m[0] = new int[]{1,2}; m[1] = new int[]{3}; System.out.println(m[1][0]);</code></pre>
+        <pre><code>int[][] m = new int[2][];
+m[0] = new int[]{1,2};
+m[1] = new int[]{3};
+System.out.println(m[1][0]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +186,11 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 拡張forは配列を書き換えない</h3>
-        <pre><code>int[] a={1,2,3}; for(int v : a){ v++; } System.out.println(a[0]);</code></pre>
+        <pre><code>int[] a={1,2,3};
+for(int v : a){
+  v++;
+}
+System.out.println(a[0]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +229,10 @@
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: 参照の代入と共有</h3>
-        <pre><code>int[] a={1,2,3}; int[] b=a; b[0]=9; System.out.println(a[0]);</code></pre>
+        <pre><code>int[] a={1,2,3};
+int[] b=a;
+b[0]=9;
+System.out.println(a[0]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +271,8 @@
     <div class="question-screen" data-question="6" data-answer="1">
       <div class="question-card">
         <h3>問題 7: 宣言後の配列初期化子使用</h3>
-        <pre><code>int[] a; a = {1,2,3};</code></pre>
+        <pre><code>int[] a;
+a = {1,2,3};</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +311,8 @@
     <div class="question-screen" data-question="7" data-answer="2">
       <div class="question-card">
         <h3>問題 8: 配列参照の null</h3>
-        <pre><code>int[] a=null; System.out.println(a.length);</code></pre>
+        <pre><code>int[] a=null;
+System.out.println(a.length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +351,8 @@
     <div class="question-screen" data-question="8" data-answer="0">
       <div class="question-card">
         <h3>問題 9: 二次元配列の行の長さ</h3>
-        <pre><code>int[][] a={{1,2,3},{4,5}}; System.out.println(a[1].length);</code></pre>
+        <pre><code>int[][] a={{1,2,3},{4,5}};
+System.out.println(a[1].length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +391,9 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: == と配列</h3>
-        <pre><code>int[] a = {1,2}; int[] b = {1,2}; System.out.println(a==b);</code></pre>
+        <pre><code>int[] a = {1,2};
+int[] b = {1,2};
+System.out.println(a==b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

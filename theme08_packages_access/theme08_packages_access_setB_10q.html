@@ -24,7 +24,16 @@
     <div class="question-screen active" data-question="0" data-answer="1">
       <div class="question-card">
         <h3>問題 1: 別パッケージ非サブクラスからの protected</h3>
-        <pre><code>package p; public class A{protected int x;} package q; class B{void m(){ new p.A().x=1; }}</code></pre>
+        <pre><code>package p;
+public class A {
+  protected int x;
+}
+package q;
+class B {
+  void m() {
+    new p.A().x = 1;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +72,10 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: import と同名メンバー</h3>
-        <pre><code>import java.util.Date; class Date{} Date d;</code></pre>
+        <pre><code>import java.util.Date;
+class Date {
+}
+Date d;</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +114,9 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: static import の衝突</h3>
-        <pre><code>import static java.lang.Integer.*; import static java.lang.Long.*; valueOf(1);</code></pre>
+        <pre><code>import static java.lang.Integer.*;
+import static java.lang.Long.*;
+valueOf(1);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +155,13 @@
     <div class="question-screen" data-question="3" data-answer="1">
       <div class="question-card">
         <h3>問題 4: デフォルト可視の範囲</h3>
-        <pre><code>package p; class A{} package q; class B{ p.A a; }</code></pre>
+        <pre><code>package p;
+class A {
+}
+package q;
+class B {
+  p.A a;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +200,8 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 同名クラスの完全修飾</h3>
-        <pre><code>import java.util.*; java.sql.Date d = new java.sql.Date(0);</code></pre>
+        <pre><code>import java.util.*;
+java.sql.Date d = new java.sql.Date(0);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +240,11 @@
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: private コンストラクタ</h3>
-        <pre><code>class A{private A(){} } new A();</code></pre>
+        <pre><code>class A {
+  private A() {
+  }
+}
+new A();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +361,14 @@
     <div class="question-screen" data-question="8" data-answer="0">
       <div class="question-card">
         <h3>問題 9: ネストクラスのアクセス</h3>
-        <pre><code>class A{private int x=1; class B{void m(){ System.out.println(x); }}}</code></pre>
+        <pre><code>class A {
+  private int x = 1;
+  class B {
+    void m() {
+      System.out.println(x);
+    }
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>

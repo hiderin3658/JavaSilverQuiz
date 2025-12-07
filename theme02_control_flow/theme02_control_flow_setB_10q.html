@@ -24,7 +24,8 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: for の実行回数</h3>
-        <pre><code>for(int i=0;i&lt;0;i++) System.out.print(i);</code></pre>
+        <pre><code>for(int i=0;i&lt;0;i++)
+  System.out.print(i);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -64,7 +65,11 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: switch の case 定数</h3>
-        <pre><code>final int A=1; int v=1; switch(v){ case A: System.out.print("OK"); }</code></pre>
+        <pre><code>final int A=1;
+int v=1;
+switch(v){
+  case A: System.out.print("OK");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -104,7 +109,9 @@
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: while と後置インクリメント</h3>
-        <pre><code>int i=0; while(i++&lt;2){} System.out.println(i);</code></pre>
+        <pre><code>int i=0;
+while(i++&lt;2){}
+System.out.println(i);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -144,7 +151,14 @@
     <div class="question-screen" data-question="3" data-answer="2">
       <div class="question-card">
         <h3>問題 4: 多重ループと continue</h3>
-        <pre><code>int c=0; for(int i=0;i&lt;3;i++){ for(int j=0;j&lt;3;j++){ if((i+j)%2==0) continue; c++; } } System.out.println(c);</code></pre>
+        <pre><code>int c=0;
+for(int i=0;i&lt;3;i++){
+  for(int j=0;j&lt;3;j++){
+    if((i+j)%2==0) continue;
+    c++;
+  }
+}
+System.out.println(c);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -184,7 +198,12 @@
     <div class="question-screen" data-question="4" data-answer="1">
       <div class="question-card">
         <h3>問題 5: switch の fall-through 練習</h3>
-        <pre><code>int n=1; switch(n){ case 0: System.out.print("A"); case 1: System.out.print("B"); case 2: System.out.print("C"); }</code></pre>
+        <pre><code>int n=1;
+switch(n){
+  case 0: System.out.print("A");
+  case 1: System.out.print("B");
+  case 2: System.out.print("C");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -224,7 +243,13 @@
     <div class="question-screen" data-question="5" data-answer="1">
       <div class="question-card">
         <h3>問題 6: if-else の結合</h3>
-        <pre><code>int x=3; if(x&gt;3) System.out.print("A"); else if(x==3) System.out.print("B"); else System.out.print("C");</code></pre>
+        <pre><code>int x=3;
+if(x&gt;3)
+  System.out.print("A");
+else if(x==3)
+  System.out.print("B");
+else
+  System.out.print("C");</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -264,7 +289,8 @@
     <div class="question-screen" data-question="6" data-answer="1">
       <div class="question-card">
         <h3>問題 7: 条件演算子（三項）</h3>
-        <pre><code>int n=-1; System.out.println(n&gt;=0 ? "P" : "N");</code></pre>
+        <pre><code>int n=-1;
+System.out.println(n&gt;=0 ? "P" : "N");</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -304,7 +330,10 @@
     <div class="question-screen" data-question="7" data-answer="1">
       <div class="question-card">
         <h3>問題 8: switch で許されない型（SE11）</h3>
-        <pre><code>long n=1; switch(n){ case 1: System.out.print("X"); }</code></pre>
+        <pre><code>long n=1;
+switch(n){
+  case 1: System.out.print("X");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -344,7 +373,15 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: break と continue の違い</h3>
-        <pre><code>int i=0,j=0; while(i&lt;3){ i++; if(i==2){ continue; } j++; } System.out.println(j);</code></pre>
+        <pre><code>int i=0,j=0;
+while(i&lt;3){
+  i++;
+  if(i==2){
+    continue;
+  }
+  j++;
+}
+System.out.println(j);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -384,7 +421,11 @@
     <div class="question-screen" data-question="9" data-answer="1">
       <div class="question-card">
         <h3>問題 10: for の複数式</h3>
-        <pre><code>int s=0; for(int i=0,j=2; i&lt;3; i++, j--){ s+=i*j; } System.out.println(s);</code></pre>
+        <pre><code>int s=0;
+for(int i=0,j=2; i&lt;3; i++, j--){
+  s+=i*j;
+}
+System.out.println(s);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

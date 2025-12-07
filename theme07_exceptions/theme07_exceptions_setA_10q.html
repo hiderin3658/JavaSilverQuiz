@@ -63,7 +63,11 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: finally の実行</h3>
-        <pre><code>try{ return; } finally { System.out.print("F"); }</code></pre>
+        <pre><code>try {
+  return;
+} finally {
+  System.out.print("F");
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +106,10 @@
     <div class="question-screen" data-question="2" data-answer="1">
       <div class="question-card">
         <h3>問題 3: catch の順序</h3>
-        <pre><code>try{}catch(Exception e){}catch(RuntimeException e){}</code></pre>
+        <pre><code>try {
+} catch (Exception e) {
+} catch (RuntimeException e) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +148,8 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: throws 宣言</h3>
-        <pre><code>void f() throws Exception{}</code></pre>
+        <pre><code>void f() throws Exception {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +188,9 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: マルチキャッチ</h3>
-        <pre><code>try{}catch(IllegalArgumentException | NullPointerException e){}</code></pre>
+        <pre><code>try {
+} catch (IllegalArgumentException | NullPointerException e) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +229,11 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: 例外の再スロー</h3>
-        <pre><code>try{ throw new Exception(); } catch(Exception e){ throw e; }</code></pre>
+        <pre><code>try {
+  throw new Exception();
+} catch (Exception e) {
+  throw e;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +272,8 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: try-with-resources 基本</h3>
-        <pre><code>try(java.io.BufferedReader br=null){}</code></pre>
+        <pre><code>try (java.io.BufferedReader br = null) {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +351,13 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: finally と return の優先</h3>
-        <pre><code>int f(){ try{ return 1; } finally { return 2; } }</code></pre>
+        <pre><code>int f() {
+  try {
+    return 1;
+  } finally {
+    return 2;
+  }
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +396,9 @@
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: 捕捉されない例外</h3>
-        <pre><code>public static void main(String[] args){ throw new RuntimeException(); }</code></pre>
+        <pre><code>public static void main(String[] args) {
+  throw new RuntimeException();
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

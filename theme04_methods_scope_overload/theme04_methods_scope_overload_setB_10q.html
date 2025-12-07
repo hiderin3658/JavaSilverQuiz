@@ -24,7 +24,9 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: オーバーロード（double/Integer）</h3>
-        <pre><code>void m(double x){} void m(Integer x){} m(5);</code></pre>
+        <pre><code>void m(double x){}
+void m(Integer x){}
+m(5);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +65,18 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: static の隠蔽</h3>
-        <pre><code>class A{static void f(){System.out.print("A");}} class B extends A{static void f(){System.out.print("B");}} A a=new B(); a.f();</code></pre>
+        <pre><code>class A{
+  static void f(){
+    System.out.print("A");
+  }
+}
+class B extends A{
+  static void f(){
+    System.out.print("B");
+  }
+}
+A a=new B();
+a.f();</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +115,9 @@
     <div class="question-screen" data-question="2" data-answer="2">
       <div class="question-card">
         <h3>問題 3: varargs と配列引数</h3>
-        <pre><code>void m(int[] a){} void m(int... a){} m(new int[]{1,2});</code></pre>
+        <pre><code>void m(int[] a){}
+void m(int... a){}
+m(new int[]{1,2});</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +156,11 @@
     <div class="question-screen" data-question="3" data-answer="2">
       <div class="question-card">
         <h3>問題 4: スコープ（ブロック）</h3>
-        <pre><code>int x=1; { int x=2; System.out.println(x);}</code></pre>
+        <pre><code>int x=1;
+{
+  int x=2;
+  System.out.println(x);
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +199,13 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: this の参照</h3>
-        <pre><code>class A{int v=1; void m(int v){ System.out.println(this.v); }} new A().m(9);</code></pre>
+        <pre><code>class A{
+  int v=1;
+  void m(int v){
+    System.out.println(this.v);
+  }
+}
+new A().m(9);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +283,12 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: メソッド参照の戻り値</h3>
-        <pre><code>int f(){ return 1; } void g(){ int x=f(); }</code></pre>
+        <pre><code>int f(){
+  return 1;
+}
+void g(){
+  int x=f();
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +327,10 @@
     <div class="question-screen" data-question="7" data-answer="0">
       <div class="question-card">
         <h3>問題 8: ローカル変数のシャドウイング2</h3>
-        <pre><code>int a=1; void t(){ for(int a=0;a<1;a++){} }</code></pre>
+        <pre><code>int a=1;
+void t(){
+  for(int a=0;a&lt;1;a++){}
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +369,9 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: final 引数</h3>
-        <pre><code>void m(final int x){x=2;}</code></pre>
+        <pre><code>void m(final int x){
+  x=2;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +410,12 @@
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: メソッドの可視性</h3>
-        <pre><code>class A{protected void f(){}} class B extends A{public void f(){}}</code></pre>
+        <pre><code>class A{
+  protected void f(){}
+}
+class B extends A{
+  public void f(){}
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

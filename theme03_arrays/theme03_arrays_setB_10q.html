@@ -24,7 +24,8 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: 参照型の初期値</h3>
-        <pre><code>String[] s = new String[2]; System.out.println(s[0]);</code></pre>
+        <pre><code>String[] s = new String[2];
+System.out.println(s[0]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +64,8 @@
     <div class="question-screen" data-question="1" data-answer="1">
       <div class="question-card">
         <h3>問題 2: length はフィールド</h3>
-        <pre><code>int[] a = {1,2,3}; System.out.println(a.length());</code></pre>
+        <pre><code>int[] a = {1,2,3};
+System.out.println(a.length());</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +104,9 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: equals の挙動</h3>
-        <pre><code>int[] a={1,2}; int[] b=a; System.out.println(a.equals(b));</code></pre>
+        <pre><code>int[] a={1,2};
+int[] b=a;
+System.out.println(a.equals(b));</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +145,10 @@
     <div class="question-screen" data-question="3" data-answer="1">
       <div class="question-card">
         <h3>問題 4: 配列のコピー（浅い代入）</h3>
-        <pre><code>int[] src={1,2,3}; int[] dst=new int[src.length]; dst=src; System.out.println(dst[2]);</code></pre>
+        <pre><code>int[] src={1,2,3};
+int[] dst=new int[src.length];
+dst=src;
+System.out.println(dst[2]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +187,8 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: 二次元配列の既定値</h3>
-        <pre><code>int[][] m = new int[2][3]; System.out.println(m[1][2]);</code></pre>
+        <pre><code>int[][] m = new int[2][3];
+System.out.println(m[1][2]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +227,8 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: 長さ0の配列</h3>
-        <pre><code>int[] a = new int[0]; System.out.println(a.length);</code></pre>
+        <pre><code>int[] a = new int[0];
+System.out.println(a.length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +267,10 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: 複雑な宣言</h3>
-        <pre><code>int a[], b[][]; a = new int[1]; b = new int[1][2]; System.out.println(a.length + b.length);</code></pre>
+        <pre><code>int a[], b[][];
+a = new int[1];
+b = new int[1][2];
+System.out.println(a.length + b.length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>
@@ -297,7 +309,10 @@
     <div class="question-screen" data-question="7" data-answer="2">
       <div class="question-card">
         <h3>問題 8: 偶数インデックスのみ更新</h3>
-        <pre><code>int[] a={1,2,3,4}; for(int i=0;i<a.length;i+=2) a[i]*=2; System.out.println(a[2]);</code></pre>
+        <pre><code>int[] a={1,2,3,4};
+for(int i=0;i&lt;a.length;i+=2)
+  a[i]*=2;
+System.out.println(a[2]);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 7, 0)">
             <div class="choice-icon">A</div>
@@ -336,7 +351,9 @@
     <div class="question-screen" data-question="8" data-answer="1">
       <div class="question-card">
         <h3>問題 9: 初期化子と new</h3>
-        <pre><code>int[] a = new int[]{1,2}; int[] b = {1,2}; System.out.println(a==b);</code></pre>
+        <pre><code>int[] a = new int[]{1,2};
+int[] b = {1,2};
+System.out.println(a==b);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 8, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +392,8 @@
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: null チェック三項</h3>
-        <pre><code>int[] a=null; System.out.println(a==null ? 1 : a.length);</code></pre>
+        <pre><code>int[] a=null;
+System.out.println(a==null ? 1 : a.length);</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>

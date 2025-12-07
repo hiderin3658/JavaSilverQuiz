@@ -102,7 +102,10 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: 複数 exports</h3>
-        <pre><code>module m{ exports a; exports b; }</code></pre>
+        <pre><code>module m {
+  exports a;
+  exports b;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +144,9 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: requires static</h3>
-        <pre><code>module m{ requires static a; }</code></pre>
+        <pre><code>module m {
+  requires static a;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +185,9 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: qualified exports の複数先</h3>
-        <pre><code>module m{ exports a to x,y; }</code></pre>
+        <pre><code>module m {
+  exports a to x, y;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +226,12 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: 循環依存</h3>
-        <pre><code>module a{ requires b; } module b{ requires a; }</code></pre>
+        <pre><code>module a {
+  requires b;
+}
+module b {
+  requires a;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -258,7 +270,9 @@
     <div class="question-screen" data-question="6" data-answer="0">
       <div class="question-card">
         <h3>問題 7: サービスの uses のみ</h3>
-        <pre><code>module m{ uses p.S; }</code></pre>
+        <pre><code>module m {
+  uses p.S;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 6, 0)">
             <div class="choice-icon">A</div>

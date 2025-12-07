@@ -24,7 +24,8 @@
     <div class="question-screen active" data-question="0" data-answer="0">
       <div class="question-card">
         <h3>問題 1: module-info の基本</h3>
-        <pre><code>module app { }</code></pre>
+        <pre><code>module app {
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 0, 0)">
             <div class="choice-icon">A</div>
@@ -63,7 +64,9 @@
     <div class="question-screen" data-question="1" data-answer="0">
       <div class="question-card">
         <h3>問題 2: requires</h3>
-        <pre><code>module app { requires util; }</code></pre>
+        <pre><code>module app {
+  requires util;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 1, 0)">
             <div class="choice-icon">A</div>
@@ -102,7 +105,9 @@
     <div class="question-screen" data-question="2" data-answer="0">
       <div class="question-card">
         <h3>問題 3: exports</h3>
-        <pre><code>module app { exports com.example; }</code></pre>
+        <pre><code>module app {
+  exports com.example;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 2, 0)">
             <div class="choice-icon">A</div>
@@ -141,7 +146,14 @@
     <div class="question-screen" data-question="3" data-answer="0">
       <div class="question-card">
         <h3>問題 4: requires transitive</h3>
-        <pre><code>module a{ } module b{ requires transitive a; } module c{ requires b; }</code></pre>
+        <pre><code>module a {
+}
+module b {
+  requires transitive a;
+}
+module c {
+  requires b;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 3, 0)">
             <div class="choice-icon">A</div>
@@ -180,7 +192,9 @@
     <div class="question-screen" data-question="4" data-answer="0">
       <div class="question-card">
         <h3>問題 5: opens とリフレクション</h3>
-        <pre><code>module app { opens com.example; }</code></pre>
+        <pre><code>module app {
+  opens com.example;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 4, 0)">
             <div class="choice-icon">A</div>
@@ -219,7 +233,9 @@
     <div class="question-screen" data-question="5" data-answer="0">
       <div class="question-card">
         <h3>問題 6: exports to</h3>
-        <pre><code>module app { exports com.example to other; }</code></pre>
+        <pre><code>module app {
+  exports com.example to other;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 5, 0)">
             <div class="choice-icon">A</div>
@@ -375,7 +391,10 @@
     <div class="question-screen" data-question="9" data-answer="0">
       <div class="question-card">
         <h3>問題 10: サービス</h3>
-        <pre><code>module app { uses p.S; provides p.S with p.impl.SImpl; }</code></pre>
+        <pre><code>module app {
+  uses p.S;
+  provides p.S with p.impl.SImpl;
+}</code></pre>
         <div class="choices">
           <div class="choice" onclick="selectAnswer(this, 9, 0)">
             <div class="choice-icon">A</div>
