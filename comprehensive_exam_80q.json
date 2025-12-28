@@ -28,7 +28,7 @@
     },
     {
       "number": 3,
-      "title": "複合代入演算子と型変換",
+      "title": "複合代入演算子（乗算）と型変換",
       "code": "byte b = 10;\nb *= 2.5;\nSystem.out.println(b);",
       "choices": [
         "25",
