@@ -307,8 +307,17 @@ pre code {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
 }
 
+/* フッター（ボタンを横並びに） */
+.footer {
+  display: flex;
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+
 .nav-btn {
-  width: 100%;
+  flex: 1;
   padding: 16px;
   border: none;
   border-radius: 12px;
