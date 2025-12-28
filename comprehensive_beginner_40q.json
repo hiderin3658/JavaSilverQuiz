@@ -1,0 +1,524 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "title": "int型変数の宣言と初期化",
+      "code": "int number = 50;\nSystem.out.println(number);",
+      "choices": [
+        "50",
+        "0",
+        "コンパイルエラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "int型変数numberに50を代入し、そのまま出力しているため、50が表示されます。プリミティブ型のint変数は宣言時に初期化することができます。"
+    },
+    {
+      "number": 2,
+      "title": "boolean型のデフォルト値（インスタンス変数）",
+      "code": "class Sample {\n    boolean flag;\n    void show() {\n        System.out.println(flag);\n    }\n}\n// new Sample().show(); を実行",
+      "choices": [
+        "false",
+        "true",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "インスタンス変数（フィールド）のboolean型はデフォルトでfalseに初期化されます。ローカル変数とは異なり、フィールドは明示的に初期化しなくてもデフォルト値が設定されます。"
+    },
+    {
+      "number": 3,
+      "title": "文字列と数値の連結順序",
+      "code": "System.out.println(1 + 2 + \"Java\");",
+      "choices": [
+        "3Java",
+        "12Java",
+        "Java12",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "演算は左から順に評価されます。まず1+2が計算されて3になり、その後\"Java\"と連結されるため「3Java」が出力されます。"
+    },
+    {
+      "number": 4,
+      "title": "double型へのint代入",
+      "code": "double d = 10;\nSystem.out.println(d);",
+      "choices": [
+        "10.0",
+        "10",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "int型からdouble型への代入は暗黙の型変換（拡大変換）が行われます。intの10がdoubleに変換され、10.0として格納・表示されます。"
+    },
+    {
+      "number": 5,
+      "title": "剰余演算子の結果",
+      "code": "int result = 17 % 5;\nSystem.out.println(result);",
+      "choices": [
+        "2",
+        "3",
+        "5",
+        "17"
+      ],
+      "correctAnswer": 0,
+      "explanation": "剰余演算子（%）は割り算の余りを返します。17÷5は商が3、余りが2となるため、17%5の結果は2です。"
+    },
+    {
+      "number": 6,
+      "title": "byte型の範囲",
+      "code": "byte b = 127;\nSystem.out.println(b);",
+      "choices": [
+        "127",
+        "0",
+        "コンパイルエラー",
+        "-128"
+      ],
+      "correctAnswer": 0,
+      "explanation": "byte型の範囲は-128から127です。127はbyte型の最大値であり、問題なく代入・出力できます。"
+    },
+    {
+      "number": 7,
+      "title": "if文の基本動作",
+      "code": "int x = 5;\nif (x > 3) {\n    System.out.println(\"A\");\n} else {\n    System.out.println(\"B\");\n}",
+      "choices": [
+        "A",
+        "B",
+        "AB",
+        "何も出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "xは5で、5>3はtrueなので、if文の条件が成立し「A」が出力されます。else節は実行されません。"
+    },
+    {
+      "number": 8,
+      "title": "forループのカウント",
+      "code": "int count = 0;\nfor (int i = 1; i <= 5; i++) {\n    count++;\n}\nSystem.out.println(count);",
+      "choices": [
+        "4",
+        "5",
+        "6",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "forループはi=1から始まり、i<=5の間繰り返されます。i=1,2,3,4,5の5回ループし、countは5になります。"
+    },
+    {
+      "number": 9,
+      "title": "while文の終了条件",
+      "code": "int n = 10;\nwhile (n > 5) {\n    n--;\n}\nSystem.out.println(n);",
+      "choices": [
+        "5",
+        "4",
+        "6",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "n>5の間ループが続きます。n=10,9,8,7,6とデクリメントされ、n=5になった時点で条件が偽になりループを抜けます。"
+    },
+    {
+      "number": 10,
+      "title": "switch文の基本マッチング",
+      "code": "int day = 3;\nString result;\nswitch (day) {\n    case 1: result = \"月\"; break;\n    case 2: result = \"火\"; break;\n    case 3: result = \"水\"; break;\n    default: result = \"他\";\n}\nSystem.out.println(result);",
+      "choices": [
+        "水",
+        "火",
+        "月",
+        "他"
+      ],
+      "correctAnswer": 0,
+      "explanation": "dayが3なので、case 3:にマッチし、resultに\"水\"が代入されます。breakがあるためそこで処理が終了します。"
+    },
+    {
+      "number": 11,
+      "title": "do-while文の特徴",
+      "code": "int x = 100;\ndo {\n    System.out.print(x);\n    x++;\n} while (x < 100);",
+      "choices": [
+        "100",
+        "何も出力されない",
+        "101",
+        "無限ループ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "do-while文は条件判定がループの後にあるため、最低1回は必ず実行されます。x=100で本体が実行され「100」が出力された後、x<100が偽なのでループを抜けます。"
+    },
+    {
+      "number": 12,
+      "title": "配列の宣言と要素数",
+      "code": "int[] arr = new int[3];\nSystem.out.println(arr.length);",
+      "choices": [
+        "3",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "new int[3]で要素数3の配列を作成しています。lengthフィールドは配列の長さを返すため、3が出力されます。"
+    },
+    {
+      "number": 13,
+      "title": "配列の初期化子",
+      "code": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+      "choices": [
+        "10",
+        "20",
+        "30",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 1,
+      "explanation": "配列のインデックスは0から始まります。nums[0]=10、nums[1]=20、nums[2]=30なので、nums[1]は20です。"
+    },
+    {
+      "number": 14,
+      "title": "配列の最後の要素アクセス",
+      "code": "String[] names = {\"A\", \"B\", \"C\", \"D\"};\nSystem.out.println(names[names.length - 1]);",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correctAnswer": 3,
+      "explanation": "配列の最後の要素にアクセスするには、length-1を使います。lengthは4なので、names[3]は\"D\"です。"
+    },
+    {
+      "number": 15,
+      "title": "二次元配列の要素取得",
+      "code": "int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};\nSystem.out.println(matrix[1][0]);",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanation": "matrix[1]は2番目の行{3, 4}を指し、その[0]は最初の要素3です。二次元配列は[行][列]でアクセスします。"
+    },
+    {
+      "number": 16,
+      "title": "メソッドの戻り値",
+      "code": "static int add(int a, int b) {\n    return a + b;\n}\n// 呼び出し: System.out.println(add(3, 7));",
+      "choices": [
+        "10",
+        "37",
+        "コンパイルエラー",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "add(3, 7)は引数3と7を受け取り、a+bの結果10を返します。returnで返された値が出力されます。"
+    },
+    {
+      "number": 17,
+      "title": "voidメソッドのreturn",
+      "code": "static void greet() {\n    System.out.print(\"Hello\");\n    return;\n    // System.out.print(\"World\");\n}\n// greet()を呼び出し",
+      "choices": [
+        "Hello",
+        "HelloWorld",
+        "コンパイルエラー",
+        "何も出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "voidメソッドでもreturn;を使ってメソッドを終了できます。\"Hello\"が出力された後にreturnでメソッドが終了します。"
+    },
+    {
+      "number": 18,
+      "title": "メソッドの引数の値渡し",
+      "code": "static void change(int x) {\n    x = 100;\n}\npublic static void main(String[] args) {\n    int num = 5;\n    change(num);\n    System.out.println(num);\n}",
+      "choices": [
+        "5",
+        "100",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Javaのプリミティブ型は値渡しです。changeメソッド内でxを変更しても、呼び出し元のnumには影響しません。"
+    },
+    {
+      "number": 19,
+      "title": "staticメソッドの呼び出し",
+      "code": "class Util {\n    static int square(int n) {\n        return n * n;\n    }\n}\n// Util.square(4)の結果は？",
+      "choices": [
+        "16",
+        "8",
+        "4",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "staticメソッドはクラス名.メソッド名()で呼び出せます。square(4)は4*4=16を返します。"
+    },
+    {
+      "number": 20,
+      "title": "ローカル変数のスコープ",
+      "code": "void test() {\n    if (true) {\n        int x = 10;\n    }\n    System.out.println(x);\n}",
+      "choices": [
+        "10",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 3,
+      "explanation": "変数xはif文のブロック内で宣言されているため、そのブロック外からはアクセスできません。コンパイルエラーになります。"
+    },
+    {
+      "number": 21,
+      "title": "クラスとオブジェクトの生成",
+      "code": "class Dog {\n    String name = \"Pochi\";\n}\n// Dog d = new Dog(); System.out.println(d.name);",
+      "choices": [
+        "Pochi",
+        "null",
+        "Dog",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "new Dog()でDogクラスのインスタンスを生成し、フィールドnameには\"Pochi\"が初期化されています。d.nameで\"Pochi\"が出力されます。"
+    },
+    {
+      "number": 22,
+      "title": "デフォルトコンストラクタ",
+      "code": "class Person {\n    String name;\n}\n// Person p = new Person(); を実行",
+      "choices": [
+        "正常に実行される",
+        "コンパイルエラー",
+        "実行時エラー",
+        "nameがnullにならない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "クラスにコンストラクタを明示的に定義しない場合、引数なしのデフォルトコンストラクタが自動的に提供されます。"
+    },
+    {
+      "number": 23,
+      "title": "thisキーワードの使用",
+      "code": "class Counter {\n    int count;\n    Counter(int count) {\n        this.count = count;\n    }\n}\n// new Counter(5).count の値は？",
+      "choices": [
+        "5",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "thisキーワードはインスタンス自身を指します。this.countはフィールドを、countは引数を指し、フィールドに5が代入されます。"
+    },
+    {
+      "number": 24,
+      "title": "インスタンスメソッドの呼び出し",
+      "code": "class Calc {\n    int value = 10;\n    int double() {\n        return value * 2;\n    }\n}\n// new Calc().double()の結果は？",
+      "choices": [
+        "20",
+        "10",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 3,
+      "explanation": "doubleはJavaの予約語（double型）です。メソッド名に予約語は使用できないため、コンパイルエラーになります。"
+    },
+    {
+      "number": 25,
+      "title": "nullの参照",
+      "code": "String s = null;\nSystem.out.println(s);",
+      "choices": [
+        "null",
+        "空文字",
+        "コンパイルエラー",
+        "NullPointerException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "System.out.println(null)は\"null\"という文字列を出力します。nullの参照をprintlnに渡すこと自体は例外を発生させません。"
+    },
+    {
+      "number": 26,
+      "title": "getterメソッドの基本",
+      "code": "class Item {\n    private int price = 100;\n    int getPrice() {\n        return price;\n    }\n}\n// new Item().getPrice()の結果は？",
+      "choices": [
+        "100",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "priceフィールドはprivateですが、getPrice()メソッドを通じて値を取得できます。これがカプセル化の基本パターンです。"
+    },
+    {
+      "number": 27,
+      "title": "extendsによる継承",
+      "code": "class Animal {\n    void eat() { System.out.print(\"eating\"); }\n}\nclass Cat extends Animal { }\n// new Cat().eat() の出力は？",
+      "choices": [
+        "eating",
+        "何も出力されない",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CatクラスはAnimalクラスを継承しているため、親クラスのeat()メソッドを使用できます。"
+    },
+    {
+      "number": 28,
+      "title": "メソッドのオーバーライド",
+      "code": "class Parent {\n    void show() { System.out.print(\"P\"); }\n}\nclass Child extends Parent {\n    void show() { System.out.print(\"C\"); }\n}\n// Parent obj = new Child(); obj.show();",
+      "choices": [
+        "C",
+        "P",
+        "PC",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "メソッドのオーバーライドでは、実行時のオブジェクトの型（Child）に基づいてメソッドが呼び出されます。これがポリモーフィズムです。"
+    },
+    {
+      "number": 29,
+      "title": "superによる親コンストラクタ呼び出し",
+      "code": "class A {\n    A() { System.out.print(\"A\"); }\n}\nclass B extends A {\n    B() { System.out.print(\"B\"); }\n}\n// new B() の出力は？",
+      "choices": [
+        "AB",
+        "BA",
+        "B",
+        "A"
+      ],
+      "correctAnswer": 0,
+      "explanation": "子クラスのコンストラクタでは、最初に親クラスのコンストラクタが呼ばれます（暗黙のsuper()）。よってA→Bの順で出力されます。"
+    },
+    {
+      "number": 30,
+      "title": "instanceof演算子",
+      "code": "Object obj = \"Hello\";\nSystem.out.println(obj instanceof String);",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "instanceof演算子は、オブジェクトが指定した型のインスタンスかどうかを判定します。\"Hello\"はStringなのでtrueです。"
+    },
+    {
+      "number": 31,
+      "title": "try-catchの基本",
+      "code": "try {\n    int x = 10 / 2;\n    System.out.print(\"A\");\n} catch (Exception e) {\n    System.out.print(\"B\");\n}",
+      "choices": [
+        "A",
+        "B",
+        "AB",
+        "何も出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "10/2は正常に計算できるため例外は発生しません。try節が実行され\"A\"が出力され、catch節はスキップされます。"
+    },
+    {
+      "number": 32,
+      "title": "ArithmeticExceptionの発生",
+      "code": "try {\n    int result = 10 / 0;\n    System.out.print(\"A\");\n} catch (ArithmeticException e) {\n    System.out.print(\"B\");\n}",
+      "choices": [
+        "B",
+        "A",
+        "AB",
+        "何も出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "整数の0除算はArithmeticExceptionを発生させます。例外が発生した時点でcatch節に移り、\"B\"が出力されます。"
+    },
+    {
+      "number": 33,
+      "title": "finallyブロックの実行",
+      "code": "try {\n    System.out.print(\"1\");\n} catch (Exception e) {\n    System.out.print(\"2\");\n} finally {\n    System.out.print(\"3\");\n}",
+      "choices": [
+        "13",
+        "123",
+        "1",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "try節で例外は発生しないためcatch節はスキップされますが、finally節は例外の有無に関わらず必ず実行されます。"
+    },
+    {
+      "number": 34,
+      "title": "NullPointerExceptionの発生条件",
+      "code": "String s = null;\ntry {\n    System.out.println(s.length());\n} catch (NullPointerException e) {\n    System.out.println(\"NPE\");\n}",
+      "choices": [
+        "NPE",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "nullの参照に対してメソッドを呼び出すとNullPointerExceptionが発生します。catch節で捕捉され\"NPE\"が出力されます。"
+    },
+    {
+      "number": 35,
+      "title": "publicアクセス修飾子",
+      "code": "// package p1;\npublic class Sample {\n    public int value = 10;\n}\n// 別パッケージから new Sample().value にアクセス可能か？",
+      "choices": [
+        "アクセス可能",
+        "アクセス不可",
+        "同一パッケージのみ可能",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "publicアクセス修飾子が付いたメンバーは、どのパッケージからでもアクセス可能です。"
+    },
+    {
+      "number": 36,
+      "title": "privateフィールドへのアクセス",
+      "code": "class Box {\n    private int size = 5;\n}\nclass Main {\n    void test() {\n        Box b = new Box();\n        System.out.println(b.size);\n    }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "5",
+        "0",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "privateフィールドは宣言されたクラス内からのみアクセス可能です。Mainクラスからはアクセスできずコンパイルエラーになります。"
+    },
+    {
+      "number": 37,
+      "title": "import文の役割",
+      "code": "import java.util.ArrayList;\n// ArrayListをインポートすると？",
+      "choices": [
+        "ArrayList を短い名前で使える",
+        "ArrayList が自動的にインスタンス化される",
+        "ArrayList のメソッドがすべてstaticになる",
+        "何も変わらない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "import文を使うと、完全修飾名（java.util.ArrayList）の代わりに短い名前（ArrayList）でクラスを参照できるようになります。"
+    },
+    {
+      "number": 38,
+      "title": "Stringのequalsメソッド",
+      "code": "String a = \"Java\";\nString b = new String(\"Java\");\nSystem.out.println(a.equals(b));",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "equals()メソッドは文字列の内容を比較します。両方とも\"Java\"という同じ内容なのでtrueを返します。"
+    },
+    {
+      "number": 39,
+      "title": "Stringのlengthメソッド",
+      "code": "String text = \"Hello\";\nSystem.out.println(text.length());",
+      "choices": [
+        "5",
+        "4",
+        "6",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "String.length()メソッドは文字列の文字数を返します。\"Hello\"は5文字なので5が出力されます。"
+    },
+    {
+      "number": 40,
+      "title": "StringのcharAtメソッド",
+      "code": "String s = \"ABCDE\";\nSystem.out.println(s.charAt(2));",
+      "choices": [
+        "C",
+        "B",
+        "A",
+        "D"
+      ],
+      "correctAnswer": 0,
+      "explanation": "charAt(index)は指定位置の文字を返します。インデックスは0から始まるため、charAt(2)は3番目の文字'C'を返します。"
+    }
+  ]
+}

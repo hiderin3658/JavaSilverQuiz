@@ -1,0 +1,784 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "title": "複合代入演算子と型変換",
+      "code": "short s = 10;\ns += 5.5;\nSystem.out.println(s);",
+      "choices": [
+        "15",
+        "15.5",
+        "コンパイルエラー",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "複合代入演算子（+=）は暗黙のキャストを含みます。s += 5.5 は s = (short)(s + 5.5) と等価です。15.5がshortにキャストされ15になります。"
+    },
+    {
+      "number": 2,
+      "title": "三項演算子と型の昇格",
+      "code": "int x = 5;\ndouble result = (x > 3) ? 10 : 20.0;\nSystem.out.println(result);",
+      "choices": [
+        "10.0",
+        "10",
+        "20.0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "三項演算子では、真の値と偽の値で型が異なる場合、より大きな型に昇格されます。10はdoubleに昇格し、10.0として出力されます。"
+    },
+    {
+      "number": 3,
+      "title": "ビット演算と論理演算の違い",
+      "code": "int a = 5;  // 0101\nint b = 3;  // 0011\nSystem.out.println(a & b);",
+      "choices": [
+        "1",
+        "true",
+        "7",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "整数型での&演算子はビット演算です。0101 & 0011 = 0001 なので結果は1になります。boolean型の場合のみ論理演算となります。"
+    },
+    {
+      "number": 4,
+      "title": "文字リテラルと算術演算",
+      "code": "char c = 'A';\nint result = c + 1;\nSystem.out.println(result);",
+      "choices": [
+        "66",
+        "B",
+        "A1",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "char型は内部的にUnicodeコードポイント（整数）として扱われます。'A'は65なので、65+1=66が出力されます。char型ではなくint型に代入しているため数値として出力されます。"
+    },
+    {
+      "number": 5,
+      "title": "varとnull初期化",
+      "code": "var x = null;\nSystem.out.println(x);",
+      "choices": [
+        "コンパイルエラー",
+        "null",
+        "実行時エラー",
+        "空文字"
+      ],
+      "correctAnswer": 0,
+      "explanation": "varはローカル変数の型推論に使用されますが、nullだけでは型が特定できません。そのためコンパイルエラーになります。"
+    },
+    {
+      "number": 6,
+      "title": "整数リテラルのアンダースコア",
+      "code": "int a = 1_000_000;\nint b = _100;\nSystem.out.println(a);",
+      "choices": [
+        "コンパイルエラー",
+        "1000000",
+        "1_000_000",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "数値リテラルのアンダースコアは数字と数字の間にのみ使用できます。_100のように先頭に置くことはできないため、コンパイルエラーになります。"
+    },
+    {
+      "number": 7,
+      "title": "オーバーフローと符号",
+      "code": "byte b = 127;\nb++;\nSystem.out.println(b);",
+      "choices": [
+        "-128",
+        "128",
+        "コンパイルエラー",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "byte型の範囲は-128から127です。127に1を足すとオーバーフローし、-128になります。これは2の補数表現によるものです。"
+    },
+    {
+      "number": 8,
+      "title": "浮動小数点の精度問題",
+      "code": "double d = 0.1 + 0.2;\nSystem.out.println(d == 0.3);",
+      "choices": [
+        "false",
+        "true",
+        "コンパイルエラー",
+        "0.3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "浮動小数点数は2進数で表現されるため、0.1や0.2は正確に表現できません。0.1+0.2は厳密には0.3にならないため、==比較はfalseになります。"
+    },
+    {
+      "number": 9,
+      "title": "ネストしたif文と論理演算子",
+      "code": "int x = 5, y = 10;\nif (x > 3)\n    if (y > 5)\n        System.out.print(\"A\");\n    else\n        System.out.print(\"B\");",
+      "choices": [
+        "A",
+        "B",
+        "何も出力されない",
+        "AB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "x>3はtrue、y>5もtrueなので\"A\"が出力されます。elseは最も近いifに結びつくため、外側のifには関係しません。"
+    },
+    {
+      "number": 10,
+      "title": "switch文のfall-throughとbreak",
+      "code": "int day = 2;\nString type;\nswitch (day) {\n    case 1:\n    case 7:\n        type = \"weekend\";\n        break;\n    case 2:\n    case 3:\n    case 4:\n    case 5:\n    case 6:\n        type = \"weekday\";\n        break;\n    default:\n        type = \"unknown\";\n}\nSystem.out.println(type);",
+      "choices": [
+        "weekday",
+        "weekend",
+        "unknown",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "switch文では、複数のcaseラベルを並べることでfall-throughを利用できます。day=2はcase 2に該当し、breakまで実行されて\"weekday\"が設定されます。"
+    },
+    {
+      "number": 11,
+      "title": "forループとスコープの問題",
+      "code": "for (int i = 0; i < 3; i++) {\n    int j = i * 2;\n}\nSystem.out.println(j);",
+      "choices": [
+        "コンパイルエラー",
+        "4",
+        "6",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "変数jはforループのブロック内で宣言されているため、ループ外からはアクセスできません。スコープ外の変数参照でコンパイルエラーになります。"
+    },
+    {
+      "number": 12,
+      "title": "breakとcontinueの組み合わせ",
+      "code": "int sum = 0;\nfor (int i = 1; i <= 10; i++) {\n    if (i % 2 == 0) continue;\n    if (i > 7) break;\n    sum += i;\n}\nSystem.out.println(sum);",
+      "choices": [
+        "16",
+        "9",
+        "25",
+        "21"
+      ],
+      "correctAnswer": 0,
+      "explanation": "偶数はcontinueでスキップ、7より大きい場合はbreakで終了します。sum = 1 + 3 + 5 + 7 = 16となります。"
+    },
+    {
+      "number": 13,
+      "title": "ラベル付きbreakの動作",
+      "code": "int count = 0;\nouter:\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (j == 1) break outer;\n        count++;\n    }\n}\nSystem.out.println(count);",
+      "choices": [
+        "1",
+        "3",
+        "0",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "i=0, j=0でcount++が実行され1になります。j=1でbreak outerが実行され、外側のループも含めて抜けます。結果は1です。"
+    },
+    {
+      "number": 14,
+      "title": "do-whileと条件評価",
+      "code": "int i = 5;\ndo {\n    System.out.print(i + \" \");\n    i--;\n} while (i > 5);",
+      "choices": [
+        "5 ",
+        "5 4 3 2 1 ",
+        "何も出力されない",
+        "無限ループ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "do-whileは最低1回は実行されます。i=5で\"5 \"が出力され、i--で4になり、4>5はfalseなのでループを抜けます。"
+    },
+    {
+      "number": 15,
+      "title": "switch文のfall-through応用",
+      "code": "int grade = 2;\nString msg = \"\";\nswitch (grade) {\n    case 1:\n        msg += \"A\";\n    case 2:\n        msg += \"B\";\n    case 3:\n        msg += \"C\";\n        break;\n    default:\n        msg += \"D\";\n}\nSystem.out.println(msg);",
+      "choices": [
+        "BC",
+        "B",
+        "ABC",
+        "BCD"
+      ],
+      "correctAnswer": 0,
+      "explanation": "grade=2でcase 2から開始し、breakがないためcase 3まで実行されます。msg = \"B\" + \"C\" = \"BC\"となります。"
+    },
+    {
+      "number": 16,
+      "title": "拡張forとインデックス操作",
+      "code": "int[] arr = {10, 20, 30};\nfor (int val : arr) {\n    val = val * 2;\n}\nSystem.out.println(arr[1]);",
+      "choices": [
+        "20",
+        "40",
+        "60",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "拡張forループの変数valは配列要素のコピーです。valを変更しても元の配列には影響しません。arr[1]は元のまま20です。"
+    },
+    {
+      "number": 17,
+      "title": "多次元配列の長さ",
+      "code": "int[][] matrix = new int[3][4];\nSystem.out.println(matrix.length + \",\" + matrix[0].length);",
+      "choices": [
+        "3,4",
+        "4,3",
+        "12,3",
+        "3,3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "matrix.lengthは行数（3）、matrix[0].lengthは最初の行の列数（4）を返します。結果は\"3,4\"です。"
+    },
+    {
+      "number": 18,
+      "title": "ジャグ配列の初期化",
+      "code": "int[][] arr = new int[2][];\narr[0] = new int[3];\narr[1] = new int[2];\nSystem.out.println(arr[0].length + arr[1].length);",
+      "choices": [
+        "5",
+        "6",
+        "4",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ジャグ配列では各行で異なる長さを持てます。arr[0].length=3、arr[1].length=2なので、合計は5です。"
+    },
+    {
+      "number": 19,
+      "title": "配列の参照コピー",
+      "code": "int[] a = {1, 2, 3};\nint[] b = a;\nb[0] = 99;\nSystem.out.println(a[0]);",
+      "choices": [
+        "99",
+        "1",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "配列変数への代入は参照のコピーです。aとbは同じ配列オブジェクトを指すため、b[0]の変更はa[0]にも反映されます。"
+    },
+    {
+      "number": 20,
+      "title": "Arrays.copyOfによる複製",
+      "code": "import java.util.Arrays;\nint[] original = {1, 2, 3};\nint[] copy = Arrays.copyOf(original, 5);\nSystem.out.println(copy.length + \",\" + copy[3]);",
+      "choices": [
+        "5,0",
+        "3,0",
+        "5,3",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arrays.copyOfは指定した長さの新しい配列を作成します。元の配列より長い場合、追加要素はデフォルト値（intは0）で埋められます。"
+    },
+    {
+      "number": 21,
+      "title": "配列のnull要素アクセス",
+      "code": "String[] arr = new String[3];\nSystem.out.println(arr[0].length());",
+      "choices": [
+        "NullPointerException",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "参照型配列の要素はデフォルトでnullです。nullに対してメソッドを呼び出すとNullPointerExceptionが発生します。"
+    },
+    {
+      "number": 22,
+      "title": "配列の初期化と匿名配列",
+      "code": "int[] arr;\narr = new int[]{1, 2, 3};\nSystem.out.println(arr.length);",
+      "choices": [
+        "3",
+        "コンパイルエラー",
+        "0",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "宣言と初期化を分ける場合、new int[]{...}の形式を使う必要があります。これは匿名配列と呼ばれ、正常にコンパイル・実行されます。"
+    },
+    {
+      "number": 23,
+      "title": "オーバーロードとプリミティブ拡大変換",
+      "code": "class Test {\n    void print(long x) { System.out.print(\"long\"); }\n    void print(Integer x) { System.out.print(\"Integer\"); }\n}\nnew Test().print(5);",
+      "choices": [
+        "long",
+        "Integer",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーロード解決では、プリミティブの拡大変換（int->long）がボクシング（int->Integer）より優先されます。"
+    },
+    {
+      "number": 24,
+      "title": "可変長引数と配列",
+      "code": "static void show(int... nums) {\n    System.out.println(nums.length);\n}\nshow(1, 2, 3);",
+      "choices": [
+        "3",
+        "6",
+        "1",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "可変長引数（varargs）は内部的に配列として扱われます。3つの引数が渡されたので、nums.lengthは3になります。"
+    },
+    {
+      "number": 25,
+      "title": "メソッドの引数と配列",
+      "code": "static void modify(int[] arr) {\n    arr = new int[]{99};\n}\npublic static void main(String[] args) {\n    int[] data = {1, 2, 3};\n    modify(data);\n    System.out.println(data.length);\n}",
+      "choices": [
+        "3",
+        "1",
+        "0",
+        "99"
+      ],
+      "correctAnswer": 0,
+      "explanation": "メソッド内でarrに新しい配列を代入しても、呼び出し元のdataには影響しません。参照自体は値渡しです。元の配列の長さ3が出力されます。"
+    },
+    {
+      "number": 26,
+      "title": "オーバーロードと可変長引数の優先順位",
+      "code": "class Calc {\n    void add(int a, int b) { System.out.print(\"2args\"); }\n    void add(int... nums) { System.out.print(\"varargs\"); }\n}\nnew Calc().add(1, 2);",
+      "choices": [
+        "2args",
+        "varargs",
+        "コンパイルエラー（曖昧）",
+        "2argsvarargs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "固定引数のメソッドは可変長引数より優先されます。引数が2つなので、add(int, int)が呼び出されます。"
+    },
+    {
+      "number": 27,
+      "title": "戻り値の型とオーバーロード",
+      "code": "class Demo {\n    int getValue() { return 1; }\n    double getValue() { return 1.0; }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "正常にコンパイルされる",
+        "実行時エラー",
+        "1.0が返される"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーロードは引数の型や数で区別されます。戻り値の型だけが異なるメソッドは定義できません。コンパイルエラーになります。"
+    },
+    {
+      "number": 28,
+      "title": "メソッド内でのthis参照",
+      "code": "class Counter {\n    int count = 0;\n    Counter increment() {\n        count++;\n        return this;\n    }\n}\nnew Counter().increment().increment().count",
+      "choices": [
+        "2",
+        "1",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "thisを返すことでメソッドチェーンが可能になります。increment()を2回呼び出すのでcountは2になります。"
+    },
+    {
+      "number": 29,
+      "title": "ローカル変数と同名の引数",
+      "code": "class Sample {\n    int value = 10;\n    void set(int value) {\n        value = value;\n    }\n}\nSample s = new Sample();\ns.set(20);\nSystem.out.println(s.value);",
+      "choices": [
+        "10",
+        "20",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "set()メソッド内のvalue = valueは引数自身への代入です。フィールドを変更するにはthis.value = valueとする必要があります。"
+    },
+    {
+      "number": 30,
+      "title": "finalパラメータ",
+      "code": "void process(final int x) {\n    x = x + 1;\n    System.out.println(x);\n}",
+      "choices": [
+        "コンパイルエラー",
+        "引数の値+1が出力",
+        "引数の値がそのまま出力",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "finalパラメータは再代入できません。x = x + 1の行でコンパイルエラーになります。"
+    },
+    {
+      "number": 31,
+      "title": "コンストラクタの連鎖呼び出し",
+      "code": "class Product {\n    String name;\n    int price;\n    Product() { this(\"Unknown\", 0); }\n    Product(String name, int price) {\n        this.name = name;\n        this.price = price;\n    }\n}\nnew Product().name",
+      "choices": [
+        "Unknown",
+        "null",
+        "コンパイルエラー",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "引数なしコンストラクタがthis()で引数ありコンストラクタを呼び出し、nameに\"Unknown\"を設定します。"
+    },
+    {
+      "number": 32,
+      "title": "staticフィールドの初期化順序",
+      "code": "class Init {\n    static int a = getValue();\n    static int b = 5;\n    static int getValue() { return b; }\n}\nSystem.out.println(Init.a);",
+      "choices": [
+        "0",
+        "5",
+        "コンパイルエラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "staticフィールドは宣言順に初期化されます。aの初期化時にgetValue()が呼ばれますが、この時点でbはまだデフォルト値0です。"
+    },
+    {
+      "number": 33,
+      "title": "インスタンス初期化ブロックの実行順序",
+      "code": "class Block {\n    { System.out.print(\"1\"); }\n    Block() { System.out.print(\"2\"); }\n    { System.out.print(\"3\"); }\n}\nnew Block();",
+      "choices": [
+        "132",
+        "123",
+        "213",
+        "312"
+      ],
+      "correctAnswer": 0,
+      "explanation": "インスタンス初期化ブロックは宣言順に実行され（1,3）、その後コンストラクタが実行されます（2）。結果は\"132\"です。"
+    },
+    {
+      "number": 34,
+      "title": "不変クラスの実装",
+      "code": "final class Immutable {\n    private final int value;\n    Immutable(int value) { this.value = value; }\n    int getValue() { return value; }\n}\nImmutable obj = new Immutable(10);\nobj.value = 20;",
+      "choices": [
+        "コンパイルエラー",
+        "20が設定される",
+        "10のまま",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "valueフィールドはprivateなので外部からアクセスできません。コンパイルエラーになります。これが不変クラスのカプセル化です。"
+    },
+    {
+      "number": 35,
+      "title": "staticメソッドからのインスタンスメンバーアクセス",
+      "code": "class Test {\n    int x = 10;\n    static void show() {\n        System.out.println(x);\n    }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "10",
+        "0",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "staticメソッドからインスタンス変数に直接アクセスすることはできません。インスタンスが存在しないためです。"
+    },
+    {
+      "number": 36,
+      "title": "private コンストラクタとインスタンス生成",
+      "code": "class Singleton {\n    private static Singleton instance = new Singleton();\n    private Singleton() {}\n    static Singleton getInstance() { return instance; }\n}\nSystem.out.println(Singleton.getInstance() == Singleton.getInstance());",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "シングルトンパターンでは同じインスタンスが返されます。getInstance()を2回呼んでも同じオブジェクトなので==はtrueです。"
+    },
+    {
+      "number": 37,
+      "title": "finalフィールドの初期化",
+      "code": "class Final {\n    final int x;\n    Final() {\n        System.out.println(x);\n        x = 10;\n    }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "0",
+        "10",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "finalフィールドは初期化前に読み取ることができません。xを初期化する前にprintlnで読み取ろうとしているためコンパイルエラーです。"
+    },
+    {
+      "number": 38,
+      "title": "static初期化ブロックの実行タイミング",
+      "code": "class Loader {\n    static { System.out.print(\"A\"); }\n    Loader() { System.out.print(\"B\"); }\n}\nnew Loader();\nnew Loader();",
+      "choices": [
+        "ABB",
+        "ABAB",
+        "AAB",
+        "AB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "static初期化ブロックはクラスロード時に1回だけ実行されます。インスタンス生成ごとにコンストラクタは実行されます。結果は\"ABB\"です。"
+    },
+    {
+      "number": 39,
+      "title": "継承とthis/superの関係",
+      "code": "class Base {\n    int x = 10;\n}\nclass Derived extends Base {\n    int x = 20;\n    void show() {\n        System.out.println(super.x + \",\" + this.x);\n    }\n}\nnew Derived().show();",
+      "choices": [
+        "10,20",
+        "20,20",
+        "10,10",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "フィールドの隠蔽が発生しています。super.xは親クラスのx（10）、this.xは子クラスのx（20）を参照します。"
+    },
+    {
+      "number": 40,
+      "title": "抽象メソッドとオーバーライド",
+      "code": "abstract class Shape {\n    abstract double area();\n}\nclass Circle extends Shape {\n    double radius = 5;\n    double area() { return 3.14 * radius * radius; }\n}\nSystem.out.println(new Circle().area());",
+      "choices": [
+        "78.5",
+        "15.7",
+        "コンパイルエラー",
+        "0.0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Circleは抽象メソッドarea()を正しく実装しています。3.14 * 5 * 5 = 78.5が出力されます。"
+    },
+    {
+      "number": 41,
+      "title": "共変戻り値型",
+      "code": "class Animal {\n    Animal create() { return new Animal(); }\n}\nclass Dog extends Animal {\n    @Override\n    Dog create() { return new Dog(); }\n}",
+      "choices": [
+        "正常にコンパイルされる",
+        "コンパイルエラー（戻り値の型が異なる）",
+        "実行時エラー",
+        "@Overrideが不要"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Java 5以降、オーバーライドするメソッドの戻り値型は、元のメソッドの戻り値型のサブタイプにできます（共変戻り値型）。"
+    },
+    {
+      "number": 42,
+      "title": "メソッドオーバーライドとアクセス修飾子",
+      "code": "class Parent {\n    void display() { System.out.print(\"P\"); }\n}\nclass Child extends Parent {\n    private void display() { System.out.print(\"C\"); }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "正常にコンパイル",
+        "P",
+        "C"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーライドするメソッドのアクセス修飾子は、元のメソッドより制限的にできません。package-privateからprivateへの制限はエラーです。"
+    },
+    {
+      "number": 43,
+      "title": "ポリモーフィズムとフィールド",
+      "code": "class A { int val = 10; }\nclass B extends A { int val = 20; }\nA obj = new B();\nSystem.out.println(obj.val);",
+      "choices": [
+        "10",
+        "20",
+        "コンパイルエラー",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "フィールドは動的束縛されません（メソッドとは異なる）。参照の型（A）に基づいてフィールドが選択されるため、A.val（10）が出力されます。"
+    },
+    {
+      "number": 44,
+      "title": "instanceof と継承",
+      "code": "class Animal {}\nclass Dog extends Animal {}\nAnimal a = new Dog();\nSystem.out.print(a instanceof Dog);\nSystem.out.print(\",\");\nSystem.out.print(a instanceof Animal);",
+      "choices": [
+        "true,true",
+        "false,true",
+        "true,false",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "aの実体はDogなのでinstanceof Dogはtrue。DogはAnimalのサブクラスなのでinstanceof Animalもtrueです。"
+    },
+    {
+      "number": 45,
+      "title": "コンストラクタ呼び出し順序と例外",
+      "code": "class A {\n    A() { System.out.print(\"A\"); }\n}\nclass B extends A {\n    B() {\n        System.out.print(\"B\");\n        throw new RuntimeException();\n    }\n}\ntry { new B(); } catch (Exception e) { System.out.print(\"C\"); }",
+      "choices": [
+        "ABC",
+        "BC",
+        "AC",
+        "AB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "親のコンストラクタ→子のコンストラクタの順で実行。例外発生後にcatchで捕捉されます。出力は\"ABC\"です。"
+    },
+    {
+      "number": 46,
+      "title": "マルチキャッチ構文",
+      "code": "try {\n    throw new IllegalArgumentException();\n} catch (NullPointerException | IllegalArgumentException e) {\n    System.out.print(e.getClass().getSimpleName());\n}",
+      "choices": [
+        "IllegalArgumentException",
+        "NullPointerException",
+        "コンパイルエラー",
+        "Exception"
+      ],
+      "correctAnswer": 0,
+      "explanation": "マルチキャッチ（|）で複数の例外型を1つのcatchブロックで捕捉できます。IllegalArgumentExceptionがスローされ、その名前が出力されます。"
+    },
+    {
+      "number": 47,
+      "title": "try-with-resourcesの実行順序",
+      "code": "class Res implements AutoCloseable {\n    String name;\n    Res(String n) { name = n; System.out.print(name + \"O\"); }\n    public void close() { System.out.print(name + \"C\"); }\n}\ntry (Res a = new Res(\"A\"); Res b = new Res(\"B\")) {\n    System.out.print(\"T\");\n}",
+      "choices": [
+        "AOTBOBCAC",
+        "AOBOTACBC",
+        "AOBOTBCAC",
+        "ABOTBCAC"
+      ],
+      "correctAnswer": 2,
+      "explanation": "リソースは宣言順に開かれ、逆順にクローズされます。A開く→B開く→本体→B閉じる→A閉じる の順です。"
+    },
+    {
+      "number": 48,
+      "title": "例外の再スローと型",
+      "code": "void process() throws IOException {\n    try {\n        throw new FileNotFoundException();\n    } catch (IOException e) {\n        throw e;\n    }\n}",
+      "choices": [
+        "正常にコンパイルされる",
+        "コンパイルエラー（throwsが不足）",
+        "コンパイルエラー（catchの型が不正）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FileNotFoundExceptionはIOExceptionのサブクラスです。catchでIOExceptionとして捕捉し、再スローしてもthrows IOExceptionで宣言されているので問題ありません。"
+    },
+    {
+      "number": 49,
+      "title": "finallyブロックと戻り値",
+      "code": "static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nSystem.out.println(test());",
+      "choices": [
+        "2",
+        "1",
+        "コンパイルエラー",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanation": "finallyブロックのreturnが優先されます。tryのreturn 1は無視され、2が返されます。ただしこのコードスタイルは推奨されません。"
+    },
+    {
+      "number": 50,
+      "title": "チェック例外と非チェック例外",
+      "code": "void test() {\n    throw new Exception(\"error\");\n}",
+      "choices": [
+        "コンパイルエラー（throwsが必要）",
+        "正常にコンパイル",
+        "\"error\"と出力",
+        "実行時にExceptionが発生"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ExceptionはチェッExceptionです。スローする場合はthrows宣言するか、try-catchで捕捉する必要があります。"
+    },
+    {
+      "number": 51,
+      "title": "catchブロックの順序",
+      "code": "try {\n    throw new RuntimeException();\n} catch (Exception e) {\n    System.out.print(\"A\");\n} catch (RuntimeException e) {\n    System.out.print(\"B\");\n}",
+      "choices": [
+        "コンパイルエラー",
+        "A",
+        "B",
+        "AB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "catchブロックは上から順に評価されます。ExceptionはRuntimeExceptionのスーパークラスなので、RuntimeExceptionのcatchに到達不能です。コンパイルエラーになります。"
+    },
+    {
+      "number": 52,
+      "title": "protected とパッケージの関係",
+      "code": "// package a;\npublic class Base { protected int x = 10; }\n\n// package b;\nclass Child extends a.Base {\n    void show() {\n        Base other = new Base();\n        System.out.println(other.x);\n    }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "10",
+        "0",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "protectedメンバーは、別パッケージのサブクラスから継承経由でアクセスできますが、別パッケージの他のインスタンスには直接アクセスできません。"
+    },
+    {
+      "number": 53,
+      "title": "静的インポートの使用",
+      "code": "import static java.lang.Math.PI;\nimport static java.lang.Math.pow;\nSystem.out.println(pow(2, 3) + PI);",
+      "choices": [
+        "約11.14（8.0 + 3.14...）",
+        "コンパイルエラー",
+        "8PI",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "静的インポートにより、Math.を省略してPIやpow()を直接使用できます。pow(2,3)=8.0、PI≒3.14なので約11.14が出力されます。"
+    },
+    {
+      "number": 54,
+      "title": "同名クラスのインポート競合",
+      "code": "import java.util.Date;\nimport java.sql.Date;\n\nDate d = new Date();",
+      "choices": [
+        "コンパイルエラー",
+        "java.util.Dateが使用される",
+        "java.sql.Dateが使用される",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "同じ名前のクラスを複数インポートすると、どちらを使うか曖昧になりコンパイルエラーになります。完全修飾名を使う必要があります。"
+    },
+    {
+      "number": 55,
+      "title": "デフォルトパッケージとアクセス",
+      "code": "// ファイル: Helper.java (パッケージ宣言なし)\nclass Helper { void help() {} }\n\n// ファイル: Main.java\npackage app;\nclass Main {\n    void test() { new Helper(); }\n}",
+      "choices": [
+        "コンパイルエラー",
+        "正常にコンパイル",
+        "実行時エラー",
+        "警告のみ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "デフォルトパッケージ（無名パッケージ）のクラスは、名前付きパッケージからインポートできません。コンパイルエラーになります。"
+    },
+    {
+      "number": 56,
+      "title": "StringのsubstringとStringBuilder",
+      "code": "String s = \"Hello World\";\nStringBuilder sb = new StringBuilder(s.substring(0, 5));\nsb.append(\"!\");\nSystem.out.println(sb);",
+      "choices": [
+        "Hello!",
+        "Hello World!",
+        "Hello",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "substring(0,5)は\"Hello\"を返し、それでStringBuilderを作成。append(\"!\")で\"Hello!\"になります。"
+    },
+    {
+      "number": 57,
+      "title": "String.replaceAllと正規表現",
+      "code": "String s = \"a1b2c3\";\nSystem.out.println(s.replaceAll(\"\\\\d\", \"X\"));",
+      "choices": [
+        "aXbXcX",
+        "a1b2c3",
+        "XXX",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "replaceAll()は正規表現を使用します。\\\\dは数字にマッチし、すべての数字がXに置換されます。"
+    },
+    {
+      "number": 58,
+      "title": "Integerのキャッシュ境界",
+      "code": "Integer a = 127;\nInteger b = 127;\nInteger c = 128;\nInteger d = 128;\nSystem.out.print((a == b) + \",\" + (c == d));",
+      "choices": [
+        "true,false",
+        "true,true",
+        "false,false",
+        "false,true"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Integer は-128から127の範囲でキャッシュを使用します。127は同じオブジェクト（true）、128は別オブジェクト（false）になります。"
+    },
+    {
+      "number": 59,
+      "title": "オートボクシングとnull",
+      "code": "Integer x = null;\nint y = x;\nSystem.out.println(y);",
+      "choices": [
+        "NullPointerException",
+        "0",
+        "null",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "nullのIntegerをintにアンボクシングしようとすると、NullPointerExceptionが発生します。"
+    },
+    {
+      "number": 60,
+      "title": "StringBuilderのinsertとdelete",
+      "code": "StringBuilder sb = new StringBuilder(\"ABCDEF\");\nsb.delete(1, 3);\nsb.insert(1, \"XY\");\nSystem.out.println(sb);",
+      "choices": [
+        "AXYDEF",
+        "ABCXYDEF",
+        "AXYEF",
+        "AXYBCDEF"
+      ],
+      "correctAnswer": 0,
+      "explanation": "delete(1,3)で\"BC\"を削除し\"ADEF\"になります。insert(1,\"XY\")でインデックス1に挿入し\"AXYDEF\"になります。"
+    }
+  ]
+}

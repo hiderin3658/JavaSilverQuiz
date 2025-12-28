@@ -1,0 +1,1044 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "title": "finalローカル変数と再代入",
+      "code": "final int x;\nif (Math.random() > 0.5) {\n    x = 10;\n} else {\n    x = 20;\n}\nSystem.out.println(x);",
+      "choices": [
+        "正常にコンパイルされる",
+        "コンパイルエラー（xが初期化されていない）",
+        "コンパイルエラー（xが複数回代入されている）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "finalローカル変数は、すべての実行パスで確実に1回だけ初期化されていればコンパイルエラーになりません。この場合、if-elseの両方のブロックでxが初期化されているため、正常にコンパイルされます。"
+    },
+    {
+      "number": 2,
+      "title": "String.intern()の動作",
+      "code": "String s1 = new String(\"Java\").intern();\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "intern()メソッドは文字列プールから同じ内容の文字列を返します。s1とs2は両方とも文字列プール内の同じ\"Java\"オブジェクトを参照するため、==はtrueになります。"
+    },
+    {
+      "number": 3,
+      "title": "複合代入演算子と型変換",
+      "code": "byte b = 10;\nb *= 2.5;\nSystem.out.println(b);",
+      "choices": [
+        "25",
+        "20",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "複合代入演算子（*=）は暗黙の型変換を含みます。b *= 2.5 は b = (byte)(b * 2.5) と等価で、10 * 2.5 = 25.0 が byte にキャストされて 25 になります。"
+    },
+    {
+      "number": 4,
+      "title": "varと配列初期化",
+      "code": "var arr = {1, 2, 3};\nSystem.out.println(arr.length);",
+      "choices": [
+        "コンパイルエラー",
+        "3",
+        "0",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "varを使用する場合、配列初期化には new int[]{1, 2, 3} のような明示的な型が必要です。{1, 2, 3} だけでは型推論できないためコンパイルエラーになります。"
+    },
+    {
+      "number": 5,
+      "title": "ビット演算子と論理演算子の混在",
+      "code": "int x = 5;\nboolean result = (x > 3) & (x++ < 10);\nSystem.out.println(x + \",\" + result);",
+      "choices": [
+        "6,true",
+        "5,true",
+        "6,false",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "boolean型での&演算子は論理AND（短絡評価なし）として動作します。左辺がtrueでも右辺を評価するため、x++が実行されxは6になります。両辺ともtrueなので結果もtrueです。"
+    },
+    {
+      "number": 6,
+      "title": "switch文とenum",
+      "code": "enum Color { RED, GREEN, BLUE }\nColor c = Color.GREEN;\nswitch (c) {\n    case RED:\n        System.out.print(\"R\");\n        break;\n    case GREEN:\n        System.out.print(\"G\");\n    case BLUE:\n        System.out.print(\"B\");\n}",
+      "choices": [
+        "GB",
+        "G",
+        "B",
+        "RGB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "c=GREENなのでcase GREENから開始します。breakがないため、case BLUEまでfall-throughして\"GB\"が出力されます。"
+    },
+    {
+      "number": 7,
+      "title": "for文の初期化スコープ",
+      "code": "int i = 10;\nfor (int i = 0; i < 3; i++) {\n    System.out.print(i);\n}\nSystem.out.print(i);",
+      "choices": [
+        "01210",
+        "コンパイルエラー（変数iが重複）",
+        "0123",
+        "012i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "forループの初期化部で宣言された変数iは、ループ外の変数iとは別のスコープです。ループ内では0,1,2が出力され、ループ外では元のi=10が出力されます。"
+    },
+    {
+      "number": 8,
+      "title": "while文とdo-whileの比較",
+      "code": "int x = 0;\nwhile (x > 0) {\n    System.out.print(\"A\");\n    x--;\n}\ndo {\n    System.out.print(\"B\");\n    x--;\n} while (x > 0);\nSystem.out.print(x);",
+      "choices": [
+        "B-1",
+        "AB-1",
+        "A0",
+        "-1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "x=0なのでwhile文は1回も実行されません。do-while文は最低1回実行されるため、\"B\"が出力されx=-1になります。最後に-1が出力されます。"
+    },
+    {
+      "number": 9,
+      "title": "配列の共変性と実行時型チェック",
+      "code": "Object[] arr = new String[3];\narr[0] = \"Hello\";\narr[1] = 123;\nSystem.out.println(arr[1]);",
+      "choices": [
+        "ArrayStoreException",
+        "123",
+        "コンパイルエラー",
+        "ClassCastException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "配列は共変なので、String[]をObject[]として扱えます。しかし、実行時の実際の型はString[]です。Integerを代入しようとするとArrayStoreExceptionが発生します。"
+    },
+    {
+      "number": 10,
+      "title": "多次元配列の不完全な初期化",
+      "code": "int[][] matrix = new int[3][];\nmatrix[0] = new int[2];\nSystem.out.println(matrix[1].length);",
+      "choices": [
+        "NullPointerException",
+        "0",
+        "2",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "matrix[1]はまだ初期化されていないため、デフォルト値のnullです。nullに対してlengthプロパティにアクセスするとNullPointerExceptionが発生します。"
+    },
+    {
+      "number": 11,
+      "title": "可変長引数とnull",
+      "code": "static void process(String... args) {\n    System.out.println(args.length);\n}\nprocess(null);",
+      "choices": [
+        "NullPointerException",
+        "0",
+        "1",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "process(null)は可変長引数をnull配列として渡します。args自体がnullになるため、args.lengthでNullPointerExceptionが発生します。process((String)null)とすれば要素数1の配列になります。"
+    },
+    {
+      "number": 12,
+      "title": "オーバーロード解決の優先順位",
+      "code": "class Test {\n    void show(Object o) { System.out.print(\"Object\"); }\n    void show(String s) { System.out.print(\"String\"); }\n}\nnew Test().show(null);",
+      "choices": [
+        "String",
+        "Object",
+        "コンパイルエラー（曖昧）",
+        "NullPointerException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーロード解決では、より具体的な型が優先されます。StringはObjectのサブタイプなので、show(String)が選択されます。"
+    },
+    {
+      "number": 13,
+      "title": "メソッド参照と静的メソッド",
+      "code": "import java.util.function.Function;\nFunction<String, Integer> f = Integer::parseInt;\nSystem.out.println(f.apply(\"100\"));",
+      "choices": [
+        "100",
+        "コンパイルエラー",
+        "\"100\"",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Integer::parseIntは静的メソッド参照です。Function<String, Integer>と互換性があり、f.apply(\"100\")はInteger.parseInt(\"100\")を呼び出して100を返します。"
+    },
+    {
+      "number": 14,
+      "title": "コンストラクタとインスタンス変数の初期化順序",
+      "code": "class Order {\n    int value = getValue();\n    Order() { System.out.print(\"C\"); }\n    int getValue() { System.out.print(\"V\"); return 5; }\n}\nnew Order();",
+      "choices": [
+        "VC",
+        "CV",
+        "V",
+        "C"
+      ],
+      "correctAnswer": 0,
+      "explanation": "インスタンス変数の初期化はコンストラクタ本体より前に実行されます。getValue()が呼ばれて\"V\"が出力され、その後コンストラクタで\"C\"が出力されます。"
+    },
+    {
+      "number": 15,
+      "title": "staticインポートと変数の優先順位",
+      "code": "import static java.lang.Math.PI;\nclass Test {\n    static double PI = 3.14;\n    void show() { System.out.println(PI); }\n}\nnew Test().show();",
+      "choices": [
+        "3.14",
+        "3.141592653589793（Math.PI）",
+        "コンパイルエラー（曖昧）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ローカルクラスで定義されたstatic変数は、静的インポートされた変数より優先されます。Test.PIが使用されるため、3.14が出力されます。"
+    },
+    {
+      "number": 16,
+      "title": "継承とコンストラクタ引数",
+      "code": "class Parent {\n    Parent(int x) { System.out.print(x); }\n}\nclass Child extends Parent {\n    Child() { System.out.print(\"C\"); }\n}",
+      "choices": [
+        "コンパイルエラー（super()呼び出しが必要）",
+        "C",
+        "0C",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "親クラスにデフォルトコンストラクタがない場合、子クラスのコンストラクタで明示的にsuper(引数)を呼び出す必要があります。"
+    },
+    {
+      "number": 17,
+      "title": "メソッドオーバーライドと例外",
+      "code": "import java.io.*;\nclass Base {\n    void method() throws IOException { }\n}\nclass Derived extends Base {\n    @Override\n    void method() throws Exception { }\n}",
+      "choices": [
+        "コンパイルエラー（より広い例外を宣言できない）",
+        "正常にコンパイルされる",
+        "実行時エラー",
+        "@Overrideを削除すれば正常"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーライドするメソッドは、親メソッドより広い範囲のチェック例外を宣言できません。ExceptionはIOExceptionより広い例外なのでコンパイルエラーです。"
+    },
+    {
+      "number": 18,
+      "title": "抽象クラスのインスタンス化",
+      "code": "abstract class Shape {\n    abstract void draw();\n}\nShape s = new Shape() {\n    void draw() { System.out.print(\"Drawing\"); }\n};\ns.draw();",
+      "choices": [
+        "Drawing",
+        "コンパイルエラー（抽象クラスをインスタンス化できない）",
+        "実行時エラー",
+        "何も出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "抽象クラスは直接インスタンス化できませんが、匿名クラスとして実装を提供すればインスタンス化できます。draw()が実装されているため\"Drawing\"が出力されます。"
+    },
+    {
+      "number": 19,
+      "title": "インターフェースのデフォルトメソッド衝突",
+      "code": "interface A { default void show() { System.out.print(\"A\"); } }\ninterface B { default void show() { System.out.print(\"B\"); } }\nclass C implements A, B {\n}",
+      "choices": [
+        "コンパイルエラー（show()をオーバーライドする必要がある）",
+        "A",
+        "B",
+        "AB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "複数のインターフェースが同じシグネチャのデフォルトメソッドを持つ場合、実装クラスで明示的にオーバーライドする必要があります。"
+    },
+    {
+      "number": 20,
+      "title": "ポリモーフィズムとメソッド呼び出し",
+      "code": "class Animal {\n    void makeSound() { System.out.print(\"Animal\"); }\n}\nclass Dog extends Animal {\n    @Override\n    void makeSound() { System.out.print(\"Woof\"); }\n    void fetch() { System.out.print(\"Fetch\"); }\n}\nAnimal a = new Dog();\na.makeSound();\na.fetch();",
+      "choices": [
+        "コンパイルエラー（a.fetch()が不正）",
+        "WoofFetch",
+        "Woof",
+        "AnimalFetch"
+      ],
+      "correctAnswer": 0,
+      "explanation": "変数aの型はAnimalなので、Animalクラスに定義されていないfetch()メソッドは呼び出せません。makeSound()は動的束縛されますが、fetch()呼び出しはコンパイルエラーです。"
+    },
+    {
+      "number": 21,
+      "title": "ラムダ式と実質的final",
+      "code": "int x = 10;\nRunnable r = () -> {\n    x++;\n    System.out.println(x);\n};",
+      "choices": [
+        "コンパイルエラー（xは実質的finalでない）",
+        "正常にコンパイルされる",
+        "実行時エラー",
+        "11"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ラムダ式内で使用されるローカル変数は、実質的final（値が変更されない）である必要があります。x++は変更を意味するためコンパイルエラーになります。"
+    },
+    {
+      "number": 22,
+      "title": "try-with-resourcesと複数リソース",
+      "code": "class Res implements AutoCloseable {\n    String name;\n    Res(String n) { name = n; }\n    public void close() throws Exception {\n        throw new Exception(name);\n    }\n}\ntry (Res a = new Res(\"A\"); Res b = new Res(\"B\")) {\n    throw new Exception(\"Body\");\n} catch (Exception e) {\n    System.out.print(e.getMessage());\n}",
+      "choices": [
+        "Body",
+        "B",
+        "A",
+        "BodyBA"
+      ],
+      "correctAnswer": 0,
+      "explanation": "try-with-resourcesでは、本体の例外が主例外となり、close()の例外は抑制例外（suppressed）として扱われます。catchで捕捉されるのは主例外\"Body\"です。"
+    },
+    {
+      "number": 23,
+      "title": "StringBuilderのcapacityとlength",
+      "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"Hello\");\nSystem.out.println(sb.capacity() + \",\" + sb.length());",
+      "choices": [
+        "16,5",
+        "5,5",
+        "10,5",
+        "32,5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "StringBuilderのデフォルトcapacityは16です。lengthは実際の文字数（5）を返します。capacityは内部バッファのサイズです。"
+    },
+    {
+      "number": 24,
+      "title": "Integerの比較とキャッシュ",
+      "code": "Integer a = 100;\nInteger b = 100;\nInteger c = 200;\nInteger d = 200;\nSystem.out.print((a==b) + \",\");\nSystem.out.print(a.equals(b) + \",\");\nSystem.out.print((c==d) + \",\");\nSystem.out.print(c.equals(d));",
+      "choices": [
+        "true,true,false,true",
+        "true,true,true,true",
+        "false,true,false,true",
+        "false,false,false,false"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Integerは-128から127の範囲でキャッシュを使用します。100は同じオブジェクト（true）、200は別オブジェクト（false）。equalsは値を比較するので常にtrue。"
+    },
+    {
+      "number": 25,
+      "title": "インターフェースのprivateメソッド",
+      "code": "interface Calculator {\n    default int add(int a, int b) {\n        return calculate(a, b, '+');\n    }\n    private int calculate(int a, int b, char op) {\n        return op == '+' ? a + b : a - b;\n    }\n}",
+      "choices": [
+        "正常にコンパイルされる（Java 9以降）",
+        "コンパイルエラー（インターフェースにprivateメソッドは不可）",
+        "コンパイルエラー（calculateは抽象メソッドである必要がある）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Java 9以降、インターフェースにprivateメソッドを定義できます。これはデフォルトメソッドやstaticメソッドの実装を共有するために使用されます。"
+    },
+    {
+      "number": 26,
+      "title": "型推論とダイヤモンド演算子",
+      "code": "import java.util.*;\nList<String> list = new ArrayList<>();\nlist.add(\"Java\");\nlist.add(123);",
+      "choices": [
+        "コンパイルエラー（list.add(123)が不正）",
+        "正常にコンパイルされる",
+        "実行時エラー",
+        "[Java, 123]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ダイヤモンド演算子<>により、ArrayList<String>と推論されます。Integerを追加しようとするとコンパイルエラーになります。"
+    },
+    {
+      "number": 27,
+      "title": "例外のマルチキャッチと型",
+      "code": "try {\n    throw new IllegalArgumentException();\n} catch (IllegalArgumentException | NullPointerException e) {\n    e = new RuntimeException();\n    System.out.print(e.getClass().getSimpleName());\n}",
+      "choices": [
+        "コンパイルエラー（eは実質的final）",
+        "RuntimeException",
+        "IllegalArgumentException",
+        "NullPointerException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "マルチキャッチで捕捉された例外変数は実質的finalとして扱われ、再代入できません。"
+    },
+    {
+      "number": 28,
+      "title": "static初期化ブロックと例外",
+      "code": "class Test {\n    static {\n        throw new RuntimeException(\"Init\");\n    }\n    public static void main(String[] args) {\n        System.out.print(\"Main\");\n    }\n}",
+      "choices": [
+        "ExceptionInInitializerError",
+        "RuntimeException",
+        "Main",
+        "Init"
+      ],
+      "correctAnswer": 0,
+      "explanation": "static初期化ブロックで例外がスローされると、ExceptionInInitializerErrorでラップされます。mainメソッドは実行されません。"
+    },
+    {
+      "number": 29,
+      "title": "配列とArrays.asList",
+      "code": "import java.util.*;\nInteger[] arr = {1, 2, 3};\nList<Integer> list = Arrays.asList(arr);\nlist.add(4);\nSystem.out.println(list.size());",
+      "choices": [
+        "UnsupportedOperationException",
+        "4",
+        "3",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arrays.asList()は固定サイズのリストを返します。要素の追加や削除はUnsupportedOperationExceptionをスローします。"
+    },
+    {
+      "number": 30,
+      "title": "メソッド参照とコンストラクタ",
+      "code": "import java.util.function.Supplier;\nSupplier<StringBuilder> sup = StringBuilder::new;\nStringBuilder sb = sup.get();\nsb.append(\"Test\");\nSystem.out.println(sb);",
+      "choices": [
+        "Test",
+        "コンパイルエラー",
+        "空文字列",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "StringBuilder::newはコンストラクタ参照です。Supplier<StringBuilder>と互換性があり、sup.get()で新しいStringBuilderインスタンスが作成されます。"
+    },
+    {
+      "number": 31,
+      "title": "Stream APIとメソッド参照",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nList<String> list = Arrays.asList(\"a\", \"bb\", \"ccc\");\nlist.stream()\n    .map(String::length)\n    .forEach(System.out::print);",
+      "choices": [
+        "123",
+        "abbccc",
+        "3",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "String::lengthで各文字列の長さに変換され、\"a\"→1、\"bb\"→2、\"ccc\"→3が順に出力されます。"
+    },
+    {
+      "number": 32,
+      "title": "Optional.orElseとorElseGet",
+      "code": "import java.util.*;\nOptional<String> opt = Optional.empty();\nString s1 = opt.orElse(getValue(\"A\"));\nString s2 = opt.orElseGet(() -> getValue(\"B\"));\nstatic String getValue(String x) {\n    System.out.print(x);\n    return x;\n}",
+      "choices": [
+        "AB",
+        "B",
+        "A",
+        "なにも出力されない"
+      ],
+      "correctAnswer": 0,
+      "explanation": "orElse()は常に引数を評価しますが、orElseGet()はOptionalが空の場合のみ評価します。両方とも空なので\"AB\"が出力されます。"
+    },
+    {
+      "number": 33,
+      "title": "LocalDateの不変性",
+      "code": "import java.time.*;\nLocalDate date = LocalDate.of(2024, 1, 1);\ndate.plusDays(7);\nSystem.out.println(date);",
+      "choices": [
+        "2024-01-01",
+        "2024-01-08",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "LocalDateは不変クラスです。plusDays()は新しいLocalDateオブジェクトを返しますが、元のdateは変更されません。"
+    },
+    {
+      "number": 34,
+      "title": "コレクションのremoveとIterator",
+      "code": "import java.util.*;\nList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));\nfor (Integer num : list) {\n    if (num % 2 == 0) {\n        list.remove(num);\n    }\n}\nSystem.out.println(list);",
+      "choices": [
+        "ConcurrentModificationException",
+        "[1, 3]",
+        "[1, 2, 3, 4]",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "拡張forループ（内部的にIteratorを使用）中にコレクションを直接変更するとConcurrentModificationExceptionが発生します。"
+    },
+    {
+      "number": 35,
+      "title": "Predicateの合成",
+      "code": "import java.util.function.Predicate;\nPredicate<Integer> isEven = x -> x % 2 == 0;\nPredicate<Integer> isPositive = x -> x > 0;\nPredicate<Integer> test = isEven.and(isPositive);\nSystem.out.println(test.test(-4) + \",\" + test.test(4));",
+      "choices": [
+        "false,true",
+        "true,true",
+        "false,false",
+        "true,false"
+      ],
+      "correctAnswer": 0,
+      "explanation": "and()で2つのPredicateを合成します。-4は偶数だが正でない（false）、4は偶数かつ正（true）です。"
+    },
+    {
+      "number": 36,
+      "title": "Function.andThenとcompose",
+      "code": "import java.util.function.Function;\nFunction<Integer, Integer> f1 = x -> x * 2;\nFunction<Integer, Integer> f2 = x -> x + 3;\nFunction<Integer, Integer> f3 = f1.andThen(f2);\nSystem.out.println(f3.apply(5));",
+      "choices": [
+        "13",
+        "16",
+        "10",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanation": "andThen()はf1を先に適用し、その結果にf2を適用します。f3.apply(5) = f2(f1(5)) = f2(10) = 13です。"
+    },
+    {
+      "number": 37,
+      "title": "Streamのcollect",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nList<String> list = Stream.of(\"a\", \"b\", \"c\")\n    .collect(Collectors.toList());\nlist.add(\"d\");\nSystem.out.println(list);",
+      "choices": [
+        "[a, b, c, d]",
+        "UnsupportedOperationException",
+        "[a, b, c]",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Collectors.toList()は変更可能なリストを返します（Java 8-15）。要素の追加が可能です。"
+    },
+    {
+      "number": 38,
+      "title": "StreamのfindFirstとfindAny",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nOptional<Integer> result = Stream.of(1, 2, 3, 4, 5)\n    .filter(x -> x > 3)\n    .findFirst();\nSystem.out.println(result.get());",
+      "choices": [
+        "4",
+        "5",
+        "Optional[4]",
+        "NoSuchElementException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "filter()で3より大きい要素をフィルタリングし、findFirst()で最初の要素（4）を取得します。get()で値を取り出すと4が出力されます。"
+    },
+    {
+      "number": 39,
+      "title": "Streamのlimitとskip",
+      "code": "import java.util.stream.*;\nIntStream.range(1, 10)\n    .skip(3)\n    .limit(3)\n    .forEach(System.out::print);",
+      "choices": [
+        "456",
+        "123",
+        "789",
+        "147"
+      ],
+      "correctAnswer": 0,
+      "explanation": "range(1,10)は1-9の数値を生成。skip(3)で最初の3つ（1,2,3）をスキップ、limit(3)で次の3つ（4,5,6）を取得します。"
+    },
+    {
+      "number": 40,
+      "title": "Streamのdistinctとcount",
+      "code": "import java.util.stream.*;\nlong count = Stream.of(1, 2, 2, 3, 3, 3, 4)\n    .distinct()\n    .count();\nSystem.out.println(count);",
+      "choices": [
+        "4",
+        "7",
+        "3",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "distinct()は重複を除去します。[1,2,2,3,3,3,4]から重複を除くと[1,2,3,4]となり、count()で4が返されます。"
+    },
+    {
+      "number": 41,
+      "title": "Streamのreduceオペレーション",
+      "code": "import java.util.stream.*;\nint result = IntStream.of(1, 2, 3, 4, 5)\n    .reduce(0, (a, b) -> a + b);\nSystem.out.println(result);",
+      "choices": [
+        "15",
+        "0",
+        "5",
+        "120"
+      ],
+      "correctAnswer": 0,
+      "explanation": "reduce(0, (a,b)->a+b)は初期値0から始めて全要素を合計します。1+2+3+4+5=15です。"
+    },
+    {
+      "number": 42,
+      "title": "Streamのmap vs flatMap",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nList<List<Integer>> nested = Arrays.asList(\n    Arrays.asList(1, 2),\n    Arrays.asList(3, 4)\n);\nlong count = nested.stream()\n    .flatMap(list -> list.stream())\n    .count();\nSystem.out.println(count);",
+      "choices": [
+        "4",
+        "2",
+        "1",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "flatMap()はネストされたStreamを平坦化します。[[1,2],[3,4]]が[1,2,3,4]になり、count()で4を返します。"
+    },
+    {
+      "number": 43,
+      "title": "Collectors.groupingBy",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nList<String> words = Arrays.asList(\"aa\", \"bb\", \"ccc\");\nMap<Integer, List<String>> grouped = words.stream()\n    .collect(Collectors.groupingBy(String::length));\nSystem.out.println(grouped.get(2).size());",
+      "choices": [
+        "2",
+        "1",
+        "3",
+        "NullPointerException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "groupingBy(String::length)は文字列の長さでグループ化します。長さ2の文字列は\"aa\"と\"bb\"の2つです。"
+    },
+    {
+      "number": 44,
+      "title": "Collectors.joining",
+      "code": "import java.util.*;\nimport java.util.stream.*;\nString result = Stream.of(\"Java\", \"Python\", \"C++\")\n    .collect(Collectors.joining(\", \", \"[\", \"]\"));\nSystem.out.println(result);",
+      "choices": [
+        "[Java, Python, C++]",
+        "Java, Python, C++",
+        "[JavaPythonC++]",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "joining(\", \", \"[\", \"]\")は要素を\", \"で結合し、前後に\"[\"と\"]\"を追加します。"
+    },
+    {
+      "number": 45,
+      "title": "モジュールの宣言",
+      "code": "module com.example.myapp {\n    requires java.sql;\n    exports com.example.api;\n}",
+      "choices": [
+        "正常なモジュール宣言",
+        "コンパイルエラー（requiresの構文が不正）",
+        "コンパイルエラー（exportsの構文が不正）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "これは正常なmodule-info.javaの記述です。requiresで依存モジュールを宣言し、exportsで公開パッケージを宣言します。"
+    },
+    {
+      "number": 46,
+      "title": "transitive依存",
+      "code": "module com.example.app {\n    requires transitive java.logging;\n}",
+      "choices": [
+        "正常（transitiveは推移的依存を示す）",
+        "コンパイルエラー（transitiveキーワードは不正）",
+        "実行時エラー",
+        "警告のみ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "requires transitiveは、このモジュールに依存するモジュールも自動的にjava.loggingに依存することを意味します（推移的依存）。"
+    },
+    {
+      "number": 47,
+      "title": "サービスの提供",
+      "code": "module com.example.provider {\n    provides com.example.Service with com.example.ServiceImpl;\n}",
+      "choices": [
+        "正常（サービスプロバイダーの宣言）",
+        "コンパイルエラー（providesの構文が不正）",
+        "コンパイルエラー（withキーワードは不正）",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "provides...withはサービスプロバイダーパターンを実装します。ServiceインターフェースをServiceImpl実装で提供することを宣言します。"
+    },
+    {
+      "number": 48,
+      "title": "サービスの使用",
+      "code": "module com.example.consumer {\n    uses com.example.Service;\n}",
+      "choices": [
+        "正常（サービスコンシューマーの宣言）",
+        "コンパイルエラー（usesキーワードは不正）",
+        "実行時エラー",
+        "警告のみ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "usesはサービスを使用することを宣言します。ServiceLoader APIを使用してサービス実装を取得できます。"
+    },
+    {
+      "number": 49,
+      "title": "カプセル化の破壊：リスト参照の返却",
+      "code": "class Data {\n    private List<String> items = new ArrayList<>();\n    public List<String> getItems() { return items; }\n}\nData d = new Data();\nd.getItems().add(\"Hack\");\nSystem.out.println(d.getItems().size());",
+      "choices": [
+        "1（カプセル化が破られている）",
+        "0",
+        "コンパイルエラー",
+        "UnsupportedOperationException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "privateフィールドの参照を直接返すと、外部から変更可能になります。Collections.unmodifiableList()やコピーを返すべきです。"
+    },
+    {
+      "number": 50,
+      "title": "equalsとhashCodeの契約",
+      "code": "class Point {\n    int x, y;\n    Point(int x, int y) { this.x = x; this.y = y; }\n    @Override\n    public boolean equals(Object o) {\n        Point p = (Point) o;\n        return x == p.x && y == p.y;\n    }\n}\nSet<Point> set = new HashSet<>();\nset.add(new Point(1, 2));\nset.add(new Point(1, 2));\nSystem.out.println(set.size());",
+      "choices": [
+        "2（hashCodeがオーバーライドされていない）",
+        "1",
+        "0",
+        "ClassCastException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "equalsをオーバーライドしたらhashCodeもオーバーライドする必要があります。そうしないとHashSetは正しく機能せず、同じ値のオブジェクトが複数追加されます。"
+    },
+    {
+      "number": 51,
+      "title": "Comparable vs Comparator",
+      "code": "class Person implements Comparable<Person> {\n    String name;\n    int age;\n    Person(String n, int a) { name = n; age = a; }\n    public int compareTo(Person p) { return this.age - p.age; }\n}\nList<Person> list = Arrays.asList(\n    new Person(\"Alice\", 30),\n    new Person(\"Bob\", 25)\n);\nCollections.sort(list);\nSystem.out.println(list.get(0).name);",
+      "choices": [
+        "Bob",
+        "Alice",
+        "コンパイルエラー",
+        "ClassCastException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ComparableインターフェースのcompareToは自然順序を定義します。年齢で比較しているため、25歳のBobが最初になります。"
+    },
+    {
+      "number": 52,
+      "title": "ComparatorのreversedとthenComparing",
+      "code": "import java.util.*;\nComparator<String> comp = Comparator.comparing(String::length)\n    .reversed()\n    .thenComparing(Comparator.naturalOrder());\nList<String> list = Arrays.asList(\"aa\", \"b\", \"ccc\", \"bb\");\nlist.sort(comp);\nSystem.out.println(list);",
+      "choices": [
+        "[ccc, aa, bb, b]",
+        "[b, aa, bb, ccc]",
+        "[b, bb, aa, ccc]",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "まず長さで降順（reversed）、同じ長さなら辞書順（naturalOrder）でソートします。長さ3（ccc）、長さ2（aa, bb）、長さ1（b）の順です。"
+    },
+    {
+      "number": 53,
+      "title": "StringBuilder vs StringBuffer",
+      "code": "StringBuffer sb = new StringBuffer(\"Hello\");\nsb.append(\" World\");\nSystem.out.println(sb.capacity() >= sb.length());",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "StringBufferとStringBuilderはともに可変文字列を扱います。capacityは常にlength以上になるよう自動拡張されます。"
+    },
+    {
+      "number": 54,
+      "title": "String.split()の挙動",
+      "code": "String s = \"a,b,c,\";\nString[] arr = s.split(\",\");\nSystem.out.println(arr.length);",
+      "choices": [
+        "3",
+        "4",
+        "2",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "split()は末尾の空文字列を無視します。\"a,b,c,\"は[\"a\", \"b\", \"c\"]の3要素に分割されます。split(\",\", -1)とすると末尾の空文字列も含まれます。"
+    },
+    {
+      "number": 55,
+      "title": "AutoBoxingと演算子オーバーロード",
+      "code": "Integer a = 10;\nInteger b = 20;\nInteger c = a + b;\nSystem.out.println(c);",
+      "choices": [
+        "30",
+        "1020",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "a+bの計算時、IntegerがintにアンボクシングされてInt演算が行われ、結果30がオートボクシングされてIntegerになります。"
+    },
+    {
+      "number": 56,
+      "title": "static nested classとinner class",
+      "code": "class Outer {\n    static class StaticNested {\n        void test() { System.out.print(\"SN\"); }\n    }\n}\nnew Outer.StaticNested().test();",
+      "choices": [
+        "SN",
+        "コンパイルエラー（Outerのインスタンスが必要）",
+        "実行時エラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "staticネストクラスは外部クラスのインスタンスなしでインスタンス化できます。Outer.StaticNested()で直接作成できます。"
+    },
+    {
+      "number": 57,
+      "title": "非static内部クラス",
+      "code": "class Outer {\n    class Inner {\n        void test() { System.out.print(\"IN\"); }\n    }\n}\nnew Outer.Inner().test();",
+      "choices": [
+        "コンパイルエラー（Outerのインスタンスが必要）",
+        "IN",
+        "実行時エラー",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "非staticな内部クラスは外部クラスのインスタンスと関連付けられます。new Outer().new Inner()のように作成する必要があります。"
+    },
+    {
+      "number": 58,
+      "title": "匿名クラスとfinal変数",
+      "code": "int x = 10;\nRunnable r = new Runnable() {\n    public void run() {\n        System.out.println(x);\n    }\n};\nx = 20;\nr.run();",
+      "choices": [
+        "コンパイルエラー（xは実質的finalでない）",
+        "10",
+        "20",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "匿名クラスやラムダ式で使用されるローカル変数は実質的final（再代入されない）である必要があります。x=20の行でコンパイルエラーになります。"
+    },
+    {
+      "number": 59,
+      "title": "メソッド参照の種類",
+      "code": "import java.util.function.*;\nBiFunction<String, String, Boolean> func = String::equals;\nSystem.out.println(func.apply(\"Java\", \"Java\"));",
+      "choices": [
+        "true",
+        "false",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "String::equalsはインスタンスメソッド参照です。最初の引数がレシーバー、2番目が引数になります。\"Java\".equals(\"Java\")と等価です。"
+    },
+    {
+      "number": 60,
+      "title": "Streamの遅延評価",
+      "code": "import java.util.stream.*;\nStream<Integer> stream = Stream.of(1, 2, 3, 4, 5)\n    .filter(x -> {\n        System.out.print(x);\n        return x > 2;\n    });\nSystem.out.print(\"|\");",
+      "choices": [
+        "|（何も評価されない）",
+        "12345|",
+        "345|",
+        "|12345"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Streamの中間操作（filter）は遅延評価されます。終端操作（forEach, collectなど）が呼ばれるまで実行されません。"
+    },
+    {
+      "number": 61,
+      "title": "try-catchのリソースリーク",
+      "code": "import java.io.*;\nFileInputStream fis = null;\ntry {\n    fis = new FileInputStream(\"test.txt\");\n    System.out.print(fis.read());\n} catch (IOException e) {\n    System.out.print(\"Error\");\n}",
+      "choices": [
+        "リソースリークの可能性（finallyでcloseすべき）",
+        "正常に動作",
+        "コンパイルエラー",
+        "必ず例外が発生"
+      ],
+      "correctAnswer": 0,
+      "explanation": "try-catchだけではリソースは自動的にクローズされません。finallyブロックでclose()を呼ぶか、try-with-resourcesを使うべきです。"
+    },
+    {
+      "number": 62,
+      "title": "チェック例外のオーバーライド制限",
+      "code": "import java.io.*;\nclass Parent {\n    void method() { }\n}\nclass Child extends Parent {\n    @Override\n    void method() throws IOException { }\n}",
+      "choices": [
+        "コンパイルエラー（親メソッドが例外を宣言していない）",
+        "正常にコンパイルされる",
+        "実行時エラー",
+        "警告のみ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "オーバーライドするメソッドは、親メソッドが宣言していないチェック例外を追加できません。親が例外を宣言していないので、子も宣言できません。"
+    },
+    {
+      "number": 63,
+      "title": "finallyとreturnの相互作用",
+      "code": "static int test() {\n    int x = 0;\n    try {\n        x = 1;\n        return x;\n    } finally {\n        x = 2;\n    }\n}\nSystem.out.println(test());",
+      "choices": [
+        "1",
+        "2",
+        "0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "returnの値は、finallyブロック実行前に決定されます。x=1の値が返却値として保存され、finallyでx=2に変更されても、返却値は1のままです。"
+    },
+    {
+      "number": 64,
+      "title": "マップのputIfAbsent",
+      "code": "import java.util.*;\nMap<String, Integer> map = new HashMap<>();\nmap.put(\"A\", 1);\nmap.putIfAbsent(\"A\", 2);\nmap.putIfAbsent(\"B\", 3);\nSystem.out.println(map.get(\"A\") + \",\" + map.get(\"B\"));",
+      "choices": [
+        "1,3",
+        "2,3",
+        "1,null",
+        "2,null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "putIfAbsent()はキーが存在しない場合のみ値を追加します。\"A\"は既に存在するため2は追加されず、\"B\"は新規なので3が追加されます。"
+    },
+    {
+      "number": 65,
+      "title": "リストのsubListビュー",
+      "code": "import java.util.*;\nList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));\nList<Integer> sub = list.subList(1, 4);\nsub.set(0, 99);\nSystem.out.println(list);",
+      "choices": [
+        "[1, 99, 3, 4, 5]",
+        "[1, 2, 3, 4, 5]",
+        "[1, 99, 99, 99, 5]",
+        "UnsupportedOperationException"
+      ],
+      "correctAnswer": 0,
+      "explanation": "subList()は元のリストのビューを返します。subリストへの変更は元のリストにも反映されます。sub.set(0, 99)はlist.set(1, 99)と同じ効果です。"
+    },
+    {
+      "number": 66,
+      "title": "Setの順序保証",
+      "code": "import java.util.*;\nSet<Integer> set = new HashSet<>();\nset.add(3); set.add(1); set.add(2);\nSystem.out.println(set);",
+      "choices": [
+        "順序は保証されない（実行ごとに異なる可能性）",
+        "必ず[1, 2, 3]",
+        "必ず[3, 1, 2]",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "HashSetは要素の順序を保証しません。挿入順が必要ならLinkedHashSet、ソート順が必要ならTreeSetを使用します。"
+    },
+    {
+      "number": 67,
+      "title": "Arrays.sortとComparable",
+      "code": "class Item {\n    int value;\n    Item(int v) { value = v; }\n}\nItem[] arr = {new Item(3), new Item(1), new Item(2)};\nArrays.sort(arr);\nSystem.out.println(arr[0].value);",
+      "choices": [
+        "ClassCastException",
+        "1",
+        "3",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arrays.sort()でソートするには、要素がComparableを実装しているか、Comparatorを提供する必要があります。ItemはComparableでないため実行時エラーです。"
+    },
+    {
+      "number": 68,
+      "title": "Enumのコンストラクタとメソッド",
+      "code": "enum Day {\n    MONDAY(1), TUESDAY(2);\n    private int value;\n    Day(int v) { value = v; }\n    public int getValue() { return value; }\n}\nSystem.out.println(Day.MONDAY.getValue());",
+      "choices": [
+        "1",
+        "MONDAY",
+        "コンパイルエラー",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Enumはコンストラクタとメソッドを持つことができます。MONDAY(1)でコンストラクタが呼ばれ、getValue()で1が返されます。"
+    },
+    {
+      "number": 69,
+      "title": "Enum.values()とordinal()",
+      "code": "enum Color { RED, GREEN, BLUE; }\nSystem.out.print(Color.values().length + \",\");\nSystem.out.print(Color.BLUE.ordinal());",
+      "choices": [
+        "3,2",
+        "3,3",
+        "2,2",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "values()は全てのenum定数の配列を返します（長さ3）。ordinal()は定数の順序（0から始まる）を返します。BLUEは2番目なので2です。"
+    },
+    {
+      "number": 70,
+      "title": "switch文とenum（全ケース網羅）",
+      "code": "enum Status { ACTIVE, INACTIVE }\nStatus s = Status.ACTIVE;\nint x;\nswitch (s) {\n    case ACTIVE: x = 1; break;\n    case INACTIVE: x = 2; break;\n}\nSystem.out.println(x);",
+      "choices": [
+        "コンパイルエラー（xが初期化されていない可能性）",
+        "1",
+        "0",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "コンパイラはswitchで全enumケースをカバーしても、xが必ず初期化されることを保証しません。defaultケースを追加するか、switch前にxを初期化する必要があります。"
+    },
+    {
+      "number": 71,
+      "title": "ArrayListの初期容量",
+      "code": "import java.util.*;\nList<Integer> list = new ArrayList<>(5);\nSystem.out.println(list.size());",
+      "choices": [
+        "0",
+        "5",
+        "10",
+        "null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ArrayList(int initialCapacity)は初期容量を設定しますが、要素数（size）は0です。容量は内部配列のサイズであり、実際の要素数ではありません。"
+    },
+    {
+      "number": 72,
+      "title": "LinkedListのパフォーマンス特性",
+      "code": "import java.util.*;\nList<Integer> list = new LinkedList<>();\nfor (int i = 0; i < 1000; i++) {\n    list.add(0, i);  // 先頭に挿入\n}\nSystem.out.println(list.get(0));",
+      "choices": [
+        "999",
+        "0",
+        "500",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "LinkedListは先頭への挿入がO(1)で効率的です。最後に挿入された999が先頭（インデックス0）になります。"
+    },
+    {
+      "number": 73,
+      "title": "Mapのmerge操作",
+      "code": "import java.util.*;\nMap<String, Integer> map = new HashMap<>();\nmap.put(\"A\", 1);\nmap.merge(\"A\", 2, (old, val) -> old + val);\nmap.merge(\"B\", 3, (old, val) -> old + val);\nSystem.out.println(map.get(\"A\") + \",\" + map.get(\"B\"));",
+      "choices": [
+        "3,3",
+        "1,3",
+        "2,3",
+        "3,null"
+      ],
+      "correctAnswer": 0,
+      "explanation": "merge()はキーが存在する場合はremapping関数を適用、存在しない場合は値を追加します。\"A\":1+2=3、\"B\":3が新規追加されます。"
+    },
+    {
+      "number": 74,
+      "title": "Collections.unmodifiableListの挙動",
+      "code": "import java.util.*;\nList<Integer> original = new ArrayList<>(Arrays.asList(1, 2, 3));\nList<Integer> unmod = Collections.unmodifiableList(original);\noriginal.add(4);\nSystem.out.println(unmod.size());",
+      "choices": [
+        "4（元のリストの変更が反映される）",
+        "3",
+        "UnsupportedOperationException",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "unmodifiableList()は元のリストのビューを返します。unmod自体は変更不可ですが、元のリストを変更すると反映されます。"
+    },
+    {
+      "number": 75,
+      "title": "varと明示的型の違い",
+      "code": "var x = 10;\nvar y = 10L;\nvar z = 10.0;\nSystem.out.println(x + y + z);",
+      "choices": [
+        "30.0",
+        "30",
+        "101010.0",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "varは型推論します。xはint(10)、yはlong(10L)、zはdouble(10.0)と推論され、演算結果はdoubleの30.0になります。"
+    },
+    {
+      "number": 76,
+      "title": "LocalDateとPeriod",
+      "code": "import java.time.*;\nLocalDate date = LocalDate.of(2024, 1, 1);\nPeriod period = Period.ofMonths(2);\nLocalDate result = date.plus(period);\nSystem.out.println(result);",
+      "choices": [
+        "2024-03-01",
+        "2024-01-01",
+        "2024-02-01",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Period.ofMonths(2)は2ヶ月の期間を表します。2024-01-01に2ヶ月を足すと2024-03-01になります。"
+    },
+    {
+      "number": 77,
+      "title": "DateTimeFormatterのパターン",
+      "code": "import java.time.*;\nimport java.time.format.*;\nLocalDate date = LocalDate.of(2024, 3, 5);\nString formatted = date.format(DateTimeFormatter.ofPattern(\"yyyy/MM/dd\"));\nSystem.out.println(formatted);",
+      "choices": [
+        "2024/03/05",
+        "2024-03-05",
+        "05/03/2024",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "DateTimeFormatterのパターン\"yyyy/MM/dd\"に従ってフォーマットされます。yyyyは年4桁、MMは月2桁、ddは日2桁です。"
+    },
+    {
+      "number": 78,
+      "title": "ChronoUnitによる日付計算",
+      "code": "import java.time.*;\nimport java.time.temporal.*;\nLocalDate d1 = LocalDate.of(2024, 1, 1);\nLocalDate d2 = LocalDate.of(2024, 1, 8);\nlong days = ChronoUnit.DAYS.between(d1, d2);\nSystem.out.println(days);",
+      "choices": [
+        "7",
+        "8",
+        "6",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ChronoUnit.DAYS.between()は2つの日付間の日数を計算します。1月1日から1月8日まで7日間です。"
+    },
+    {
+      "number": 79,
+      "title": "ZonedDateTimeとタイムゾーン",
+      "code": "import java.time.*;\nZonedDateTime zdt = ZonedDateTime.of(\n    LocalDateTime.of(2024, 1, 1, 12, 0),\n    ZoneId.of(\"Asia/Tokyo\")\n);\nSystem.out.println(zdt.getZone());",
+      "choices": [
+        "Asia/Tokyo",
+        "JST",
+        "UTC+9",
+        "コンパイルエラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "getZone()はZonedDateTimeのタイムゾーンIDを返します。\"Asia/Tokyo\"がそのまま返されます。"
+    },
+    {
+      "number": 80,
+      "title": "Instant.now()の精度",
+      "code": "import java.time.*;\nInstant i1 = Instant.now();\nInstant i2 = Instant.now();\nSystem.out.println(i1.equals(i2));",
+      "choices": [
+        "通常false（ナノ秒精度のため）",
+        "必ずtrue",
+        "コンパイルエラー",
+        "実行時エラー"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Instant.now()はナノ秒精度のタイムスタンプを返します。2回の呼び出しの間にわずかな時間が経過するため、通常は異なる値になります。"
+    }
+  ]
+}

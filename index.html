@@ -239,15 +239,15 @@
       <p>Java SE 11 認定資格の学習を<br>効率的に進めるためのクイズ集</p>
       <div class="stats">
         <div class="stat-item">
-          <span class="stat-number">10</span>
-          <span class="stat-label">テーマ</span>
+          <span class="stat-number">13</span>
+          <span class="stat-label">クイズ種別</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">20</span>
+          <span class="stat-number">23</span>
           <span class="stat-label">クイズセット</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">200</span>
+          <span class="stat-number">380</span>
           <span class="stat-label">問題数</span>
         </div>
       </div>
@@ -256,14 +256,81 @@
     <div class="notice">
       <h2>使い方</h2>
       <ul>
-        <li>各テーマごとに Set A / Set B の2つのクイズがあります</li>
-        <li>各クイズは10問で構成されています</li>
-        <li>問題に答えると即座に正誤と解説が表示されます</li>
+        <li><strong>総合問題</strong>: レベル別の総合問題（初級40問・中級60問・本試験80問）で実力を試せます</li>
+        <li><strong>テーマ別</strong>: 各テーマごとに Set A / Set B の2つのクイズ（各10問）があります</li>
+        <li>初級・中級は即座に正誤と解説が表示される学習モード</li>
+        <li>本試験レベルは全問回答後に結果が表示される試験モード</li>
         <li>スマホ・タブレット・PCすべてに対応しています</li>
       </ul>
     </div>
 
-    <div class="themes-grid">
+    <!-- 総合問題セクション -->
+    <div style="margin-bottom: 48px;">
+      <h2 style="color: white; font-size: 28px; margin-bottom: 24px; text-align: center;">📝 総合問題</h2>
+      <div class="themes-grid">
+        <!-- 初級40問 -->
+        <div class="theme-card">
+          <div class="theme-header" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">
+            <div class="theme-number">Comprehensive - Beginner</div>
+            <h2 class="theme-title">総合問題（初級）</h2>
+          </div>
+          <div class="theme-body">
+            <div class="quiz-sets">
+              <a href="comprehensive_beginner_40q.html" class="quiz-link">
+                <div>
+                  <div class="quiz-label">初級レベル</div>
+                  <div class="quiz-info">40問・即時フィードバック</div>
+                </div>
+                <div class="quiz-arrow">→</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 中級60問 -->
+        <div class="theme-card">
+          <div class="theme-header" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+            <div class="theme-number">Comprehensive - Intermediate</div>
+            <h2 class="theme-title">総合問題（中級）</h2>
+          </div>
+          <div class="theme-body">
+            <div class="quiz-sets">
+              <a href="comprehensive_intermediate_60q.html" class="quiz-link">
+                <div>
+                  <div class="quiz-label">中級レベル</div>
+                  <div class="quiz-info">60問・即時フィードバック</div>
+                </div>
+                <div class="quiz-arrow">→</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 本試験80問 -->
+        <div class="theme-card">
+          <div class="theme-header" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+            <div class="theme-number">Comprehensive - Exam Level</div>
+            <h2 class="theme-title">総合問題（本試験レベル）</h2>
+          </div>
+          <div class="theme-body">
+            <div class="quiz-sets">
+              <a href="comprehensive_exam_80q.html" class="quiz-link">
+                <div>
+                  <div class="quiz-label">本試験レベル</div>
+                  <div class="quiz-info">80問・試験モード</div>
+                </div>
+                <div class="quiz-arrow">→</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- テーマ別問題セクション -->
+    <div>
+      <h2 style="color: white; font-size: 28px; margin-bottom: 24px; text-align: center;">📚 テーマ別問題</h2>
+      <div class="themes-grid">
       <!-- テーマ01 -->
       <div class="theme-card">
         <div class="theme-header">
@@ -524,10 +591,11 @@
         </div>
       </div>
     </div>
+    </div>
 
     <div class="footer">
       <p>JavaSilver SE11 認定資格 学習用クイズ</p>
-      <p>全10テーマ・200問で試験範囲を網羅</p>
+      <p>テーマ別200問 + 総合問題180問 = 合計380問</p>
     </div>
   </div>
 </body>

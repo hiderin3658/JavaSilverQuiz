@@ -1,0 +1,1859 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Java Silver SE11 総合問題（初級）</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column;">
+  <div class="header">
+    <h1>総合問題（初級）</h1>
+    <p class="subtitle">40問 - 即時フィードバック</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressText">問題 1 / 40</span>
+      <span class="score-badge" id="scoreBadge">正解: 0</span>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <!-- 問題1 -->
+    <div class="question-screen active" data-question="0" data-answer="0">
+      <div class="question-card">
+        <h3>問題 1: int型変数の宣言と初期化</h3>
+        <pre><code>int number = 50;
+System.out.println(number);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 0, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">50</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 0, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback0"></div>
+        <div class="explanation" id="explanation0">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">int型変数numberに50を代入し、そのまま出力しているため、50が表示されます。プリミティブ型のint変数は宣言時に初期化することができます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題2 -->
+    <div class="question-screen " data-question="1" data-answer="0">
+      <div class="question-card">
+        <h3>問題 2: boolean型のデフォルト値（インスタンス変数）</h3>
+        <pre><code>class Sample {
+    boolean flag;
+    void show() {
+        System.out.println(flag);
+    }
+}
+// new Sample().show(); を実行</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 1, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 1, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback1"></div>
+        <div class="explanation" id="explanation1">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">インスタンス変数（フィールド）のboolean型はデフォルトでfalseに初期化されます。ローカル変数とは異なり、フィールドは明示的に初期化しなくてもデフォルト値が設定されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題3 -->
+    <div class="question-screen " data-question="2" data-answer="0">
+      <div class="question-card">
+        <h3>問題 3: 文字列と数値の連結順序</h3>
+        <pre><code>System.out.println(1 + 2 + &quot;Java&quot;);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 2, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">3Java</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">12Java</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">Java12</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 2, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback2"></div>
+        <div class="explanation" id="explanation2">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">演算は左から順に評価されます。まず1+2が計算されて3になり、その後&quot;Java&quot;と連結されるため「3Java」が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題4 -->
+    <div class="question-screen " data-question="3" data-answer="0">
+      <div class="question-card">
+        <h3>問題 4: double型へのint代入</h3>
+        <pre><code>double d = 10;
+System.out.println(d);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 3, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">10.0</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 3, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback3"></div>
+        <div class="explanation" id="explanation3">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">int型からdouble型への代入は暗黙の型変換（拡大変換）が行われます。intの10がdoubleに変換され、10.0として格納・表示されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題5 -->
+    <div class="question-screen " data-question="4" data-answer="0">
+      <div class="question-card">
+        <h3>問題 5: 剰余演算子の結果</h3>
+        <pre><code>int result = 17 % 5;
+System.out.println(result);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 4, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 4, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">17</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback4"></div>
+        <div class="explanation" id="explanation4">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">剰余演算子（%）は割り算の余りを返します。17÷5は商が3、余りが2となるため、17%5の結果は2です。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題6 -->
+    <div class="question-screen " data-question="5" data-answer="0">
+      <div class="question-card">
+        <h3>問題 6: byte型の範囲</h3>
+        <pre><code>byte b = 127;
+System.out.println(b);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 5, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">127</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 5, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">-128</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback5"></div>
+        <div class="explanation" id="explanation5">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">byte型の範囲は-128から127です。127はbyte型の最大値であり、問題なく代入・出力できます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題7 -->
+    <div class="question-screen " data-question="6" data-answer="0">
+      <div class="question-card">
+        <h3>問題 7: if文の基本動作</h3>
+        <pre><code>int x = 5;
+if (x &gt; 3) {
+    System.out.println(&quot;A&quot;);
+} else {
+    System.out.println(&quot;B&quot;);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 6, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 6, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback6"></div>
+        <div class="explanation" id="explanation6">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">xは5で、5&gt;3はtrueなので、if文の条件が成立し「A」が出力されます。else節は実行されません。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題8 -->
+    <div class="question-screen " data-question="7" data-answer="1">
+      <div class="question-card">
+        <h3>問題 8: forループのカウント</h3>
+        <pre><code>int count = 0;
+for (int i = 1; i &lt;= 5; i++) {
+    count++;
+}
+System.out.println(count);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 7, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">6</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 7, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback7"></div>
+        <div class="explanation" id="explanation7">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">forループはi=1から始まり、i&lt;=5の間繰り返されます。i=1,2,3,4,5の5回ループし、countは5になります。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題9 -->
+    <div class="question-screen " data-question="8" data-answer="0">
+      <div class="question-card">
+        <h3>問題 9: while文の終了条件</h3>
+        <pre><code>int n = 10;
+while (n &gt; 5) {
+    n--;
+}
+System.out.println(n);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 8, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">6</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 8, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback8"></div>
+        <div class="explanation" id="explanation8">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">n&gt;5の間ループが続きます。n=10,9,8,7,6とデクリメントされ、n=5になった時点で条件が偽になりループを抜けます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題10 -->
+    <div class="question-screen " data-question="9" data-answer="0">
+      <div class="question-card">
+        <h3>問題 10: switch文の基本マッチング</h3>
+        <pre><code>int day = 3;
+String result;
+switch (day) {
+    case 1: result = &quot;月&quot;; break;
+    case 2: result = &quot;火&quot;; break;
+    case 3: result = &quot;水&quot;; break;
+    default: result = &quot;他&quot;;
+}
+System.out.println(result);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 9, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">水</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">火</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">月</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 9, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">他</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback9"></div>
+        <div class="explanation" id="explanation9">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">dayが3なので、case 3:にマッチし、resultに&quot;水&quot;が代入されます。breakがあるためそこで処理が終了します。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題11 -->
+    <div class="question-screen " data-question="10" data-answer="0">
+      <div class="question-card">
+        <h3>問題 11: do-while文の特徴</h3>
+        <pre><code>int x = 100;
+do {
+    System.out.print(x);
+    x++;
+} while (x &lt; 100);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 10, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">100</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 10, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 10, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">101</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 10, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">無限ループ</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback10"></div>
+        <div class="explanation" id="explanation10">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">do-while文は条件判定がループの後にあるため、最低1回は必ず実行されます。x=100で本体が実行され「100」が出力された後、x&lt;100が偽なのでループを抜けます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題12 -->
+    <div class="question-screen " data-question="11" data-answer="0">
+      <div class="question-card">
+        <h3>問題 12: 配列の宣言と要素数</h3>
+        <pre><code>int[] arr = new int[3];
+System.out.println(arr.length);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 11, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 11, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 11, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 11, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback11"></div>
+        <div class="explanation" id="explanation11">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">new int[3]で要素数3の配列を作成しています。lengthフィールドは配列の長さを返すため、3が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題13 -->
+    <div class="question-screen " data-question="12" data-answer="1">
+      <div class="question-card">
+        <h3>問題 13: 配列の初期化子</h3>
+        <pre><code>int[] nums = {10, 20, 30};
+System.out.println(nums[1]);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 12, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 12, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">20</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 12, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">30</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 12, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback12"></div>
+        <div class="explanation" id="explanation12">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">配列のインデックスは0から始まります。nums[0]=10、nums[1]=20、nums[2]=30なので、nums[1]は20です。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題14 -->
+    <div class="question-screen " data-question="13" data-answer="3">
+      <div class="question-card">
+        <h3>問題 14: 配列の最後の要素アクセス</h3>
+        <pre><code>String[] names = {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;};
+System.out.println(names[names.length - 1]);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 13, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 13, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 13, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">C</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 13, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">D</div>
+            <div class="result-icon">✓</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback13"></div>
+        <div class="explanation" id="explanation13">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">配列の最後の要素にアクセスするには、length-1を使います。lengthは4なので、names[3]は&quot;D&quot;です。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題15 -->
+    <div class="question-screen " data-question="14" data-answer="2">
+      <div class="question-card">
+        <h3>問題 15: 二次元配列の要素取得</h3>
+        <pre><code>int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};
+System.out.println(matrix[1][0]);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 14, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 14, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">2</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 14, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 14, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback14"></div>
+        <div class="explanation" id="explanation14">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">matrix[1]は2番目の行{3, 4}を指し、その[0]は最初の要素3です。二次元配列は[行][列]でアクセスします。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題16 -->
+    <div class="question-screen " data-question="15" data-answer="0">
+      <div class="question-card">
+        <h3>問題 16: メソッドの戻り値</h3>
+        <pre><code>static int add(int a, int b) {
+    return a + b;
+}
+// 呼び出し: System.out.println(add(3, 7));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 15, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 15, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">37</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 15, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 15, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback15"></div>
+        <div class="explanation" id="explanation15">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">add(3, 7)は引数3と7を受け取り、a+bの結果10を返します。returnで返された値が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題17 -->
+    <div class="question-screen " data-question="16" data-answer="0">
+      <div class="question-card">
+        <h3>問題 17: voidメソッドのreturn</h3>
+        <pre><code>static void greet() {
+    System.out.print(&quot;Hello&quot;);
+    return;
+    // System.out.print(&quot;World&quot;);
+}
+// greet()を呼び出し</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 16, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">Hello</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 16, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">HelloWorld</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 16, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 16, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback16"></div>
+        <div class="explanation" id="explanation16">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">voidメソッドでもreturn;を使ってメソッドを終了できます。&quot;Hello&quot;が出力された後にreturnでメソッドが終了します。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題18 -->
+    <div class="question-screen " data-question="17" data-answer="0">
+      <div class="question-card">
+        <h3>問題 18: メソッドの引数の値渡し</h3>
+        <pre><code>static void change(int x) {
+    x = 100;
+}
+public static void main(String[] args) {
+    int num = 5;
+    change(num);
+    System.out.println(num);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 17, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 17, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">100</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 17, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 17, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback17"></div>
+        <div class="explanation" id="explanation17">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">Javaのプリミティブ型は値渡しです。changeメソッド内でxを変更しても、呼び出し元のnumには影響しません。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題19 -->
+    <div class="question-screen " data-question="18" data-answer="0">
+      <div class="question-card">
+        <h3>問題 19: staticメソッドの呼び出し</h3>
+        <pre><code>class Util {
+    static int square(int n) {
+        return n * n;
+    }
+}
+// Util.square(4)の結果は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 18, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">16</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 18, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">8</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 18, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 18, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback18"></div>
+        <div class="explanation" id="explanation18">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">staticメソッドはクラス名.メソッド名()で呼び出せます。square(4)は4*4=16を返します。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題20 -->
+    <div class="question-screen " data-question="19" data-answer="3">
+      <div class="question-card">
+        <h3>問題 20: ローカル変数のスコープ</h3>
+        <pre><code>void test() {
+    if (true) {
+        int x = 10;
+    }
+    System.out.println(x);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 19, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 19, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 19, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 19, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback19"></div>
+        <div class="explanation" id="explanation19">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">変数xはif文のブロック内で宣言されているため、そのブロック外からはアクセスできません。コンパイルエラーになります。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題21 -->
+    <div class="question-screen " data-question="20" data-answer="0">
+      <div class="question-card">
+        <h3>問題 21: クラスとオブジェクトの生成</h3>
+        <pre><code>class Dog {
+    String name = &quot;Pochi&quot;;
+}
+// Dog d = new Dog(); System.out.println(d.name);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 20, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">Pochi</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 20, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 20, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">Dog</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 20, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback20"></div>
+        <div class="explanation" id="explanation20">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">new Dog()でDogクラスのインスタンスを生成し、フィールドnameには&quot;Pochi&quot;が初期化されています。d.nameで&quot;Pochi&quot;が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題22 -->
+    <div class="question-screen " data-question="21" data-answer="0">
+      <div class="question-card">
+        <h3>問題 22: デフォルトコンストラクタ</h3>
+        <pre><code>class Person {
+    String name;
+}
+// Person p = new Person(); を実行</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 21, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">正常に実行される</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 21, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 21, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">実行時エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 21, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">nameがnullにならない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback21"></div>
+        <div class="explanation" id="explanation21">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">クラスにコンストラクタを明示的に定義しない場合、引数なしのデフォルトコンストラクタが自動的に提供されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題23 -->
+    <div class="question-screen " data-question="22" data-answer="0">
+      <div class="question-card">
+        <h3>問題 23: thisキーワードの使用</h3>
+        <pre><code>class Counter {
+    int count;
+    Counter(int count) {
+        this.count = count;
+    }
+}
+// new Counter(5).count の値は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 22, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 22, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 22, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 22, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback22"></div>
+        <div class="explanation" id="explanation22">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">thisキーワードはインスタンス自身を指します。this.countはフィールドを、countは引数を指し、フィールドに5が代入されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題24 -->
+    <div class="question-screen " data-question="23" data-answer="3">
+      <div class="question-card">
+        <h3>問題 24: インスタンスメソッドの呼び出し</h3>
+        <pre><code>class Calc {
+    int value = 10;
+    int double() {
+        return value * 2;
+    }
+}
+// new Calc().double()の結果は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 23, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">20</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 23, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">10</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 23, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 23, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback23"></div>
+        <div class="explanation" id="explanation23">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">doubleはJavaの予約語（double型）です。メソッド名に予約語は使用できないため、コンパイルエラーになります。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題25 -->
+    <div class="question-screen " data-question="24" data-answer="0">
+      <div class="question-card">
+        <h3>問題 25: nullの参照</h3>
+        <pre><code>String s = null;
+System.out.println(s);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 24, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 24, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">空文字</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 24, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 24, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">NullPointerException</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback24"></div>
+        <div class="explanation" id="explanation24">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">System.out.println(null)は&quot;null&quot;という文字列を出力します。nullの参照をprintlnに渡すこと自体は例外を発生させません。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題26 -->
+    <div class="question-screen " data-question="25" data-answer="0">
+      <div class="question-card">
+        <h3>問題 26: getterメソッドの基本</h3>
+        <pre><code>class Item {
+    private int price = 100;
+    int getPrice() {
+        return price;
+    }
+}
+// new Item().getPrice()の結果は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 25, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">100</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 25, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 25, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 25, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback25"></div>
+        <div class="explanation" id="explanation25">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">priceフィールドはprivateですが、getPrice()メソッドを通じて値を取得できます。これがカプセル化の基本パターンです。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題27 -->
+    <div class="question-screen " data-question="26" data-answer="0">
+      <div class="question-card">
+        <h3>問題 27: extendsによる継承</h3>
+        <pre><code>class Animal {
+    void eat() { System.out.print(&quot;eating&quot;); }
+}
+class Cat extends Animal { }
+// new Cat().eat() の出力は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 26, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">eating</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 26, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 26, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 26, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback26"></div>
+        <div class="explanation" id="explanation26">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">CatクラスはAnimalクラスを継承しているため、親クラスのeat()メソッドを使用できます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題28 -->
+    <div class="question-screen " data-question="27" data-answer="0">
+      <div class="question-card">
+        <h3>問題 28: メソッドのオーバーライド</h3>
+        <pre><code>class Parent {
+    void show() { System.out.print(&quot;P&quot;); }
+}
+class Child extends Parent {
+    void show() { System.out.print(&quot;C&quot;); }
+}
+// Parent obj = new Child(); obj.show();</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 27, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">C</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 27, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">P</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 27, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">PC</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 27, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback27"></div>
+        <div class="explanation" id="explanation27">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">メソッドのオーバーライドでは、実行時のオブジェクトの型（Child）に基づいてメソッドが呼び出されます。これがポリモーフィズムです。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題29 -->
+    <div class="question-screen " data-question="28" data-answer="0">
+      <div class="question-card">
+        <h3>問題 29: superによる親コンストラクタ呼び出し</h3>
+        <pre><code>class A {
+    A() { System.out.print(&quot;A&quot;); }
+}
+class B extends A {
+    B() { System.out.print(&quot;B&quot;); }
+}
+// new B() の出力は？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 28, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 28, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">BA</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 28, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 28, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback28"></div>
+        <div class="explanation" id="explanation28">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">子クラスのコンストラクタでは、最初に親クラスのコンストラクタが呼ばれます（暗黙のsuper()）。よってA→Bの順で出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題30 -->
+    <div class="question-screen " data-question="29" data-answer="0">
+      <div class="question-card">
+        <h3>問題 30: instanceof演算子</h3>
+        <pre><code>Object obj = &quot;Hello&quot;;
+System.out.println(obj instanceof String);</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 29, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 29, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 29, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 29, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">実行時エラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback29"></div>
+        <div class="explanation" id="explanation29">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">instanceof演算子は、オブジェクトが指定した型のインスタンスかどうかを判定します。&quot;Hello&quot;はStringなのでtrueです。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題31 -->
+    <div class="question-screen " data-question="30" data-answer="0">
+      <div class="question-card">
+        <h3>問題 31: try-catchの基本</h3>
+        <pre><code>try {
+    int x = 10 / 2;
+    System.out.print(&quot;A&quot;);
+} catch (Exception e) {
+    System.out.print(&quot;B&quot;);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 30, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 30, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 30, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 30, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback30"></div>
+        <div class="explanation" id="explanation30">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">10/2は正常に計算できるため例外は発生しません。try節が実行され&quot;A&quot;が出力され、catch節はスキップされます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題32 -->
+    <div class="question-screen " data-question="31" data-answer="0">
+      <div class="question-card">
+        <h3>問題 32: ArithmeticExceptionの発生</h3>
+        <pre><code>try {
+    int result = 10 / 0;
+    System.out.print(&quot;A&quot;);
+} catch (ArithmeticException e) {
+    System.out.print(&quot;B&quot;);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 31, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 31, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 31, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">AB</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 31, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も出力されない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback31"></div>
+        <div class="explanation" id="explanation31">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">整数の0除算はArithmeticExceptionを発生させます。例外が発生した時点でcatch節に移り、&quot;B&quot;が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題33 -->
+    <div class="question-screen " data-question="32" data-answer="0">
+      <div class="question-card">
+        <h3>問題 33: finallyブロックの実行</h3>
+        <pre><code>try {
+    System.out.print(&quot;1&quot;);
+} catch (Exception e) {
+    System.out.print(&quot;2&quot;);
+} finally {
+    System.out.print(&quot;3&quot;);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 32, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">13</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 32, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">123</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 32, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">1</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 32, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">3</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback32"></div>
+        <div class="explanation" id="explanation32">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">try節で例外は発生しないためcatch節はスキップされますが、finally節は例外の有無に関わらず必ず実行されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題34 -->
+    <div class="question-screen " data-question="33" data-answer="0">
+      <div class="question-card">
+        <h3>問題 34: NullPointerExceptionの発生条件</h3>
+        <pre><code>String s = null;
+try {
+    System.out.println(s.length());
+} catch (NullPointerException e) {
+    System.out.println(&quot;NPE&quot;);
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 33, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">NPE</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 33, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 33, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 33, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback33"></div>
+        <div class="explanation" id="explanation33">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">nullの参照に対してメソッドを呼び出すとNullPointerExceptionが発生します。catch節で捕捉され&quot;NPE&quot;が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題35 -->
+    <div class="question-screen " data-question="34" data-answer="0">
+      <div class="question-card">
+        <h3>問題 35: publicアクセス修飾子</h3>
+        <pre><code>// package p1;
+public class Sample {
+    public int value = 10;
+}
+// 別パッケージから new Sample().value にアクセス可能か？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 34, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">アクセス可能</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 34, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">アクセス不可</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 34, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">同一パッケージのみ可能</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 34, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback34"></div>
+        <div class="explanation" id="explanation34">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">publicアクセス修飾子が付いたメンバーは、どのパッケージからでもアクセス可能です。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題36 -->
+    <div class="question-screen " data-question="35" data-answer="0">
+      <div class="question-card">
+        <h3>問題 36: privateフィールドへのアクセス</h3>
+        <pre><code>class Box {
+    private int size = 5;
+}
+class Main {
+    void test() {
+        Box b = new Box();
+        System.out.println(b.size);
+    }
+}</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 35, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 35, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 35, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">0</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 35, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback35"></div>
+        <div class="explanation" id="explanation35">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">privateフィールドは宣言されたクラス内からのみアクセス可能です。Mainクラスからはアクセスできずコンパイルエラーになります。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題37 -->
+    <div class="question-screen " data-question="36" data-answer="0">
+      <div class="question-card">
+        <h3>問題 37: import文の役割</h3>
+        <pre><code>import java.util.ArrayList;
+// ArrayListをインポートすると？</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 36, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">ArrayList を短い名前で使える</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 36, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">ArrayList が自動的にインスタンス化される</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 36, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">ArrayList のメソッドがすべてstaticになる</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 36, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">何も変わらない</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback36"></div>
+        <div class="explanation" id="explanation36">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">import文を使うと、完全修飾名（java.util.ArrayList）の代わりに短い名前（ArrayList）でクラスを参照できるようになります。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題38 -->
+    <div class="question-screen " data-question="37" data-answer="0">
+      <div class="question-card">
+        <h3>問題 38: Stringのequalsメソッド</h3>
+        <pre><code>String a = &quot;Java&quot;;
+String b = new String(&quot;Java&quot;);
+System.out.println(a.equals(b));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 37, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">true</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 37, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">false</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 37, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 37, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">null</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback37"></div>
+        <div class="explanation" id="explanation37">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">equals()メソッドは文字列の内容を比較します。両方とも&quot;Java&quot;という同じ内容なのでtrueを返します。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題39 -->
+    <div class="question-screen " data-question="38" data-answer="0">
+      <div class="question-card">
+        <h3>問題 39: Stringのlengthメソッド</h3>
+        <pre><code>String text = &quot;Hello&quot;;
+System.out.println(text.length());</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 38, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">5</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 38, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">4</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 38, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">6</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 38, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">コンパイルエラー</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback38"></div>
+        <div class="explanation" id="explanation38">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">String.length()メソッドは文字列の文字数を返します。&quot;Hello&quot;は5文字なので5が出力されます。</div>
+        </div>
+      </div>
+    </div>
+    <!-- 問題40 -->
+    <div class="question-screen " data-question="39" data-answer="0">
+      <div class="question-card">
+        <h3>問題 40: StringのcharAtメソッド</h3>
+        <pre><code>String s = &quot;ABCDE&quot;;
+System.out.println(s.charAt(2));</code></pre>
+        <div class="choices">
+          <div class="choice" onclick="selectAnswer(this, 39, 0)">
+            <div class="choice-icon">A</div>
+            <div class="choice-label">C</div>
+            <div class="result-icon">✓</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 39, 1)">
+            <div class="choice-icon">B</div>
+            <div class="choice-label">B</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 39, 2)">
+            <div class="choice-icon">C</div>
+            <div class="choice-label">A</div>
+            <div class="result-icon">✗</div>
+          </div>
+          <div class="choice" onclick="selectAnswer(this, 39, 3)">
+            <div class="choice-icon">D</div>
+            <div class="choice-label">D</div>
+            <div class="result-icon">✗</div>
+          </div>
+        </div>
+        <div class="feedback-banner" id="feedback39"></div>
+        <div class="explanation" id="explanation39">
+          <div class="explanation-header">
+            <span>💡</span>
+            <span>解説</span>
+          </div>
+          <div class="explanation-content">charAt(index)は指定位置の文字を返します。インデックスは0から始まるため、charAt(2)は3番目の文字&#39;C&#39;を返します。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card">
+        <h2 class="result-title">結果</h2>
+        <div class="result-score">
+          <span class="score-large" id="finalScore">0</span>
+          <span class="score-total">/ 40</span>
+        </div>
+        <div class="result-percentage" id="resultPercentage">0%</div>
+        <div class="result-message" id="resultMessage"></div>
+        <div class="result-actions">
+          <button class="btn btn-review" onclick="reviewMistakes()">間違えた問題を復習</button>
+          <button class="btn btn-retry" onclick="location.reload()">もう一度挑戦</button>
+          <button class="btn btn-home" onclick="location.href='index.html'">トップページに戻る</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <button id="prevBtn" class="nav-btn" onclick="prevQuestion()" disabled>← 前へ</button>
+    <button id="nextBtn" class="nav-btn" onclick="nextQuestion()">次へ →</button>
+    <button id="submitBtn" class="nav-btn submit-btn" onclick="submitQuiz()" style="display:none;">解答を提出</button>
+  </div>
+
+  <script>
+    let currentQuestion = 0;
+    const totalQuestions = 40;
+    let score = 0;
+    const userAnswers = new Array(totalQuestions).fill(null);
+    const isExamMode = false;
+
+    function selectAnswer(element, questionIndex, answerIndex) {
+      const questionScreen = element.closest('.question-screen');
+      const choices = questionScreen.querySelectorAll('.choice');
+      const correctAnswer = parseInt(questionScreen.dataset.answer);
+
+      // 既に回答済みの場合は何もしない（試験モードでない場合）
+      if (!isExamMode && questionScreen.classList.contains('answered')) {
+        return;
+      }
+
+      // 選択状態をリセット
+      choices.forEach(c => c.classList.remove('selected', 'correct', 'incorrect'));
+
+      // 選択した選択肢をマーク
+      element.classList.add('selected');
+      userAnswers[questionIndex] = answerIndex;
+
+      // 試験モードでない場合は即座にフィードバックを表示
+      if (!isExamMode) {
+        questionScreen.classList.add('answered');
+        const isCorrect = answerIndex === correctAnswer;
+
+        if (isCorrect) {
+          element.classList.add('correct');
+          showFeedback(questionIndex, true);
+          if (!questionScreen.classList.contains('scored')) {
+            score++;
+            questionScreen.classList.add('scored');
+            updateScoreBadge();
+          }
+        } else {
+          element.classList.add('incorrect');
+          choices[correctAnswer].classList.add('correct');
+          showFeedback(questionIndex, false);
+        }
+
+        // 解説を表示
+        const explanation = document.getElementById(`explanation${questionIndex}`);
+        explanation.style.display = 'block';
+      }
+    }
+
+    function showFeedback(questionIndex, isCorrect) {
+      const feedbackDiv = document.getElementById(`feedback${questionIndex}`);
+      feedbackDiv.className = 'feedback-banner ' + (isCorrect ? 'correct' : 'incorrect');
+      feedbackDiv.textContent = isCorrect ? '✓ 正解です！' : '✗ 不正解です';
+      feedbackDiv.style.display = 'block';
+    }
+
+    function updateScoreBadge() {
+      document.getElementById('scoreBadge').textContent = `正解: ${score}`;
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < totalQuestions - 1) {
+        document.querySelectorAll('.question-screen')[currentQuestion].classList.remove('active');
+        currentQuestion++;
+        document.querySelectorAll('.question-screen')[currentQuestion].classList.add('active');
+        updateProgress();
+        updateNavigationButtons();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        document.querySelectorAll('.question-screen')[currentQuestion].classList.remove('active');
+        currentQuestion--;
+        document.querySelectorAll('.question-screen')[currentQuestion].classList.add('active');
+        updateProgress();
+        updateNavigationButtons();
+      }
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion + 1) / totalQuestions) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('progressText').textContent = `問題 ${currentQuestion + 1} / ${totalQuestions}`;
+    }
+
+    function updateNavigationButtons() {
+      document.getElementById('prevBtn').disabled = currentQuestion === 0;
+
+      if (isExamMode) {
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (currentQuestion === totalQuestions - 1) {
+          nextBtn.style.display = 'none';
+          submitBtn.style.display = 'block';
+        } else {
+          nextBtn.style.display = 'block';
+          submitBtn.style.display = 'none';
+        }
+      }
+    }
+
+    function submitQuiz() {
+      if (isExamMode) {
+        // すべての回答をチェック
+        document.querySelectorAll('.question-screen').forEach((screen, index) => {
+          const correctAnswer = parseInt(screen.dataset.answer);
+          const userAnswer = userAnswers[index];
+          const choices = screen.querySelectorAll('.choice');
+
+          if (userAnswer !== null) {
+            if (userAnswer === correctAnswer) {
+              choices[userAnswer].classList.add('correct');
+              score++;
+              showFeedback(index, true);
+            } else {
+              choices[userAnswer].classList.add('incorrect');
+              choices[correctAnswer].classList.add('correct');
+              showFeedback(index, false);
+            }
+
+            // 解説を表示
+            const explanation = document.getElementById(`explanation${index}`);
+            explanation.style.display = 'block';
+          }
+        });
+      }
+
+      showResults();
+    }
+
+    function showResults() {
+      const percentage = Math.round((score / totalQuestions) * 100);
+
+      document.getElementById('finalScore').textContent = score;
+      document.getElementById('resultPercentage').textContent = percentage + '%';
+
+      const messageDiv = document.getElementById('resultMessage');
+      if (percentage >= 80) {
+        messageDiv.textContent = '素晴らしい！よく理解されています！';
+        messageDiv.className = 'result-message excellent';
+      } else if (percentage >= 60) {
+        messageDiv.textContent = '良くできました！もう少し復習すると完璧です。';
+        messageDiv.className = 'result-message good';
+      } else {
+        messageDiv.textContent = '復習が必要です。間違えた問題を見直しましょう。';
+        messageDiv.className = 'result-message needs-work';
+      }
+
+      // 結果画面を表示
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('resultScreen').style.display = 'flex';
+      document.querySelector('.footer').style.display = 'none';
+    }
+
+    function reviewMistakes() {
+      document.getElementById('resultScreen').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+      document.querySelector('.footer').style.display = 'flex';
+
+      // 最初の間違えた問題を表示
+      const screens = document.querySelectorAll('.question-screen');
+      for (let i = 0; i < screens.length; i++) {
+        screens[i].classList.remove('active');
+        const correctAnswer = parseInt(screens[i].dataset.answer);
+        if (userAnswers[i] !== correctAnswer) {
+          currentQuestion = i;
+          screens[i].classList.add('active');
+          updateProgress();
+          updateNavigationButtons();
+          break;
+        }
+      }
+    }
+
+    // 初期化
+    updateNavigationButtons();
+
+    // Next/Prevキーボードショートカット
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextQuestion();
+      if (e.key === 'ArrowLeft') prevQuestion();
+    });
+  </script>
+</body>
+</html>
