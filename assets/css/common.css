@@ -309,7 +309,8 @@ pre code {
 
 /* フッター（ボタンを横並びに） */
 .footer {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 12px;
   background: white;
   padding: 16px;
