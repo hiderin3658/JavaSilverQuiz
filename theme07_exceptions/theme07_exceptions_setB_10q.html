@@ -56,9 +56,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            NullPointerException は null 参照のメンバーアクセス時に発生。
-          </div>
+          <div class="explanation-content">マルチキャッチの変数は暗黙に final。</div>
         </div>
       </div>
     </div>
@@ -102,9 +100,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            ArrayIndexOutOfBoundsException は配列の範囲外アクセス時に発生。
-          </div>
+          <div class="explanation-content">オーバーライドで throws を狭めるのは可。</div>
         </div>
       </div>
     </div>
@@ -142,9 +138,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            NumberFormatException は文字列を数値に変換失敗時に発生。
-          </div>
+          <div class="explanation-content">逆順でクローズ。</div>
         </div>
       </div>
     </div>
@@ -185,9 +179,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            IllegalArgumentException は不正な引数が渡された時にスローする。
-          </div>
+          <div class="explanation-content">IllegalArgumentException は RuntimeException のサブクラス。</div>
         </div>
       </div>
     </div>
@@ -225,9 +217,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            finally ブロック内で return すると try の return は無視される。
-          </div>
+          <div class="explanation-content">Exception のサブクラスはチェック例外（RuntimeException を除く）。</div>
         </div>
       </div>
     </div>
@@ -267,9 +257,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            try-with-resources の close() は finally より先に実行される。
-          </div>
+          <div class="explanation-content">finally でも例外は発生し得る。</div>
         </div>
       </div>
     </div>
@@ -309,9 +297,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            catch ブロックで例外を再スローする場合、throws 宣言が必要。
-          </div>
+          <div class="explanation-content">最初のcatch(Exception)で全ての例外が捕捉されるため、2番目のcatchは到達不能コードとなりコンパイルエラー。</div>
         </div>
       </div>
     </div>
@@ -350,9 +336,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            例外チェーンで元の例外を保持: new Exception(message, cause)。
-          </div>
+          <div class="explanation-content">チェック例外をスローするなら宣言か捕捉が必要。</div>
         </div>
       </div>
     </div>
@@ -391,9 +375,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            assert は条件が false の時 AssertionError をスロー（デフォルト無効）。
-          </div>
+          <div class="explanation-content">Error も捕捉できるが推奨されない。</div>
         </div>
       </div>
     </div>
@@ -434,9 +416,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            Error クラスは重大なエラーで通常キャッチしない（OutOfMemoryError 等）。
-          </div>
+          <div class="explanation-content">JVM 終了で finally は実行されない。</div>
         </div>
       </div>
     </div>

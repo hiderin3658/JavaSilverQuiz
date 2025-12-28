@@ -62,9 +62,7 @@ class B {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            * を使ったワイルドカードインポートは同一パッケージのみ。サブパッケージは含まない。
-          </div>
+          <div class="explanation-content">protected はサブクラス or 同一パッケージ。</div>
         </div>
       </div>
     </div>
@@ -104,9 +102,7 @@ Date d;</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            同名クラスを複数インポートする場合は完全修飾名を使う。
-          </div>
+          <div class="explanation-content">同一ソース内の宣言が優先。</div>
         </div>
       </div>
     </div>
@@ -145,9 +141,7 @@ valueOf(1);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            クラス内のクラス（内部クラス）には4つのアクセスレベルが使える。
-          </div>
+          <div class="explanation-content">同名で曖昧。</div>
         </div>
       </div>
     </div>
@@ -190,9 +184,7 @@ class B {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            protected メンバーは異なるパッケージのサブクラスからアクセス可能。
-          </div>
+          <div class="explanation-content">デフォルト（パッケージプライベート）は他パッケージから不可。</div>
         </div>
       </div>
     </div>
@@ -230,9 +222,7 @@ java.sql.Date d = new java.sql.Date(0);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            デフォルトアクセスのクラスは同じパッケージ内でのみ使える。
-          </div>
+          <div class="explanation-content">完全修飾で区別可能。</div>
         </div>
       </div>
     </div>
@@ -273,9 +263,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static import の名前衝突時は、ローカル宣言が優先される。
-          </div>
+          <div class="explanation-content">外部からインスタンス化不可。</div>
         </div>
       </div>
     </div>
@@ -312,9 +300,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            パッケージ名は慣習的に小文字。ドメインの逆順が推奨。
-          </div>
+          <div class="explanation-content">正しい。規模の大きいプロジェクトでは非推奨。</div>
         </div>
       </div>
     </div>
@@ -351,9 +337,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            import 文の順序は動作に影響しないが、可読性のため整理が推奨。
-          </div>
+          <div class="explanation-content">java.lang は自動でインポート。</div>
         </div>
       </div>
     </div>
@@ -397,9 +381,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            同じパッケージ内ではパッケージ private メンバーにアクセス可能。
-          </div>
+          <div class="explanation-content">ネストから外側の private にアクセス可。</div>
         </div>
       </div>
     </div>
@@ -436,9 +418,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            モジュール（Java 9 以降）でパッケージの公開範囲を制御可能。
-          </div>
+          <div class="explanation-content">1ファイル1つまで。</div>
         </div>
       </div>
     </div>

@@ -54,9 +54,7 @@ System.out.println(s[0]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            参照型配列の要素は自動的に null で初期化される。
-          </div>
+          <div class="explanation-content">参照型の初期値は null。</div>
         </div>
       </div>
     </div>
@@ -94,9 +92,7 @@ System.out.println(a.length());</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            配列の length はフィールド（メソッドではない）。() は不要。
-          </div>
+          <div class="explanation-content">length はフィールドで () は不可。</div>
         </div>
       </div>
     </div>
@@ -135,9 +131,7 @@ System.out.println(a.equals(b));</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            配列の equals はオーバーライドされていない。同一参照なので true。
-          </div>
+          <div class="explanation-content">同一参照のため true。</div>
         </div>
       </div>
     </div>
@@ -177,9 +171,7 @@ System.out.println(dst[2]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            dst=src は参照の上書き。new した配列は捨てられ dst は src を参照。
-          </div>
+          <div class="explanation-content">dst=src で同じ配列を参照。</div>
         </div>
       </div>
     </div>
@@ -217,9 +209,7 @@ System.out.println(m[1][2]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            二次元配列も new で自動初期化。int 要素は 0。
-          </div>
+          <div class="explanation-content">プリミティブ要素は 0。</div>
         </div>
       </div>
     </div>
@@ -257,9 +247,7 @@ System.out.println(a.length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            長さ 0 の配列は合法。length は 0。
-          </div>
+          <div class="explanation-content">作成可能で長さ 0。</div>
         </div>
       </div>
     </div>
@@ -299,9 +287,7 @@ System.out.println(a.length + b.length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            a.length は 1、b.length は 1（外側）。合計 2。
-          </div>
+          <div class="explanation-content">a.length=1, b.length=1。</div>
         </div>
       </div>
     </div>
@@ -341,9 +327,7 @@ System.out.println(a[2]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            i+=2 で i=0,2 のみ更新。a[2] は 3*2=6。
-          </div>
+          <div class="explanation-content">a[2] は 3→6。</div>
         </div>
       </div>
     </div>
@@ -382,9 +366,7 @@ System.out.println(a==b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            どちらも別々の配列オブジェクト。== は参照比較で false。
-          </div>
+          <div class="explanation-content">別インスタンスで false。</div>
         </div>
       </div>
     </div>
@@ -422,9 +404,7 @@ System.out.println(a==null ? 1 : a.length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            a==null が true なので 1 を返す。a.length は評価されない。
-          </div>
+          <div class="explanation-content">条件が真→1。</div>
         </div>
       </div>
     </div>

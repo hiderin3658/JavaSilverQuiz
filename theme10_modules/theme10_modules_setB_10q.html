@@ -53,9 +53,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            requires mandated で暗黙的な依存を明示的に宣言。
-          </div>
+          <div class="explanation-content">推奨。</div>
         </div>
       </div>
     </div>
@@ -92,9 +90,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            exports...to で特定モジュールにのみ公開。
-          </div>
+          <div class="explanation-content">本質的な違い。</div>
         </div>
       </div>
     </div>
@@ -134,9 +130,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            opens...to で特定モジュールにのみ開放。
-          </div>
+          <div class="explanation-content">複数可。</div>
         </div>
       </div>
     </div>
@@ -175,9 +169,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            requires static でコンパイル時のみ依存。
-          </div>
+          <div class="explanation-content">静的依存。</div>
         </div>
       </div>
     </div>
@@ -216,9 +208,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            モジュールグラフで依存関係を可視化。
-          </div>
+          <div class="explanation-content">複数指定可。</div>
         </div>
       </div>
     </div>
@@ -260,9 +250,7 @@ module b {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            split package（分割パッケージ）はモジュールシステムで禁止。
-          </div>
+          <div class="explanation-content">モジュールの循環依存はコンパイルエラーとなる。モジュールグラフは非循環有向グラフ（DAG）でなければならない。</div>
         </div>
       </div>
     </div>
@@ -301,9 +289,7 @@ module b {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            名前なしモジュールは全モジュールを読み取れる。
-          </div>
+          <div class="explanation-content">サービスの利用宣言のみでもOK。</div>
         </div>
       </div>
     </div>
@@ -340,9 +326,7 @@ module b {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            プラットフォームモジュールは java.* や jdk.* で始まる。
-          </div>
+          <div class="explanation-content">基本的に禁止。</div>
         </div>
       </div>
     </div>
@@ -379,9 +363,7 @@ module b {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            jlink でカスタム JRE を作成可能。
-          </div>
+          <div class="explanation-content">未命名→名前付きへのアクセスは基本可能。</div>
         </div>
       </div>
     </div>
@@ -418,9 +400,7 @@ module b {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            jdeps でモジュール依存関係を解析。
-          </div>
+          <div class="explanation-content">暗黙依存。</div>
         </div>
       </div>
     </div>

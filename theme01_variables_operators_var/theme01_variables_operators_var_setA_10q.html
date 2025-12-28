@@ -54,9 +54,7 @@ System.out.println(a.getClass().isArray());</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            var は型推論により int[]。配列なので isArray() は true。
-          </div>
+          <div class="explanation-content">var は型推論により int[]。配列なので isArray() は true。</div>
         </div>
       </div>
     </div>
@@ -94,9 +92,7 @@ System.out.println(a.getClass().isArray());</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            左から評価。最初に文字列があるため以降は連結となり "123"。
-          </div>
+          <div class="explanation-content">左から評価。最初に文字列があるため以降は連結となり "123"。</div>
         </div>
       </div>
     </div>
@@ -136,9 +132,7 @@ System.out.println(c);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            '0' の次は '1'。char は数値として+1される。
-          </div>
+          <div class="explanation-content">'0' の次は '1'。char は数値として+1される。</div>
         </div>
       </div>
     </div>
@@ -179,9 +173,7 @@ System.out.println(x.equals(y));</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            -128〜127 はキャッシュ範囲。100 は同一参照になりやすく == も true（仕様上保証は Integer.valueOf のキャッシュ）。equals も true。
-          </div>
+          <div class="explanation-content">-128〜127 はキャッシュ範囲。100 は同一参照になりやすく == も true（仕様上保証は Integer.valueOf のキャッシュ）。equals も true。</div>
         </div>
       </div>
     </div>
@@ -221,9 +213,7 @@ System.out.println(s);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            s+1 は int になるためキャストすれば 2。
-          </div>
+          <div class="explanation-content">s+1 は int になるためキャストすれば 2。</div>
         </div>
       </div>
     </div>
@@ -262,9 +252,7 @@ System.out.println(l);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            右辺は int 計算で 32bit オーバーフロー。long へ代入時には既に壊れている。
-          </div>
+          <div class="explanation-content">右辺は int 計算で 32bit オーバーフロー。long へ代入時には既に壊れている。</div>
         </div>
       </div>
     </div>
@@ -304,9 +292,7 @@ System.out.println(a && b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            & は両辺評価して論理積→false。&& は短絡評価だが結果は同じく false。
-          </div>
+          <div class="explanation-content">& は両辺評価して論理積→false。&& は短絡評価だが結果は同じく false。</div>
         </div>
       </div>
     </div>
@@ -344,9 +330,7 @@ System.out.println(a && b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            浮動小数点の 0 除算は Infinity。
-          </div>
+          <div class="explanation-content">浮動小数点の 0 除算は Infinity。</div>
         </div>
       </div>
     </div>
@@ -386,9 +370,7 @@ System.out.println(k*2);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            final は再代入禁止だが演算は可能。k は int と推論。
-          </div>
+          <div class="explanation-content">final は再代入禁止だが演算は可能。k は int と推論。</div>
         </div>
       </div>
     </div>
@@ -427,9 +409,7 @@ System.out.println(a.length + " items");</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            length は 4。文字列連結で "4 items"。
-          </div>
+          <div class="explanation-content">length は 4。文字列連結で "4 items"。</div>
         </div>
       </div>
     </div>

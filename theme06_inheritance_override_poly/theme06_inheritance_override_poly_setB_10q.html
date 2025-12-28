@@ -60,9 +60,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            @Override は省略可能だが、付けるとコンパイラがチェックしてくれる。
-          </div>
+          <div class="explanation-content">@Override は任意。</div>
         </div>
       </div>
     </div>
@@ -109,9 +107,7 @@ B.f();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーライドでは例外の範囲を拡大できない（縮小は可）。
-          </div>
+          <div class="explanation-content">静的呼び出しはクラス名基準で B。</div>
         </div>
       </div>
     </div>
@@ -156,9 +152,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            super() はコンストラクタの最初の行でスーパークラスのコンストラクタを呼ぶ。
-          </div>
+          <div class="explanation-content">明示 super でOK。</div>
         </div>
       </div>
     </div>
@@ -202,9 +196,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            隠蔽（hiding）: サブクラスで同名のフィールドを宣言すると親のフィールドを隠す。
-          </div>
+          <div class="explanation-content">拡張は可。</div>
         </div>
       </div>
     </div>
@@ -242,9 +234,7 @@ arr[0] = new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            抽象クラスはインスタンス化できない。new 不可。
-          </div>
+          <div class="explanation-content">配列は実行時に要素型チェック。</div>
         </div>
       </div>
     </div>
@@ -284,9 +274,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            インタフェースの実装は implements。複数実装可能。
-          </div>
+          <div class="explanation-content">final は継承不可。</div>
         </div>
       </div>
     </div>
@@ -334,9 +322,7 @@ new B().f();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            デフォルトメソッドは実装を持つインタフェースメソッド（Java 8 以降）。
-          </div>
+          <div class="explanation-content">A の後に B。</div>
         </div>
       </div>
     </div>
@@ -384,9 +370,7 @@ System.out.println(a.f(1));</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーライドでは戻り値の型を共変戻り値型（サブタイプ）にできる。
-          </div>
+          <div class="explanation-content">シグネチャが異なるためオーバーロード。静的束縛で A の int 版。</div>
         </div>
       </div>
     </div>
@@ -430,9 +414,7 @@ System.out.println(((A)b).x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            final クラスは継承できない。
-          </div>
+          <div class="explanation-content">キャストで A のフィールドにアクセス。</div>
         </div>
       </div>
     </div>
@@ -471,9 +453,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            protected メンバーは同じパッケージおよびサブクラスからアクセス可能。
-          </div>
+          <div class="explanation-content">抽象クラスはインスタンス化不可。</div>
         </div>
       </div>
     </div>

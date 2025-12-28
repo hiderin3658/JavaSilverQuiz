@@ -53,9 +53,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            try-catch で例外をキャッチ。catch の順序は具体的→抽象的。
-          </div>
+          <div class="explanation-content">チェック例外は throws か try-catch が必要。</div>
         </div>
       </div>
     </div>
@@ -96,9 +94,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            finally は例外の有無にかかわらず実行される。
-          </div>
+          <div class="explanation-content">finally は必ず実行。</div>
         </div>
       </div>
     </div>
@@ -138,9 +134,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            throw で例外をスローする。new で例外オブジェクトを生成。
-          </div>
+          <div class="explanation-content">下位型を先に。今は逆順でエラー。</div>
         </div>
       </div>
     </div>
@@ -178,9 +172,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            throws でメソッドがスローする例外を宣言。
-          </div>
+          <div class="explanation-content">宣言可能。</div>
         </div>
       </div>
     </div>
@@ -219,9 +211,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            検査例外（checked）は必ず catch か throws が必要。
-          </div>
+          <div class="explanation-content">同一継承ツリーでないならOK（ここはOK）。</div>
         </div>
       </div>
     </div>
@@ -262,9 +252,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            非検査例外（unchecked）は RuntimeException のサブクラス。catch/throws 不要。
-          </div>
+          <div class="explanation-content">スロー可能。</div>
         </div>
       </div>
     </div>
@@ -302,9 +290,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            try-with-resources で AutoCloseable リソースを自動クローズ。
-          </div>
+          <div class="explanation-content">AutoCloseable なら宣言可（null でも構文的に可、実行時は何もしない）。</div>
         </div>
       </div>
     </div>
@@ -341,9 +327,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            マルチキャッチで複数の例外を | で区切って一括キャッチ可能。
-          </div>
+          <div class="explanation-content">Error は非チェック。</div>
         </div>
       </div>
     </div>
@@ -386,9 +370,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            例外の再スローは throw e; で可能。
-          </div>
+          <div class="explanation-content">finally の return が優先され 2。</div>
         </div>
       </div>
     </div>
@@ -427,9 +409,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            カスタム例外は Exception または RuntimeException を継承して作成。
-          </div>
+          <div class="explanation-content">非チェック例外で異常終了。</div>
         </div>
       </div>
     </div>

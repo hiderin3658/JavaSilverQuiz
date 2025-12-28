@@ -59,9 +59,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            インスタンスフィールドは new 時に初期化される。未初期化の場合はデフォルト値。
-          </div>
+          <div class="explanation-content">フィールド初期化後にコンストラクタ→ 1+2=3。</div>
         </div>
       </div>
     </div>
@@ -107,9 +105,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static フィールドはクラスに属し、全インスタンスで共有される。
-          </div>
+          <div class="explanation-content">インスタンス初期化子→コンストラクタ順で 6。</div>
         </div>
       </div>
     </div>
@@ -152,9 +148,7 @@ System.out.println(A.s);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタは戻り値型を持たない。void も不要。
-          </div>
+          <div class="explanation-content">static 初期化子で 10。</div>
         </div>
       </div>
     </div>
@@ -197,9 +191,7 @@ new A(1);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static 初期化ブロックはクラスロード時に一度だけ実行される。
-          </div>
+          <div class="explanation-content">正常。</div>
         </div>
       </div>
     </div>
@@ -242,9 +234,7 @@ new A(1);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            インスタンス初期化ブロックはコンストラクタより先に実行される。
-          </div>
+          <div class="explanation-content">this(...) は先頭で呼べばOK。</div>
         </div>
       </div>
     </div>
@@ -286,9 +276,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタの最初に暗黙的に super() が呼ばれる。
-          </div>
+          <div class="explanation-content">デフォルトコンストラクタが呼ばれる。</div>
         </div>
       </div>
     </div>
@@ -330,9 +318,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static メソッドはインスタンス化せずにクラス名で呼び出せる。
-          </div>
+          <div class="explanation-content">コンストラクタで一度だけ代入すればOK。</div>
         </div>
       </div>
     </div>
@@ -375,9 +361,7 @@ System.out.println(b.c);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            フィールドのデフォルト値: int は 0、boolean は false、参照型は null。
-          </div>
+          <div class="explanation-content">static はクラスで共有。</div>
         </div>
       </div>
     </div>
@@ -417,9 +401,7 @@ System.out.println(b.c);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタは複数定義可（オーバーロード）。引数で区別。
-          </div>
+          <div class="explanation-content">戻り値型があるとコンストラクタではない。</div>
         </div>
       </div>
     </div>
@@ -463,9 +445,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static フィールドへのアクセスはインスタンス経由でも可能だが非推奨。
-          </div>
+          <div class="explanation-content">static 初期化→x=2→コンストラクタで+1→3。</div>
         </div>
       </div>
     </div>

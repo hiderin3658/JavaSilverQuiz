@@ -55,9 +55,7 @@ m(5);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            ローカル変数は宣言前に使用できない。コンパイルエラー。
-          </div>
+          <div class="explanation-content">int→double 変換が boxing より優先。</div>
         </div>
       </div>
     </div>
@@ -105,9 +103,7 @@ a.f();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            メソッドの戻り値型が void でない場合、すべてのパスで return が必要。
-          </div>
+          <div class="explanation-content">static はオーバーライドでなく隠蔽。参照型に基づく A.f()。</div>
         </div>
       </div>
     </div>
@@ -146,9 +142,7 @@ m(new int[]{1,2});</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーロードは引数リストで区別。戻り値型のみ異なる場合はコンパイルエラー。
-          </div>
+          <div class="explanation-content">int[]とint...は同じシグネチャとなり、重複定義でコンパイルエラー。</div>
         </div>
       </div>
     </div>
@@ -189,9 +183,7 @@ m(new int[]{1,2});</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            可変長引数は配列として扱われる。a... は a[] と同じ。
-          </div>
+          <div class="explanation-content">同一ブロック内の重複宣言は不可。</div>
         </div>
       </div>
     </div>
@@ -234,9 +226,7 @@ new A().m(9);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static メソッド内で this は使えない。インスタンスが存在しない可能性があるため。
-          </div>
+          <div class="explanation-content">this.v はフィールド。</div>
         </div>
       </div>
     </div>
@@ -273,9 +263,7 @@ new A().m(9);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            引数は値渡し。プリミティブ型の引数を変更しても呼び出し元には影響しない。
-          </div>
+          <div class="explanation-content">Java にはデフォルト引数はない。</div>
         </div>
       </div>
     </div>
@@ -317,9 +305,7 @@ void g(){
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーロードの解決は引数の型で決まる。参照型の実際の型ではなく宣言型。
-          </div>
+          <div class="explanation-content">問題なし。</div>
         </div>
       </div>
     </div>
@@ -359,9 +345,7 @@ void t(){
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            メソッド内で宣言した変数は、同じ名前の外側の変数を隠す（シャドーイング）。
-          </div>
+          <div class="explanation-content">別スコープの a は可。</div>
         </div>
       </div>
     </div>
@@ -400,9 +384,7 @@ void t(){
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            可変長引数メソッドは配列を直接渡すこともできる。
-          </div>
+          <div class="explanation-content">final 引数は再代入不可。</div>
         </div>
       </div>
     </div>
@@ -444,9 +426,7 @@ class B extends A{
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            private メソッドは同じクラス内からのみ呼び出し可能。
-          </div>
+          <div class="explanation-content">可視性は広げるのは可、狭めるのは不可。</div>
         </div>
       </div>
     </div>

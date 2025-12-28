@@ -56,9 +56,7 @@ m(10);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーロード解決では引数型の厳密一致が最優先される。int リテラル 10 は int 型なので、int 版が選ばれる。long への自動昇格は厳密一致がない場合のみ適用される。
-          </div>
+          <div class="explanation-content">最も適合する int が選択。</div>
         </div>
       </div>
     </div>
@@ -101,9 +99,7 @@ m(1);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーロードの優先順位は、厳密一致 > 拡大変換 > オートボクシング > 可変長引数 の順。int リテラル 1 は Integer へのオートボクシングが可変長引数より優先されるため、Integer 版が呼ばれる。
-          </div>
+          <div class="explanation-content">boxing のほうが varargs より優先。</div>
         </div>
       </div>
     </div>
@@ -141,9 +137,7 @@ System.out.println(x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            ローカル変数は使用前に必ず初期化が必要。宣言のみで初期化していない変数を参照するとコンパイルエラーになる。フィールド変数とは異なり、ローカル変数には自動的なデフォルト値は設定されない。
-          </div>
+          <div class="explanation-content">ローカル変数は初期化必須。</div>
         </div>
       </div>
     </div>
@@ -182,9 +176,7 @@ System.out.println(x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            void メソッドでは return 文に値をつけて返すことはできないが、単独の return; による早期リターンは正当。これは処理を途中で終了させたい場合に使用される。
-          </div>
+          <div class="explanation-content">void メソッドでの return; は可。</div>
         </div>
       </div>
     </div>
@@ -224,9 +216,7 @@ System.out.println(r);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            引数の評価は左から右へ順に行われる。i++ は後置インクリメントなので、現在の値（1）を返してから i が 2 になる。したがって add(1, 1) が実行され、結果は 2。
-          </div>
+          <div class="explanation-content">add(i, i++) は a=1, b=1（i++の評価値）で 2。</div>
         </div>
       </div>
     </div>
@@ -267,9 +257,7 @@ void m(){
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            ローカル変数はフィールド変数をシャドーイング（隠蔽）する。メソッド内で同名のローカル変数を宣言すると、そのスコープではローカル変数が優先される。したがって、ローカル変数 v=2 が出力される。
-          </div>
+          <div class="explanation-content">ローカルがシャドウイング。</div>
         </div>
       </div>
     </div>
@@ -309,9 +297,7 @@ m();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            可変長引数 int... は内部的に int[] 配列として扱われる。引数を 0 個で呼び出すと、長さ 0 の配列が生成される。したがって a.length は 0 を出力する。
-          </div>
+          <div class="explanation-content">引数なしで呼べる。長さ0。</div>
         </div>
       </div>
     </div>
@@ -351,9 +337,7 @@ void m(){}</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            メソッドのオーバーロードは引数の型・個数・順序で区別される。戻り値の型のみが異なる場合、メソッドシグネチャが同一とみなされ、コンパイルエラーとなる。
-          </div>
+          <div class="explanation-content">戻り値の違いだけではオーバーロード不可。</div>
         </div>
       </div>
     </div>
@@ -395,9 +379,7 @@ class B extends A{
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            private メソッドは継承されないため、サブクラスで同名のメソッドを定義してもオーバーライドにはならない。B クラスの f() は A クラスの f() とは完全に独立した別のメソッドとして扱われる。
-          </div>
+          <div class="explanation-content">private は継承されないため別メソッド。</div>
         </div>
       </div>
     </div>
@@ -439,9 +421,7 @@ b.f();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static メソッドはインスタンス経由でも呼び出せるが、推奨されない。コンパイラは変数の型（B）を見て A.f() を呼び出す。警告は出るが、コンパイルは通り、正常に実行される。
-          </div>
+          <div class="explanation-content">static はクラスメソッド。呼び出せるが推奨は A.f()。</div>
         </div>
       </div>
     </div>

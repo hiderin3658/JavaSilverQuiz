@@ -54,9 +54,7 @@ System.out.println(a[0]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            配列は new で生成時に自動初期化され、int は 0 になる。
-          </div>
+          <div class="explanation-content">プリミティブ配列は 0 で初期化。</div>
         </div>
       </div>
     </div>
@@ -94,9 +92,7 @@ System.out.println(a.length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            配列の length フィールドは要素数を返す。{1,2,3,4} は 4 個。
-          </div>
+          <div class="explanation-content">length は 4。</div>
         </div>
       </div>
     </div>
@@ -134,9 +130,7 @@ System.out.println(a[2]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            new int[2] はインデックス 0 と 1 のみ。a[2] は範囲外。
-          </div>
+          <div class="explanation-content">インデックスは 0..1。</div>
         </div>
       </div>
     </div>
@@ -176,9 +170,7 @@ System.out.println(m[1][0]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            m[1] は {3} の配列。m[1][0] は 3。
-          </div>
+          <div class="explanation-content">m[1] は {3}。</div>
         </div>
       </div>
     </div>
@@ -219,9 +211,7 @@ System.out.println(a[0]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            拡張 for の v はコピー値。v++ は配列には反映されない。
-          </div>
+          <div class="explanation-content">v はコピー。</div>
         </div>
       </div>
     </div>
@@ -261,9 +251,7 @@ System.out.println(a[0]);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            b=a は参照コピー。a と b は同じ配列を指すため b[0]=9 で a[0] も 9。
-          </div>
+          <div class="explanation-content">同じ配列を参照。</div>
         </div>
       </div>
     </div>
@@ -301,9 +289,7 @@ a = {1,2,3};</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            配列初期化子 {...} は宣言と同時のみ使用可。分離時は new int[]{...} が必要。
-          </div>
+          <div class="explanation-content">{..} は宣言と同時のみ。</div>
         </div>
       </div>
     </div>
@@ -341,9 +327,7 @@ System.out.println(a.length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            null の参照から length にアクセスすると NullPointerException。
-          </div>
+          <div class="explanation-content">null 参照で NPE。</div>
         </div>
       </div>
     </div>
@@ -381,9 +365,7 @@ System.out.println(a[1].length);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            a[1] は {4,5}。その length は 2。
-          </div>
+          <div class="explanation-content">{4,5} の長さは 2。</div>
         </div>
       </div>
     </div>
@@ -422,9 +404,7 @@ System.out.println(a==b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            == は参照比較。別々に生成した配列は別オブジェクトなので false。
-          </div>
+          <div class="explanation-content">== は参照比較。</div>
         </div>
       </div>
     </div>

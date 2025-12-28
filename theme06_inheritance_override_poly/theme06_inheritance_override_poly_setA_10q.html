@@ -61,9 +61,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            継承では extends を使う。Java は単一継承のみ。
-          </div>
+          <div class="explanation-content">正しいオーバーライド。</div>
         </div>
       </div>
     </div>
@@ -110,9 +108,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            super でスーパークラスのメソッドやフィールドにアクセスできる。
-          </div>
+          <div class="explanation-content">共変戻り値は可。</div>
         </div>
       </div>
     </div>
@@ -156,9 +152,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            オーバーライドではアクセス修飾子を狭くできない（拡大は可）。
-          </div>
+          <div class="explanation-content">可視性は狭められない。</div>
         </div>
       </div>
     </div>
@@ -202,9 +196,7 @@ System.out.println(a.x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            final メソッドはオーバーライドできない。
-          </div>
+          <div class="explanation-content">フィールドは参照型で解決→A の x。</div>
         </div>
       </div>
     </div>
@@ -252,9 +244,7 @@ a.f();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            abstract メソッドは実装を持たず、サブクラスで実装が必要。
-          </div>
+          <div class="explanation-content">メソッドは実体型で解決→B。</div>
         </div>
       </div>
     </div>
@@ -298,9 +288,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            ポリモーフィズムでは宣言型ではなく実行時の実際の型でメソッドが決まる。
-          </div>
+          <div class="explanation-content">final はオーバーライド不可。</div>
         </div>
       </div>
     </div>
@@ -347,9 +335,7 @@ new B();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタは継承されない。サブクラスで明示的に定義が必要。
-          </div>
+          <div class="explanation-content">親→子。</div>
         </div>
       </div>
     </div>
@@ -392,9 +378,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            instanceof で型チェック可能。継承関係にあれば true。
-          </div>
+          <div class="explanation-content">抽象を実装。</div>
         </div>
       </div>
     </div>
@@ -432,9 +416,7 @@ System.out.println(a instanceof B);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            キャストで型を変換。実行時の型が一致しなければ ClassCastException。
-          </div>
+          <div class="explanation-content">実体は B。</div>
         </div>
       </div>
     </div>
@@ -472,9 +454,7 @@ B b = (B)a;</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            Object クラスはすべてのクラスの最上位スーパークラス。
-          </div>
+          <div class="explanation-content">実体が B でないため実行時例外。</div>
         </div>
       </div>
     </div>

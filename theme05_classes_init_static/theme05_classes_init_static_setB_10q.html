@@ -61,9 +61,7 @@ new A();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            インスタンス初期化ブロックは各コンストラクタの前に実行される。
-          </div>
+          <div class="explanation-content">記述順に実行。</div>
         </div>
       </div>
     </div>
@@ -108,9 +106,7 @@ Class.forName("A");</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static 初期化ブロックは複数あれば記述順に実行される。
-          </div>
+          <div class="explanation-content">記述順。</div>
         </div>
       </div>
     </div>
@@ -151,9 +147,7 @@ System.out.println(new A().b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタから別のコンストラクタを呼ぶには this() を使う。必ず最初の行。
-          </div>
+          <div class="explanation-content">フィールドはデフォルト初期化。</div>
         </div>
       </div>
     </div>
@@ -196,9 +190,7 @@ System.out.println(new A(2).i);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static メソッドからインスタンスメンバーを参照するにはインスタンスが必要。
-          </div>
+          <div class="explanation-content">フィールド1に引数2を加算→3。</div>
         </div>
       </div>
     </div>
@@ -245,9 +237,7 @@ new B();</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            final フィールドはコンストラクタ内で初期化する必要がある。
-          </div>
+          <div class="explanation-content">親→子の順。</div>
         </div>
       </div>
     </div>
@@ -287,9 +277,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static final は定数。クラスロード時に初期化。
-          </div>
+          <div class="explanation-content">参照は可能（推奨は A.x）。</div>
         </div>
       </div>
     </div>
@@ -332,9 +320,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            インスタンス初期化ブロックの実行順序: 親→子の順。
-          </div>
+          <div class="explanation-content">別コンストラクタを呼ぶ合法例。</div>
         </div>
       </div>
     </div>
@@ -377,9 +363,7 @@ System.out.println(new A().x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            デフォルトコンストラクタは引数なしコンストラクタが明示的になければ自動生成。
-          </div>
+          <div class="explanation-content">フィールド1→ブロックで+2→3。</div>
         </div>
       </div>
     </div>
@@ -422,9 +406,7 @@ System.out.println(A.x);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            static import で static メンバーをクラス名なしで使える。
-          </div>
+          <div class="explanation-content">1 に 2 を加算→3。</div>
         </div>
       </div>
     </div>
@@ -464,9 +446,7 @@ class B extends A {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            コンストラクタの呼び出しチェーン: this() または super() のどちらか一つのみ。
-          </div>
+          <div class="explanation-content">final クラスは継承不可。</div>
         </div>
       </div>
     </div>

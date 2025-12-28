@@ -54,9 +54,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            module-info.java でモジュールを定義。
-          </div>
+          <div class="explanation-content">空のモジュール記述子も可。</div>
         </div>
       </div>
     </div>
@@ -95,9 +93,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            requires でモジュールの依存関係を宣言。
-          </div>
+          <div class="explanation-content">他モジュールに依存を宣言。</div>
         </div>
       </div>
     </div>
@@ -136,9 +132,7 @@
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            exports でパッケージを公開。
-          </div>
+          <div class="explanation-content">指定パッケージを外部に公開。</div>
         </div>
       </div>
     </div>
@@ -182,9 +176,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            opens で reflection 用にパッケージを開放。
-          </div>
+          <div class="explanation-content">transitive で依存が伝播。</div>
         </div>
       </div>
     </div>
@@ -223,9 +215,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            transitive で推移的依存を宣言。
-          </div>
+          <div class="explanation-content">リフレクション用の開示（実行時）。</div>
         </div>
       </div>
     </div>
@@ -264,9 +254,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            provides...with でサービスプロバイダを宣言。
-          </div>
+          <div class="explanation-content">限定公開。</div>
         </div>
       </div>
     </div>
@@ -303,9 +291,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            uses でサービスの使用を宣言。
-          </div>
+          <div class="explanation-content">モジュール解決とクラス検索で別。</div>
         </div>
       </div>
     </div>
@@ -342,9 +328,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            モジュールパスで -p または --module-path を使用。
-          </div>
+          <div class="explanation-content">Automatic-Module-Name など。</div>
         </div>
       </div>
     </div>
@@ -381,9 +365,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            モジュールの実行は -m または --module を使用。
-          </div>
+          <div class="explanation-content">未命名モジュールは全てにアクセス可能（緩い）。</div>
         </div>
       </div>
     </div>
@@ -423,9 +405,7 @@ module c {
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            自動モジュールは jar 名からモジュール名を導出。
-          </div>
+          <div class="explanation-content">uses/provides でサービス構成。</div>
         </div>
       </div>
     </div>

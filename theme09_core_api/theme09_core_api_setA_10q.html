@@ -55,9 +55,7 @@ System.out.println(s);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            String は不変（immutable）。変更メソッドは新しい String を返す。
-          </div>
+          <div class="explanation-content">concat は新しい String を返す。</div>
         </div>
       </div>
     </div>
@@ -96,9 +94,7 @@ System.out.println(sb);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            StringBuilder は可変。append() で文字列を効率的に連結。
-          </div>
+          <div class="explanation-content">可変で "ab"。</div>
         </div>
       </div>
     </div>
@@ -135,9 +131,7 @@ System.out.println(sb);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            equals() で文字列の内容を比較。== は参照比較。
-          </div>
+          <div class="explanation-content">前後の空白が除去され 1。</div>
         </div>
       </div>
     </div>
@@ -175,9 +169,7 @@ System.out.println(s.substring(1, 3));</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            length() で文字列の長さを取得。charAt(i) で i 番目の文字を取得。
-          </div>
+          <div class="explanation-content">[1,3) → "av"。</div>
         </div>
       </div>
     </div>
@@ -216,9 +208,7 @@ System.out.println(a == b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            substring(start, end) で部分文字列を取得。end は含まない。
-          </div>
+          <div class="explanation-content">intern でプールの同一参照。</div>
         </div>
       </div>
     </div>
@@ -255,9 +245,7 @@ System.out.println(a == b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            indexOf() で文字列の位置を検索。見つからなければ -1。
-          </div>
+          <div class="explanation-content">parseInt はプリミティブ、valueOf はラッパー。</div>
         </div>
       </div>
     </div>
@@ -294,9 +282,7 @@ System.out.println(a == b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            replace() で文字列を置換。replaceAll() は正規表現対応。
-          </div>
+          <div class="explanation-content">Math.round(-1.5) は「0.5を加えて切り捨て」のアルゴリズムで -1.5 + 0.5 = -1.0 → -1</div>
         </div>
       </div>
     </div>
@@ -335,9 +321,7 @@ System.out.println(sb);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            trim() で前後の空白を削除。strip() は Unicode 対応（Java 11）。
-          </div>
+          <div class="explanation-content">index 1 に挿入。</div>
         </div>
       </div>
     </div>
@@ -376,9 +360,7 @@ System.out.println(a == b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            split() で文字列を分割して配列に。
-          </div>
+          <div class="explanation-content">参照が異なる。</div>
         </div>
       </div>
     </div>
@@ -416,9 +398,7 @@ System.out.println(a == b);</code></pre>
             <span>💡</span>
             <span>解説</span>
           </div>
-          <div class="explanation-content">
-            String.format() または %s 等で書式付き文字列を生成。
-          </div>
+          <div class="explanation-content">-128..127 はキャッシュ。</div>
         </div>
       </div>
     </div>
